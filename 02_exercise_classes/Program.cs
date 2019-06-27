@@ -79,23 +79,17 @@ namespace _02_exercise_classes
             Console.WriteLine("Hello World!\n");
 
             Rectangle rect1 = new Rectangle();
-            Console.WriteLine("\nRectangle()            --> L:" + rect1.Length + " W:" + rect1.Width);
-            Console.WriteLine("   Area: " + rect1.GetArea());
+            Console.WriteLine("Rectangle()             --> L:{0} W:{1}  Area: {2}", rect1.Length, rect1.Width, rect1.GetArea());
             rect1.Length = 1;
             rect1.Width = 2;
-            Console.WriteLine("  rect.Length, .Width  --> L:" + rect1.Length + " W:" + rect1.Width);
-            Console.WriteLine("   Area: " + rect1.GetArea());
-
-
+            Console.WriteLine("   rect.Length, .Width  --> L:{0} W:{1}  Area: {2}", rect1.Length, rect1.Width, rect1.GetArea());
+                        
             Rectangle rect2 = new Rectangle(5);
-            Console.WriteLine("\nRectangle(5)           --> L:" + rect2.Length + " W:" + rect2.Width);
-            Console.WriteLine("   Area: " + rect2.GetArea());
-
-
+            Console.WriteLine("Rectangle(5)            --> L:{0} W:{1}  Area: {2}", rect2.Length, rect2.Width, rect2.GetArea());
+                        
             Rectangle rect3 = new Rectangle(6, 7);
-            Console.WriteLine("\nRectangle(6, 7)        --> L:" + rect3.Length + " W:" + rect3.Width);
-            Console.WriteLine("   Area: " + rect3.GetArea());
-
+            Console.WriteLine("Rectangle(6, 7)         --> L:{0} W:{1}  Area: {2}", rect3.Length, rect3.Width, rect3.GetArea());
+            
             Console.WriteLine("");
         }
     }
