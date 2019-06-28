@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,7 +50,13 @@
             this.txt_resultado = new System.Windows.Forms.TextBox();
             this.lbl_ano_erro = new System.Windows.Forms.Label();
             this.lbl_valor_base_erro = new System.Windows.Forms.Label();
+            this.errorProvider_ano = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_valor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider_distrito = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ano)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_valor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_distrito)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,6 +103,9 @@
             this.txt_ano.Size = new System.Drawing.Size(100, 20);
             this.txt_ano.TabIndex = 4;
             this.txt_ano.TextChanged += new System.EventHandler(this.Txt_ano_TextChanged);
+            this.txt_ano.Leave += new System.EventHandler(this.Txt_ano_Leave);
+            this.txt_ano.Validating += new System.ComponentModel.CancelEventHandler(this.Txt_ano_Validating);
+            this.txt_ano.Validated += new System.EventHandler(this.Txt_ano_Validated);
             // 
             // txt_valor_base
             // 
@@ -104,6 +114,7 @@
             this.txt_valor_base.Size = new System.Drawing.Size(100, 20);
             this.txt_valor_base.TabIndex = 5;
             this.txt_valor_base.TextChanged += new System.EventHandler(this.Txt_valor_base_TextChanged);
+            this.txt_valor_base.Leave += new System.EventHandler(this.Txt_valor_base_Leave);
             // 
             // chk_escalao10
             // 
@@ -240,7 +251,7 @@
             // 
             this.lbl_ano_erro.AutoSize = true;
             this.lbl_ano_erro.ForeColor = System.Drawing.Color.Red;
-            this.lbl_ano_erro.Location = new System.Drawing.Point(216, 124);
+            this.lbl_ano_erro.Location = new System.Drawing.Point(232, 124);
             this.lbl_ano_erro.Name = "lbl_ano_erro";
             this.lbl_ano_erro.Size = new System.Drawing.Size(31, 13);
             this.lbl_ano_erro.TabIndex = 18;
@@ -251,12 +262,28 @@
             // 
             this.lbl_valor_base_erro.AutoSize = true;
             this.lbl_valor_base_erro.ForeColor = System.Drawing.Color.Red;
-            this.lbl_valor_base_erro.Location = new System.Drawing.Point(216, 149);
+            this.lbl_valor_base_erro.Location = new System.Drawing.Point(232, 149);
             this.lbl_valor_base_erro.Name = "lbl_valor_base_erro";
             this.lbl_valor_base_erro.Size = new System.Drawing.Size(31, 13);
             this.lbl_valor_base_erro.TabIndex = 19;
             this.lbl_valor_base_erro.Text = "MSG";
             this.lbl_valor_base_erro.Visible = false;
+            // 
+            // errorProvider_ano
+            // 
+            this.errorProvider_ano.BlinkRate = 200;
+            this.errorProvider_ano.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider_ano.ContainerControl = this;
+            // 
+            // errorProvider_valor
+            // 
+            this.errorProvider_valor.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider_valor.ContainerControl = this;
+            // 
+            // errorProvider_distrito
+            // 
+            this.errorProvider_distrito.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider_distrito.ContainerControl = this;
             // 
             // Form1
             // 
@@ -287,6 +314,9 @@
             this.Name = "Form1";
             this.Text = "Associação Cultural do Pântano";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_ano)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_valor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_distrito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,6 +344,9 @@
         private System.Windows.Forms.TextBox txt_resultado;
         private System.Windows.Forms.Label lbl_ano_erro;
         private System.Windows.Forms.Label lbl_valor_base_erro;
+        private System.Windows.Forms.ErrorProvider errorProvider_ano;
+        private System.Windows.Forms.ErrorProvider errorProvider_valor;
+        private System.Windows.Forms.ErrorProvider errorProvider_distrito;
     }
 }
 

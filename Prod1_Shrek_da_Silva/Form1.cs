@@ -25,6 +25,11 @@ namespace Prod1_Shrek_da_Silva
         private readonly double percent_desc_reside_amares = 20;
         private bool ano_first_time = true;
         private bool valor_base_first_time = true;
+        private String msg_ano = String.Empty;
+        private String msg_valor_base = String.Empty;
+        private String msg_distrito = String.Empty;
+        private readonly Color bad_field_color = Color.LightSalmon;
+
 
         public Form1()
         {
@@ -38,91 +43,119 @@ namespace Prod1_Shrek_da_Silva
             return valor_base * percent_desc / 100;
         }
 
-
-        private bool IsFormValid()
+        private bool IsAnoValid()
         {
-            bool form_status = true;
+            bool ano_status = true;
             int ano_atual = System.DateTime.Now.Year;
             int ano;
-            double valor_base;
-            Color bad_field_color = Color.LightSalmon;
 
             try
             {
                 ano = Convert.ToInt32(txt_ano.Text);
-                if (ano_first_time)
-                {
-                    if(!txt_ano.Focused)
-                        ano_first_time = false;
-                }
+
 
                 if ((ano > ano_atual) || (ano < ano_atual - 150))
                 {
                     if (!ano_first_time)
                     {
-                        // ano fora do intervalo.
-                        txt_ano.BackColor = bad_field_color;
-                        lbl_ano_erro.Text = "O ano encontra-se fora do intervalo.";
+                        msg_ano = "O ano encontra-se fora do intervalo.";
+                        lbl_ano_erro.Text = msg_ano;
                         lbl_ano_erro.Visible = true;
-                        form_status = false;
+                        errorProvider_ano.SetError(txt_ano, msg_ano);
+                        txt_ano.BackColor = bad_field_color;
+                        ano_status = false;
                     }
                 }
                 else
                 {
-                    txt_ano.BackColor = Color.White;
+                    msg_ano = "";
+                    errorProvider_ano.SetError(txt_ano, msg_ano);
                     lbl_ano_erro.Visible = false;
+                    txt_ano.BackColor = Color.White;
                 }
             }
             catch (Exception)
             {
-                lbl_ano_erro.Text = "Por favor introduza um número válido.";
+                msg_ano = "Por favor introduza um número válido.";
+                lbl_ano_erro.Text = msg_ano;
                 lbl_ano_erro.Visible = true;
+                errorProvider_ano.SetError(txt_ano, msg_ano);
                 txt_ano.BackColor = bad_field_color;
-                form_status = false;
+                ano_status = false;
             }
+            return ano_status;
+        }
 
+        private bool IsValorValid()
+        {
+            bool valor_status = true;
+            double valor_base;
 
             try
             {
                 valor_base = Convert.ToDouble(txt_valor_base.Text);
-                if (valor_base_first_time)
-                {
-                    if (!txt_valor_base.Focused)
-                        valor_base_first_time = false;
-                }
-
+                
                 if (valor_base <= 0)
                 {
-                    if (!valor_base_first_time && txt_valor_base.Text != "")
+                    if (!valor_base_first_time)
                     {
-                        // valor base fora do intervalo.
-                        txt_valor_base.BackColor = bad_field_color;
-                        lbl_valor_base_erro.Text = "O valor base deve ser positivo.";
+                        msg_valor_base = "O valor base deve ser positivo.";
+                        lbl_valor_base_erro.Text = msg_valor_base;
                         lbl_valor_base_erro.Visible = true;
-                        form_status = false;
+                        errorProvider_valor.SetError(txt_valor_base, msg_valor_base);
+                        txt_valor_base.BackColor = bad_field_color;
+                        valor_status = false;
                     }
                 }
                 else
                 {
-                    txt_valor_base.BackColor = Color.White;
+                    msg_valor_base = "";
+                    errorProvider_valor.SetError(txt_valor_base, msg_valor_base);
                     lbl_valor_base_erro.Visible = false;
+                    txt_valor_base.BackColor = Color.White;
+
                 }
             }
             catch (Exception)
             {
-                if (txt_valor_base.Text != "" && !valor_base_first_time)
-                {
-                    txt_valor_base.BackColor = bad_field_color;
-                    lbl_valor_base_erro.Text = "Por favor introduza um número válido.";
-                    lbl_valor_base_erro.Visible = true;
-                }
-                form_status = false;
+                msg_valor_base = "Por favor introduza um número válido.";
+                lbl_valor_base_erro.Text = msg_valor_base;
+                lbl_valor_base_erro.Visible = true;
+                errorProvider_valor.SetError(txt_valor_base, msg_valor_base);
+                txt_valor_base.BackColor = bad_field_color;
+                valor_status = false;
             }
 
-            // reside distrito ?
+            return valor_status;
+        }
+
+
+        private bool IsDistritoValid()
+        {
+            if (rad_sim.Checked || rad_nao.Checked)
+            {
+                msg_distrito = "";
+                errorProvider_distrito.SetError(rad_sim, msg_distrito);
+                return true;
+            }
+            else
+            {
+                msg_distrito = "É sempre necessário especificar se reside no distrito.";
+                errorProvider_distrito.SetError(rad_sim, msg_distrito);
+                return false;
+            }
+        }
+
+
+        private bool IsFormValid()
+        {
+            bool ano_status = IsAnoValid();
+            bool valor_status = IsValorValid();
+            bool distrito_status = IsDistritoValid();
             // concelho ?
 
-            return form_status;
+            // Validated if all rules are true
+            return (ano_status && valor_status && distrito_status);
         }
 
 
@@ -132,8 +165,6 @@ namespace Prod1_Shrek_da_Silva
             double resultado;
             short ano;
 
-            ano_first_time = false;
-            valor_base_first_time = false;
 
             if (!IsFormValid())
                 return;
@@ -146,10 +177,8 @@ namespace Prod1_Shrek_da_Silva
             double desc_reside_distrito = 0;
             double desc_reside_amares = 0;
 
-            
             valor_base = Convert.ToDouble(txt_valor_base.Text);
             ano = Convert.ToInt16(txt_ano.Text);
-
 
             // Alterar os valores de descontos e agravamentos de acordo com input
             if (ano >= 2000)
@@ -170,7 +199,6 @@ namespace Prod1_Shrek_da_Silva
             if (cmb_concelho.Text == "Amares")
                 desc_reside_amares = CalcularDesconto(valor_base, percent_desc_reside_amares);
 
-
             // Calcular e mostrar resultado
             resultado = valor_base - desc_ano - desc_escalao - desc_socio - desc_reside_distrito - desc_reside_amares + agravamento;
             txt_resultado.Text = Convert.ToString(resultado);
@@ -186,5 +214,23 @@ namespace Prod1_Shrek_da_Silva
         private void Rad_sim_CheckedChanged(object sender, EventArgs e) { CalcularTudo(); }
         private void Rad_nao_CheckedChanged(object sender, EventArgs e) { CalcularTudo(); }
         private void Cmb_concelho_SelectedIndexChanged(object sender, EventArgs e) { CalcularTudo(); }
+        private void Txt_ano_Validated(object sender, EventArgs e) { }
+        private void Txt_ano_Validating(object sender, System.ComponentModel.CancelEventArgs e) { }
+
+        private void Txt_ano_Leave(object sender, EventArgs e)
+        {
+            if (ano_first_time)
+                ano_first_time = false;
+
+            CalcularTudo();
+        }
+
+        private void Txt_valor_base_Leave(object sender, EventArgs e)
+        {
+            if (valor_base_first_time)
+                valor_base_first_time = false;
+
+            CalcularTudo();
+        }
     }
 }
