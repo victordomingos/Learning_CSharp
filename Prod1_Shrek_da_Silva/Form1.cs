@@ -23,6 +23,8 @@ namespace Prod1_Shrek_da_Silva
         private readonly double valor_agravamento = 12;
         private readonly double percent_desc_reside_distrito = 1;
         private readonly double percent_desc_reside_amares = 20;
+        private bool ano_first_time = true;
+        private bool valor_base_first_time = true;
 
         public Form1()
         {
@@ -48,14 +50,22 @@ namespace Prod1_Shrek_da_Silva
             try
             {
                 ano = Convert.ToInt32(txt_ano.Text);
-                
+                if (ano_first_time)
+                {
+                    if(!txt_ano.Focused)
+                        ano_first_time = false;
+                }
+
                 if ((ano > ano_atual) || (ano < ano_atual - 150))
                 {
-                    // ano fora do intervalo.
-                    txt_ano.BackColor = bad_field_color;
-                    lbl_ano_erro.Text = "O ano encontra-se fora do intervalo.";
-                    lbl_ano_erro.Visible = true;
-                    form_status = false;
+                    if (!ano_first_time)
+                    {
+                        // ano fora do intervalo.
+                        txt_ano.BackColor = bad_field_color;
+                        lbl_ano_erro.Text = "O ano encontra-se fora do intervalo.";
+                        lbl_ano_erro.Visible = true;
+                        form_status = false;
+                    }
                 }
                 else
                 {
@@ -75,14 +85,22 @@ namespace Prod1_Shrek_da_Silva
             try
             {
                 valor_base = Convert.ToDouble(txt_valor_base.Text);
+                if (valor_base_first_time)
+                {
+                    if (!txt_valor_base.Focused)
+                        valor_base_first_time = false;
+                }
 
                 if (valor_base <= 0)
                 {
-                    // valor base fora do intervalo.
-                    txt_valor_base.BackColor = bad_field_color;
-                    lbl_valor_base_erro.Text = "O valor base deve ser positivo.";
-                    lbl_valor_base_erro.Visible = true;
-                    form_status = false;
+                    if (!valor_base_first_time && txt_valor_base.Text != "")
+                    {
+                        // valor base fora do intervalo.
+                        txt_valor_base.BackColor = bad_field_color;
+                        lbl_valor_base_erro.Text = "O valor base deve ser positivo.";
+                        lbl_valor_base_erro.Visible = true;
+                        form_status = false;
+                    }
                 }
                 else
                 {
@@ -92,9 +110,12 @@ namespace Prod1_Shrek_da_Silva
             }
             catch (Exception)
             {
-                txt_valor_base.BackColor = bad_field_color;
-                lbl_valor_base_erro.Text = "Por favor introduza um número válido.";
-                lbl_valor_base_erro.Visible = true;
+                if (txt_valor_base.Text != "" && !valor_base_first_time)
+                {
+                    txt_valor_base.BackColor = bad_field_color;
+                    lbl_valor_base_erro.Text = "Por favor introduza um número válido.";
+                    lbl_valor_base_erro.Visible = true;
+                }
                 form_status = false;
             }
 
@@ -111,6 +132,9 @@ namespace Prod1_Shrek_da_Silva
             double resultado;
             short ano;
 
+            ano_first_time = false;
+            valor_base_first_time = false;
+
             if (!IsFormValid())
                 return;
 
@@ -122,6 +146,7 @@ namespace Prod1_Shrek_da_Silva
             double desc_reside_distrito = 0;
             double desc_reside_amares = 0;
 
+            
             valor_base = Convert.ToDouble(txt_valor_base.Text);
             ano = Convert.ToInt16(txt_ano.Text);
 
