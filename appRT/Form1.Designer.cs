@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.btn_clientes = new System.Windows.Forms.Button();
+            this.btn_funcionarios = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_clientes
             // 
-            this.btn_clientes.Location = new System.Drawing.Point(514, 37);
+            this.btn_clientes.Location = new System.Drawing.Point(3, 12);
             this.btn_clientes.Name = "btn_clientes";
             this.btn_clientes.Size = new System.Drawing.Size(75, 23);
             this.btn_clientes.TabIndex = 2;
@@ -41,11 +42,22 @@
             this.btn_clientes.UseVisualStyleBackColor = true;
             this.btn_clientes.Click += new System.EventHandler(this.Btn_clientes_Click);
             // 
+            // btn_funcionarios
+            // 
+            this.btn_funcionarios.Location = new System.Drawing.Point(84, 12);
+            this.btn_funcionarios.Name = "btn_funcionarios";
+            this.btn_funcionarios.Size = new System.Drawing.Size(75, 23);
+            this.btn_funcionarios.TabIndex = 3;
+            this.btn_funcionarios.Text = "Funcionários";
+            this.btn_funcionarios.UseVisualStyleBackColor = true;
+            this.btn_funcionarios.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 452);
+            this.ClientSize = new System.Drawing.Size(329, 452);
+            this.Controls.Add(this.btn_funcionarios);
             this.Controls.Add(this.btn_clientes);
             this.Name = "Form1";
             this.Text = "Project Kronos App";
@@ -56,6 +68,7 @@
 
         #endregion
         private System.Windows.Forms.Button btn_clientes;
+        private System.Windows.Forms.Button btn_funcionarios;
     }
 }
 

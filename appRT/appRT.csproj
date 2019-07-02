@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2Funcionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2Funcionarios.Designer.cs">
+      <DependentUpon>Form2Funcionarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form3Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2Funcionarios.resx">
+      <DependentUpon>Form2Funcionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form3Clientes.resx">
       <DependentUpon>Form3Clientes.cs</DependentUpon>
@@ -76,6 +85,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="App1.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

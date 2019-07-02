@@ -1,6 +1,6 @@
 ﻿namespace appRT
 {
-    partial class Form3Clientes
+    partial class Form2Funcionarios
     {
         /// <summary>
         /// Required designer variable.
@@ -41,11 +41,10 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 82);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(429, 452);
+            this.dataGridView1.Size = new System.Drawing.Size(432, 454);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -55,9 +54,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 31);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Clientes";
+            this.label1.Size = new System.Drawing.Size(182, 31);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Funcionários";
             // 
             // statusStrip1
             // 
@@ -66,16 +65,16 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(434, 22);
-            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(56, 17);
-            this.toolStripStatusLabel1.Text = "lbl_status";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(60, 17);
+            this.toolStripStatusLabel1.Text = "lbl_estado";
             // 
-            // Form3Clientes
+            // Form2Funcionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,9 +82,9 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form3Clientes";
-            this.Text = "Form3Clientes";
-            this.Load += new System.EventHandler(this.Form3Clientes_Load);
+            this.Name = "Form2Funcionarios";
+            this.Text = "Form2Funcionarios";
+            this.Load += new System.EventHandler(this.Form2Funcionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

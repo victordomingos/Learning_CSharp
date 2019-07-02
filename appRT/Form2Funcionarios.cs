@@ -8,26 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace appRT
 {
-    public partial class Form3Clientes : Form
+    public partial class Form2Funcionarios : Form
     {
         string SC = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BDKRT;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public Form3Clientes()
+        public Form2Funcionarios()
         {
             InitializeComponent();
         }
 
-        private void Form3Clientes_Load(object sender, EventArgs e)
+        private void Form2Funcionarios_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
-
-            string ssql = "SELECT * FROM T_clientes";
+            string ssql = "SELECT * FROM T_funcionarios";
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SC, ssql);
-
 
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -35,7 +33,7 @@ namespace appRT
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
+            
         }
     }
 }
