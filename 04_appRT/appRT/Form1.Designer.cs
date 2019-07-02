@@ -30,6 +30,9 @@
         {
             this.btn_clientes = new System.Windows.Forms.Button();
             this.btn_funcionarios = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lbl_estado1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_clientes
@@ -52,23 +55,45 @@
             this.btn_funcionarios.UseVisualStyleBackColor = true;
             this.btn_funcionarios.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lbl_estado1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 430);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(329, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lbl_estado1
+            // 
+            this.lbl_estado1.Name = "lbl_estado1";
+            this.lbl_estado1.Size = new System.Drawing.Size(118, 17);
+            this.lbl_estado1.Text = "toolStripStatusLabel1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 452);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btn_funcionarios);
             this.Controls.Add(this.btn_clientes);
             this.Name = "Form1";
             this.Text = "Project Kronos App";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button btn_clientes;
         private System.Windows.Forms.Button btn_funcionarios;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lbl_estado1;
     }
 }
 
