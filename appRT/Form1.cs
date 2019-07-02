@@ -22,17 +22,27 @@ namespace appRT
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
 
+        private void Btn_clientes_Click(object sender, EventArgs e)
+        {
+            Form3Clientes f3 = new Form3Clientes();
+            f3.BackColor = Color.Azure;
+            f3.Show();
+        }
+
+
+        /*
         private void Button1_Click(object sender, EventArgs e)
         {
             string ssql = "SELECT * FROM T_clientes";
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SC, ssql);
-        }
 
+        }
+        */
 
         /*
         private void Button2_Click(object sender, EventArgs e)

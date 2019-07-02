@@ -1,6 +1,6 @@
 ﻿namespace appRT
 {
-    partial class Form1
+    partial class Form3Clientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_clientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btn_clientes
-            // 
-            this.btn_clientes.Location = new System.Drawing.Point(514, 37);
-            this.btn_clientes.Name = "btn_clientes";
-            this.btn_clientes.Size = new System.Drawing.Size(75, 23);
-            this.btn_clientes.TabIndex = 2;
-            this.btn_clientes.Text = "Clientes";
-            this.btn_clientes.UseVisualStyleBackColor = true;
-            this.btn_clientes.Click += new System.EventHandler(this.Btn_clientes_Click);
-            // 
-            // Form1
+            // Form3Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 452);
-            this.Controls.Add(this.btn_clientes);
-            this.Name = "Form1";
-            this.Text = "Project Kronos App";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ClientSize = new System.Drawing.Size(572, 486);
+            this.Name = "Form3Clientes";
+            this.Text = "Form3Clientes";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_clientes;
     }
 }
-
