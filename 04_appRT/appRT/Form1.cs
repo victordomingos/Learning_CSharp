@@ -23,7 +23,7 @@ namespace appRT
         {
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-
+            // Preencher Gridview
             string ssql = "SELECT * FROM T_registo_de_tempos";
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SC, ssql);
@@ -35,6 +35,11 @@ namespace appRT
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
 
+            // Preencher ComboBox
+            ssql = "SELECT * FROM T_clientes";
+            comboBox1.DataSource = db.BuscaDados(SC, ssql);
+            comboBox1.DisplayMember = "nome_cliente";
+            comboBox1.ValueMember = "id";
         }
 
         private void Btn_clientes_Click(object sender, EventArgs e)
@@ -49,6 +54,13 @@ namespace appRT
             Form2Funcionarios f3 = new Form2Funcionarios();
             //f3.BackColor = Color.Beige;
             f3.Show();
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
         }
 
 
