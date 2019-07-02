@@ -24,7 +24,16 @@ namespace appRT
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
-           
+            string ssql = "SELECT * FROM T_registo_de_tempos";
+            MyGetData db = new MyGetData();
+            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.ShowEditingIcon = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
 
         }
 
