@@ -22,7 +22,15 @@ namespace appRT
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            string ssql = "SELECT * FROM T_clientes";
+            MyGetData db = new MyGetData();
+            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
         }
 
 

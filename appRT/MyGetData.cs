@@ -5,7 +5,9 @@ namespace appRT
 {
     class MyGetData
     {
-        public DataTable BuscaDados(string SC)
+        // Permite obter dados da base de dados, passando como argumentos
+        // a string connection e uma string com o comand sql a executar.
+        public DataTable BuscaDados(string SC, string ssql)
         {
             // Criar ligação à base de dados:
             SqlConnection C = new SqlConnection(SC);
@@ -14,7 +16,7 @@ namespace appRT
             // Criar comando SQL para extração de dados:
             SqlCommand command = C.CreateCommand();
             // command.CommandText = "SELECT nome_cliente from T_clientes";
-            command.CommandText = "SELECT * from T_clientes";
+            command.CommandText = ssql;
 
             // trazer os dados para uma tabela em memória:
             SqlDataAdapter da = new SqlDataAdapter(command);
