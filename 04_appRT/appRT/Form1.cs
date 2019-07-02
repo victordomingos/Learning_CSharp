@@ -12,6 +12,7 @@ namespace appRT
 {
     public partial class Form1 : Form
     {
+        string SC = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BDKRT;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public Form1()
         {
@@ -21,6 +22,18 @@ namespace appRT
         private void Form1_Load(object sender, EventArgs e)
         {
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
+            string ssql = "SELECT * FROM T_registo_de_tempos";
+            MyGetData db = new MyGetData();
+            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.ShowEditingIcon = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
 
         }
 

@@ -35,6 +35,12 @@ namespace appRT
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lbl_status.Text = Convert.ToString(dataGridView1.Rows.Count) + " clientes";
+
+        }
+
+        private void StatusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
         }
     }

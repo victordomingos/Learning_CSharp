@@ -33,6 +33,7 @@ namespace appRT
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " funcionários";
             
         }
     }
