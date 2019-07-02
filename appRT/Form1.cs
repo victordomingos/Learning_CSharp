@@ -25,17 +25,8 @@ namespace appRT
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            MyGetData db = new MyGetData();
-            DataTable dt = db.BuscaDados(SC);
 
-            listBox1.DataSource = dt;
-            listBox1.DisplayMember = "nome_cliente";
-            
-
-        }
-
+        /*
         private void Button2_Click(object sender, EventArgs e)
         {
             MyGetData db = new MyGetData();
@@ -44,5 +35,6 @@ namespace appRT
             dataGridView1.DataSource = dt;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+        */
     }
 }
