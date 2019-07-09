@@ -17,15 +17,21 @@ namespace appRT
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            string ssql;
+            MyGetData db = new MyGetData();
+
+            // Preencher ComboBox
+            ssql = "SELECT * FROM T_clientes";
+            comboBox1.DataSource = db.BuscaDados(SC, ssql);
+            comboBox1.DisplayMember = "nome_cliente";
+            comboBox1.ValueMember = "id";
+
+            //comboBox1.Items.Insert(1, Item);
+
 
             // Preencher Gridview
-            string ssql = "SELECT * FROM T_registo_de_tempos";
-            MyGetData db = new MyGetData();
+            ssql = "SELECT * FROM T_registo_de_tempos";
             dataGridView1.DataSource = db.BuscaDados(SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -34,12 +40,15 @@ namespace appRT
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Preencher ComboBox
-            ssql = "SELECT * FROM T_clientes";
-            comboBox1.DataSource = db.BuscaDados(SC, ssql);
-            comboBox1.DisplayMember = "nome_cliente";
-            comboBox1.ValueMember = "id";
+          
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           
+            
         }
 
         private void Btn_clientes_Click(object sender, EventArgs e)
@@ -58,9 +67,42 @@ namespace appRT
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+            string ssql;
+            string filtro;
+            string cod_cliente = comboBox1.SelectedValue.ToString();
+            //MessageBox.Show(cod_cliente);
+
+            if (cod_cliente == "0")
+                filtro = "";
+            else
+                filtro = "WHERE cod_cliente='" + cod_cliente + "'";
+
+            ssql = "SELECT * FROM T_registo_de_tempos " + filtro;
+
+            MyGetData db = new MyGetData();
+            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
             
             lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string ssql = "SELECT * FROM T_clientes";
+            string texto = textBox1.Text.ToString();
+
+            if (texto !="")
+                ssql += " WHERE nome_cliente LIKE '%" + texto + "%'";
+
+            MyGetData db = new MyGetData();
+            comboBox1.DataSource = db.BuscaDados(SC, ssql);
+            comboBox1.DisplayMember = "nome_cliente";
+            comboBox1.ValueMember = "id";
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
 
