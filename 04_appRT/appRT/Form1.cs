@@ -23,9 +23,16 @@ namespace appRT
 
             // Preencher ComboBox
             ssql = "SELECT * FROM T_clientes";
-            comboBox1.DataSource = db.BuscaDados(SC, ssql);
-            comboBox1.DisplayMember = "nome_cliente";
-            comboBox1.ValueMember = "id";
+            comboBox1_clientes.DataSource = db.BuscaDados(SC, ssql);
+            comboBox1_clientes.DisplayMember = "nome_cliente";
+            comboBox1_clientes.ValueMember = "id";
+
+
+            // Preencher ComboBox
+            ssql = "SELECT * FROM T_funcionarios";
+            comboBox2_funcionarios .DataSource = db.BuscaDados(SC, ssql);
+            comboBox2_funcionarios.DisplayMember = "nome";
+            comboBox2_funcionarios.ValueMember = "id";
 
             //comboBox1.Items.Insert(1, Item);
 
@@ -70,7 +77,7 @@ namespace appRT
 
             string ssql;
             string filtro;
-            string cod_cliente = comboBox1.SelectedValue.ToString();
+            string cod_cliente = comboBox1_clientes.SelectedValue.ToString();
             //MessageBox.Show(cod_cliente);
 
             if (cod_cliente == "0")
@@ -89,15 +96,15 @@ namespace appRT
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             string ssql = "SELECT * FROM T_clientes";
-            string texto = textBox1.Text.ToString();
+            string texto = textBox1_clientes.Text.ToString();
 
             if (texto !="")
                 ssql += " WHERE nome_cliente LIKE '%" + texto + "%'";
 
             MyGetData db = new MyGetData();
-            comboBox1.DataSource = db.BuscaDados(SC, ssql);
-            comboBox1.DisplayMember = "nome_cliente";
-            comboBox1.ValueMember = "id";
+            comboBox1_clientes.DataSource = db.BuscaDados(SC, ssql);
+            comboBox1_clientes.DisplayMember = "nome_cliente";
+            comboBox1_clientes.ValueMember = "id";
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
