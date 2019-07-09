@@ -37,13 +37,13 @@
             this.textBox1_clientes = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2_funcionarios = new System.Windows.Forms.TextBox();
             this.comboBox2_funcionarios = new System.Windows.Forms.ComboBox();
+            this.textBox2_funcionarios = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -53,7 +53,6 @@
             // 
             // btn_clientes
             // 
-            this.btn_clientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_clientes.Location = new System.Drawing.Point(12, 27);
             this.btn_clientes.Name = "btn_clientes";
             this.btn_clientes.Size = new System.Drawing.Size(75, 23);
@@ -64,7 +63,6 @@
             // 
             // btn_funcionarios
             // 
-            this.btn_funcionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_funcionarios.Location = new System.Drawing.Point(93, 27);
             this.btn_funcionarios.Name = "btn_funcionarios";
             this.btn_funcionarios.Size = new System.Drawing.Size(75, 23);
@@ -144,13 +142,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtrar por funcionário";
             // 
-            // textBox2_funcionarios
-            // 
-            this.textBox2_funcionarios.Location = new System.Drawing.Point(6, 19);
-            this.textBox2_funcionarios.Name = "textBox2_funcionarios";
-            this.textBox2_funcionarios.Size = new System.Drawing.Size(183, 20);
-            this.textBox2_funcionarios.TabIndex = 0;
-            // 
             // comboBox2_funcionarios
             // 
             this.comboBox2_funcionarios.FormattingEnabled = true;
@@ -158,6 +149,15 @@
             this.comboBox2_funcionarios.Name = "comboBox2_funcionarios";
             this.comboBox2_funcionarios.Size = new System.Drawing.Size(183, 21);
             this.comboBox2_funcionarios.TabIndex = 1;
+            this.comboBox2_funcionarios.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_funcionarios_SelectedIndexChanged);
+            // 
+            // textBox2_funcionarios
+            // 
+            this.textBox2_funcionarios.Location = new System.Drawing.Point(6, 19);
+            this.textBox2_funcionarios.Name = "textBox2_funcionarios";
+            this.textBox2_funcionarios.Size = new System.Drawing.Size(183, 20);
+            this.textBox2_funcionarios.TabIndex = 0;
+            this.textBox2_funcionarios.TextChanged += new System.EventHandler(this.TextBox2_funcionarios_TextChanged);
             // 
             // menuStrip1
             // 
@@ -184,17 +184,17 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(49, 20);
             this.toolStripMenuItem2.Text = "Filtrar";
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(50, 20);
-            this.toolStripMenuItem3.Text = "Ajuda";
-            // 
             // janelaToolStripMenuItem
             // 
             this.janelaToolStripMenuItem.Name = "janelaToolStripMenuItem";
             this.janelaToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.janelaToolStripMenuItem.Text = "Visualização";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(50, 20);
+            this.toolStripMenuItem3.Text = "Ajuda";
             // 
             // Form1
             // 

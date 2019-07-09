@@ -72,26 +72,8 @@ namespace appRT
             f3.Show();
         }
 
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            string ssql;
-            string filtro;
-            string cod_cliente = comboBox1_clientes.SelectedValue.ToString();
-            //MessageBox.Show(cod_cliente);
-
-            if (cod_cliente == "0")
-                filtro = "";
-            else
-                filtro = "WHERE cod_cliente='" + cod_cliente + "'";
-
-            ssql = "SELECT * FROM T_registo_de_tempos " + filtro;
-
-            MyGetData db = new MyGetData();
-            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
-            
-            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
-        }
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e) { Filtrar_lista(); }
+        private void ComboBox2_funcionarios_SelectedIndexChanged(object sender, EventArgs e) { Filtrar_lista(); }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -107,31 +89,67 @@ namespace appRT
             comboBox1_clientes.ValueMember = "id";
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
+
+        private void TextBox2_funcionarios_TextChanged(object sender, EventArgs e)
+        {
+            string ssql = "SELECT * FROM T_funcionarios";
+            string texto = textBox2_funcionarios.Text.ToString();
+
+            if (texto != "")
+                ssql += " WHERE nome LIKE '%" + texto + "%'";
+
+            MyGetData db = new MyGetData();
+            comboBox2_funcionarios.DataSource = db.BuscaDados(SC, ssql);
+            comboBox2_funcionarios.DisplayMember = "nome";
+            comboBox2_funcionarios.ValueMember = "id";
         }
 
-
-        /*
-        private void Button1_Click(object sender, EventArgs e)
+        
+        private void Filtrar_lista()
         {
-            string ssql = "SELECT * FROM T_clientes";
+            string ssql;
+            string filtro_cliente = "";
+            string filtro_funcionario = "";
+            string operador = "";
+            string filtro = "";
+            bool has_filter = false;
+            string cod_cliente = comboBox1_clientes.SelectedValue.ToString();
+            string cod_funcionario = comboBox2_funcionarios.SelectedValue.ToString();
+
+            //MessageBox.Show(cod_cliente);
+            if (string.IsNullOrEmpty(cod_cliente))
+                cod_cliente = "0";
+            if (string.IsNullOrEmpty(cod_funcionario))
+                cod_funcionario = "0";
+            //TODO: DEBUG
+
+
+            if (cod_cliente != "0") {
+                filtro_cliente = "cod_cliente='" + cod_cliente + "'";
+                has_filter = true;
+            }
+
+            if (cod_funcionario != "0") {
+                if (has_filter)
+                    operador = " and ";
+
+                filtro_funcionario = "cod_funcionario='" + cod_funcionario + "'";
+                has_filter = true;
+            }
+
+            if (has_filter) {
+                filtro = " WHERE " + filtro_cliente + operador + filtro_funcionario;
+            }
+
+            ssql = "SELECT * FROM T_registo_de_tempos" + filtro;
+
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SC, ssql);
 
+            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
         }
-        */
 
-        /*
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            MyGetData db = new MyGetData();
-            DataTable dt = db.BuscaDados(SC);
-
-            dataGridView1.DataSource = dt;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-        */
     }
 }
