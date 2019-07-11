@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-04_appRT/appRT/SConnection.cs
+*04_appRT/appRT/SConnection.cs
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
