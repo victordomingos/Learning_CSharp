@@ -12,7 +12,14 @@ namespace appRT
 {
     public partial class Form1 : Form
     {
-        string SC = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BDKRT;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string SC = "Data Source=(localdb)\\MSSQLLocalDB;" +
+                    @"Initial Catalog=BDKRT;" +
+                    @"Integrated Security=True;" +
+                    @"Connect Timeout=30;" +
+                    @"Encrypt=False;" +
+                    @"TrustServerCertificate=False;" +
+                    @"ApplicationIntent=ReadWrite;" +
+                    @"MultiSubnetFailover=False";
 
         public Form1()
         {
