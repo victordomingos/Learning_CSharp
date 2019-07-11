@@ -1,26 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace appRT
 {
     public partial class Form1 : Form
     {
-        string SC = "Data Source=(localdb)\\MSSQLLocalDB;" +
-                    @"Initial Catalog=BDKRT;" +
-                    @"Integrated Security=True;" +
-                    @"Connect Timeout=30;" +
-                    @"Encrypt=False;" +
-                    @"TrustServerCertificate=False;" +
-                    @"ApplicationIntent=ReadWrite;" +
-                    @"MultiSubnetFailover=False";
-
+       
         public Form1()
         {
             InitializeComponent();
@@ -30,14 +15,14 @@ namespace appRT
 
             // Preencher ComboBox
             ssql = "SELECT * FROM T_clientes";
-            comboBox1_clientes.DataSource = db.BuscaDados(SC, ssql);
+            comboBox1_clientes.DataSource = db.BuscaDados(SConnection.SC, ssql);
             comboBox1_clientes.DisplayMember = "nome_cliente";
             comboBox1_clientes.ValueMember = "id";
 
 
             // Preencher ComboBox
             ssql = "SELECT * FROM T_funcionarios";
-            comboBox2_funcionarios .DataSource = db.BuscaDados(SC, ssql);
+            comboBox2_funcionarios .DataSource = db.BuscaDados(SConnection.SC, ssql);
             comboBox2_funcionarios.DisplayMember = "nome";
             comboBox2_funcionarios.ValueMember = "id";
 
@@ -46,7 +31,7 @@ namespace appRT
 
             // Preencher Gridview
             ssql = "SELECT * FROM T_registo_de_tempos";
-            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
+            dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.AllowUserToAddRows = false;
@@ -91,7 +76,7 @@ namespace appRT
                 ssql += " WHERE nome_cliente LIKE '%" + texto + "%'";
 
             MyGetData db = new MyGetData();
-            comboBox1_clientes.DataSource = db.BuscaDados(SC, ssql);
+            comboBox1_clientes.DataSource = db.BuscaDados(SConnection.SC, ssql);
             comboBox1_clientes.DisplayMember = "nome_cliente";
             comboBox1_clientes.ValueMember = "id";
         }
@@ -108,7 +93,7 @@ namespace appRT
                 ssql += " WHERE nome LIKE '%" + texto + "%'";
 
             MyGetData db = new MyGetData();
-            comboBox2_funcionarios.DataSource = db.BuscaDados(SC, ssql);
+            comboBox2_funcionarios.DataSource = db.BuscaDados(SConnection.SC, ssql);
             comboBox2_funcionarios.DisplayMember = "nome";
             comboBox2_funcionarios.ValueMember = "id";
         }
@@ -153,7 +138,7 @@ namespace appRT
             ssql = "SELECT * FROM T_registo_de_tempos" + filtro;
 
             MyGetData db = new MyGetData();
-            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
+            dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
 
             lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
         }
