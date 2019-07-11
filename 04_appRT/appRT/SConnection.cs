@@ -11,6 +11,6 @@ namespace appRT
                                           @"TrustServerCertificate=False;" +
                                           @"ApplicationIntent=ReadWrite;" +
                                           @"MultiSubnetFailover=False";
-
+        
     }
 }
