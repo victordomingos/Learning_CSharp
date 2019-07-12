@@ -24,7 +24,7 @@ namespace appRT
             // Preencher ComboBox
             ssql = "SELECT * FROM T_funcionarios";
             comboBox2_funcionarios .DataSource = db.BuscaDados(SConnection.SC, ssql);
-            comboBox2_funcionarios.DisplayMember = "nome";
+            comboBox2_funcionarios.DisplayMember = "nome_funcionario";
             comboBox2_funcionarios.ValueMember = "id";
 
             //comboBox1.Items.Insert(1, Item);
@@ -91,11 +91,11 @@ namespace appRT
             string texto = textBox2_funcionarios.Text.ToString();
 
             if (texto != "")
-                ssql += " WHERE nome LIKE '%" + texto + "%'";
+                ssql += " WHERE nome_funcionario LIKE '%" + texto + "%'";
 
             MyGetData db = new MyGetData();
             comboBox2_funcionarios.DataSource = db.BuscaDados(SConnection.SC, ssql);
-            comboBox2_funcionarios.DisplayMember = "nome";
+            comboBox2_funcionarios.DisplayMember = "nome_funcionario";
             comboBox2_funcionarios.ValueMember = "id";
         }
 
@@ -108,40 +108,55 @@ namespace appRT
             string operador = "";
             string filtro = "";
             bool has_filter = false;
-            string cod_cliente = comboBox1_clientes.SelectedValue.ToString();
-            string cod_funcionario = comboBox2_funcionarios.SelectedValue.ToString();
+            try
+            {
+                Int16 cod_cliente = Convert.ToInt16(comboBox1_clientes.SelectedValue.ToString());
+                Int16 cod_funcionario = Convert.ToInt16(comboBox2_funcionarios.SelectedValue.ToString());
 
-            //MessageBox.Show(cod_cliente);
-            if (string.IsNullOrEmpty(cod_cliente))
-                cod_cliente = "0";
-            if (string.IsNullOrEmpty(cod_funcionario))
-                cod_funcionario = "0";
-            //TODO: DEBUG
+                /*
+                //MessageBox.Show(cod_cliente);
+                if (string.IsNullOrEmpty(cod_cliente))
+                    cod_cliente = "0";
+                if (string.IsNullOrEmpty(cod_funcionario))
+                    cod_funcionario = "0";
+                //TODO: DEBUG
+                */
 
+                if (cod_cliente !=  0)
+                {
+                    filtro_cliente = "cod_cliente='" + cod_cliente + "'";
+                    has_filter = true;
+                }
 
-            if (cod_cliente != "0") {
-                filtro_cliente = "cod_cliente='" + cod_cliente + "'";
-                has_filter = true;
-            }
+                if (cod_funcionario != 0)
+                {
+                    if (has_filter)
+                        operador = " and ";
 
-            if (cod_funcionario != "0") {
+                    filtro_funcionario = "cod_funcionario='" + cod_funcionario + "'";
+                    has_filter = true;
+                }
+
                 if (has_filter)
-                    operador = " and ";
+                {
+                    filtro = " WHERE " + filtro_cliente + operador + filtro_funcionario;
+                }
 
-                filtro_funcionario = "cod_funcionario='" + cod_funcionario + "'";
-                has_filter = true;
+
+                ssql = "SELECT * FROM T_registo_de_tempos" + filtro;
+                MessageBox.Show(ssql);
+
+                MyGetData db = new MyGetData();
+                dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
+
+                lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
             }
+            catch (Exception)
+            {
 
-            if (has_filter) {
-                filtro = " WHERE " + filtro_cliente + operador + filtro_funcionario;
+                throw;
             }
-
-            ssql = "SELECT * FROM T_registo_de_tempos" + filtro;
-
-            MyGetData db = new MyGetData();
-            dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
-
-            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
+            
         }
 
     }
