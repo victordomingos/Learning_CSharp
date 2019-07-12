@@ -1,37 +1,47 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Data;
 
 
 namespace appRT
 {
     public partial class Form1 : Form
     {
-       
+
+        public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM)
+        {
+            // Preencher ComboBox
+            MyGetData db = new MyGetData();
+            DataTable dt = db.BuscaDados(SConnection.SC, ssql);
+            DataRow row = dt.NewRow();
+            row[valueM] = -1;
+            row[displayM] = "-- Mostrar Todos --";
+            dt.Rows.InsertAt(row, 0);
+            cmbx.DataSource = dt;
+            cmbx.DisplayMember = displayM;
+            cmbx.ValueMember = valueM;
+
+        }
         public Form1()
         {
             InitializeComponent();
 
             string ssql;
-            MyGetData db = new MyGetData();
 
-            // Preencher ComboBox
             ssql = "SELECT * FROM T_clientes";
-            comboBox1_clientes.DataSource = db.BuscaDados(SConnection.SC, ssql);
-            comboBox1_clientes.DisplayMember = "nome_cliente";
-            comboBox1_clientes.ValueMember = "id";
+            InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id");
 
 
             // Preencher ComboBox
             ssql = "SELECT * FROM T_funcionarios";
-            comboBox2_funcionarios .DataSource = db.BuscaDados(SConnection.SC, ssql);
-            comboBox2_funcionarios.DisplayMember = "nome_funcionario";
-            comboBox2_funcionarios.ValueMember = "id";
+            InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id");
 
             //comboBox1.Items.Insert(1, Item);
 
 
             // Preencher Gridview
             ssql = "SELECT * FROM T_registo_de_tempos";
+            MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -76,10 +86,19 @@ namespace appRT
             if (texto !="")
                 ssql += " WHERE nome_cliente LIKE '%" + texto + "%'";
 
-            MyGetData db = new MyGetData();
-            comboBox1_clientes.DataSource = db.BuscaDados(SConnection.SC, ssql);
-            comboBox1_clientes.DisplayMember = "nome_cliente";
-            comboBox1_clientes.ValueMember = "id";
+            try
+            {
+                InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id");
+            }
+            catch
+            {
+                comboBox1_clientes.DataSource = null;
+                comboBox1_clientes.ResetText();
+                comboBox1_clientes.Items.Clear();
+                comboBox1_clientes.SelectedItem = null;
+                comboBox1_clientes.SelectedText = "hI!";
+
+            }
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
@@ -88,15 +107,30 @@ namespace appRT
         private void TextBox2_funcionarios_TextChanged(object sender, EventArgs e)
         {
             string ssql = "SELECT * FROM T_funcionarios";
-            string texto = textBox2_funcionarios.Text.ToString();
+            string texto1 = textBox2_funcionarios.Text.ToString();
+            //string texto2 = textBox1_clientes.Text.ToString();
+            string filtro_funcionario = "";
+            string filtro_cliente = "";
 
-            if (texto != "")
-                ssql += " WHERE nome_funcionario LIKE '%" + texto + "%'";
+            if (texto1 != "")
+                filtro_funcionario = " WHERE nome_funcionario LIKE '%" + texto1 + "%'";
 
-            MyGetData db = new MyGetData();
-            comboBox2_funcionarios.DataSource = db.BuscaDados(SConnection.SC, ssql);
-            comboBox2_funcionarios.DisplayMember = "nome_funcionario";
-            comboBox2_funcionarios.ValueMember = "id";
+            //if (texto2 != "")
+            //    filtro_cliente = " AND nome_cliente LIKE '%" + texto2 + "%'";
+
+            ssql += filtro_funcionario + filtro_cliente;
+            //MessageBox.Show(ssql);
+
+            try
+            {
+                InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id");
+            }
+            catch
+            {
+                comboBox2_funcionarios.DataSource = null;
+                comboBox2_funcionarios.Items.Clear();
+                comboBox2_funcionarios.ResetText();
+            }
         }
 
         
@@ -108,33 +142,44 @@ namespace appRT
             string operador = "";
             string filtro = "";
             bool has_filter = false;
+
             try
             {
                 Int16 cod_cliente = Convert.ToInt16(comboBox1_clientes.SelectedValue.ToString());
                 Int16 cod_funcionario = Convert.ToInt16(comboBox2_funcionarios.SelectedValue.ToString());
 
-                /*
-                //MessageBox.Show(cod_cliente);
-                if (string.IsNullOrEmpty(cod_cliente))
-                    cod_cliente = "0";
-                if (string.IsNullOrEmpty(cod_funcionario))
-                    cod_funcionario = "0";
-                //TODO: DEBUG
-                */
+                
+                    
 
                 if (cod_cliente !=  0)
                 {
-                    filtro_cliente = "cod_cliente='" + cod_cliente + "'";
-                    has_filter = true;
+                    if (cod_cliente == -1)
+                    {
+                        has_filter = false;
+                        filtro_cliente = "";
+                    }
+                    else
+                    {
+                        filtro_cliente = "cod_cliente='" + cod_cliente + "'";
+                        has_filter = true;
+                    }
                 }
+
 
                 if (cod_funcionario != 0)
                 {
-                    if (has_filter)
-                        operador = " and ";
+                    if (cod_funcionario == -1)
+                    {
+                        filtro_funcionario = "";
+                    }
+                    else
+                    {
+                        if (has_filter)
+                            operador = " and ";
 
-                    filtro_funcionario = "cod_funcionario='" + cod_funcionario + "'";
-                    has_filter = true;
+                        filtro_funcionario = "cod_funcionario='" + cod_funcionario + "'";
+                        has_filter = true;
+                    }
                 }
 
                 if (has_filter)
@@ -144,7 +189,7 @@ namespace appRT
 
 
                 ssql = "SELECT * FROM T_registo_de_tempos" + filtro;
-                MessageBox.Show(ssql);
+                //MessageBox.Show(ssql);
 
                 MyGetData db = new MyGetData();
                 dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
