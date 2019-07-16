@@ -8,14 +8,14 @@ namespace appRT
     public partial class Form1 : Form
     {
 
-        public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM)
+        public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM, string defaultText)
         {
             // Preencher ComboBox
             MyGetData db = new MyGetData();
             DataTable dt = db.BuscaDados(SConnection.SC, ssql);
             DataRow row = dt.NewRow();
             row[valueM] = -1;
-            row[displayM] = "-- Mostrar Todos --";
+            row[displayM] = defaultText;
             dt.Rows.InsertAt(row, 0);
             cmbx.DataSource = dt;
             cmbx.DisplayMember = displayM;
@@ -27,20 +27,18 @@ namespace appRT
             InitializeComponent();
 
             string ssql;
-
+            
+            // Preencher ComboBoxes
             ssql = "SELECT * FROM T_clientes";
-            InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id");
+            InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id", "-- Mostrar Todos --");
+            InitComboBox(cmb_novo_select_cliente, ssql, "nome_cliente", "id", "-- Selecionar Cliente --");
 
-
-            // Preencher ComboBox
             ssql = "SELECT * FROM T_funcionarios";
-            InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id");
-
-            //comboBox1.Items.Insert(1, Item);
-
+            InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id", "-- Mostrar Todos --");
+            InitComboBox(cmb_novo_select_func, ssql, "nome_funcionario", "id", "-- Selecionar Funcionário --");
 
             // Preencher Gridview
-            ssql = "SELECT * FROM T_registo_de_tempos";
+            ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -88,7 +86,7 @@ namespace appRT
 
             try
             {
-                InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id");
+                InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id", "-- Mostrar Todos --");
             }
             catch
             {
@@ -123,7 +121,7 @@ namespace appRT
 
             try
             {
-                InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id");
+                InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id", "-- Mostrar Todos --");
             }
             catch
             {
@@ -147,9 +145,6 @@ namespace appRT
             {
                 Int16 cod_cliente = Convert.ToInt16(comboBox1_clientes.SelectedValue.ToString());
                 Int16 cod_funcionario = Convert.ToInt16(comboBox2_funcionarios.SelectedValue.ToString());
-
-                
-                    
 
                 if (cod_cliente !=  0)
                 {
@@ -188,8 +183,8 @@ namespace appRT
                 }
 
 
-                ssql = "SELECT * FROM T_registo_de_tempos" + filtro;
-                //MessageBox.Show(ssql);
+                ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos" + filtro;
+                MessageBox.Show(ssql);
 
                 MyGetData db = new MyGetData();
                 dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
