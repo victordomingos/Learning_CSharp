@@ -237,6 +237,23 @@ namespace appRT
                 cmb_novo_select_cliente.Focus();
                 return;
             }
+            try
+            {
+                Int32 minutos = Convert.ToInt32(txt_novo_tempo.Text);
+                tempo = minutos.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Por favor introduza corretamente o tempo (número de minutos).", "Atenção!");
+                txt_novo_tempo.Focus();
+                return;
+            }
+            if (txt_novo_desc.Text == "")
+            {
+                MessageBox.Show("Por favor introduza a descrição do serviço.", "Atenção!");
+                txt_novo_desc.Focus();
+                return;
+            }
 
 
             ssql = $"INSERT INTO T_registo_de_tempos ('{cod_cliente}','{cod_funcionario}','{data}','{tempo}', '{descritivo}')";
