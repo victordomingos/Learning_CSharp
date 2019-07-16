@@ -13,7 +13,6 @@ namespace appRT
 {
     public partial class Form2Funcionarios : Form
     {
-        string SC = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BDKRT;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public Form2Funcionarios()
         {
@@ -23,9 +22,9 @@ namespace appRT
         private void Form2Funcionarios_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            string ssql = "SELECT * FROM T_funcionarios";
+            string ssql = "SELECT id as ID, nome_funcionario as Nome, telefone as Telefone FROM T_funcionarios";
             MyGetData db = new MyGetData();
-            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
+            dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
 
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

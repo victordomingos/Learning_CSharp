@@ -115,7 +115,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(782, 427);
+            this.dataGridView1.Size = new System.Drawing.Size(751, 419);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
@@ -228,9 +228,9 @@
             this.groupBox3.Controls.Add(this.txt_novo_desc);
             this.groupBox3.Controls.Add(this.txt_novo_tempo);
             this.groupBox3.Controls.Add(this.dt_novo_data);
-            this.groupBox3.Location = new System.Drawing.Point(12, 588);
+            this.groupBox3.Location = new System.Drawing.Point(12, 580);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(770, 116);
+            this.groupBox3.Size = new System.Drawing.Size(739, 124);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Novo registo";
@@ -238,19 +238,19 @@
             // txt_novo_tempo
             // 
             this.txt_novo_tempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_novo_tempo.Location = new System.Drawing.Point(488, 56);
+            this.txt_novo_tempo.Location = new System.Drawing.Point(501, 56);
             this.txt_novo_tempo.Name = "txt_novo_tempo";
-            this.txt_novo_tempo.Size = new System.Drawing.Size(105, 20);
+            this.txt_novo_tempo.Size = new System.Drawing.Size(121, 20);
             this.txt_novo_tempo.TabIndex = 0;
             // 
             // dt_novo_data
             // 
             this.dt_novo_data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dt_novo_data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_novo_data.Location = new System.Drawing.Point(488, 29);
+            this.dt_novo_data.Location = new System.Drawing.Point(501, 29);
             this.dt_novo_data.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dt_novo_data.Name = "dt_novo_data";
-            this.dt_novo_data.Size = new System.Drawing.Size(105, 20);
+            this.dt_novo_data.Size = new System.Drawing.Size(121, 20);
             this.dt_novo_data.TabIndex = 1;
             this.dt_novo_data.Value = new System.DateTime(2019, 7, 16, 10, 5, 39, 0);
             // 
@@ -261,7 +261,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_novo_desc.Location = new System.Drawing.Point(81, 82);
             this.txt_novo_desc.Name = "txt_novo_desc";
-            this.txt_novo_desc.Size = new System.Drawing.Size(512, 20);
+            this.txt_novo_desc.Size = new System.Drawing.Size(541, 20);
             this.txt_novo_desc.TabIndex = 2;
             // 
             // cmb_novo_select_cliente
@@ -284,7 +284,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(449, 35);
+            this.label1.Location = new System.Drawing.Point(462, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 5;
@@ -312,7 +312,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(394, 59);
+            this.label4.Location = new System.Drawing.Point(407, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 13);
             this.label4.TabIndex = 8;
@@ -330,7 +330,7 @@
             // btn_novo_limpar
             // 
             this.btn_novo_limpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_novo_limpar.Location = new System.Drawing.Point(664, 46);
+            this.btn_novo_limpar.Location = new System.Drawing.Point(642, 51);
             this.btn_novo_limpar.Name = "btn_novo_limpar";
             this.btn_novo_limpar.Size = new System.Drawing.Size(89, 23);
             this.btn_novo_limpar.TabIndex = 10;
@@ -341,12 +341,13 @@
             // btn_novo_guardar
             // 
             this.btn_novo_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_novo_guardar.Location = new System.Drawing.Point(664, 75);
+            this.btn_novo_guardar.Location = new System.Drawing.Point(642, 80);
             this.btn_novo_guardar.Name = "btn_novo_guardar";
             this.btn_novo_guardar.Size = new System.Drawing.Size(89, 23);
             this.btn_novo_guardar.TabIndex = 11;
             this.btn_novo_guardar.Text = "Guardar";
             this.btn_novo_guardar.UseVisualStyleBackColor = true;
+            this.btn_novo_guardar.Click += new System.EventHandler(this.Btn_novo_guardar_Click);
             // 
             // Form1
             // 

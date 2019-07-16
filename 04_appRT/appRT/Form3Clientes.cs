@@ -12,8 +12,6 @@ namespace appRT
 {
     public partial class Form3Clientes : Form
     {
-        string SC = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BDKRT;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
         public Form3Clientes()
         {
             InitializeComponent();
@@ -24,11 +22,10 @@ namespace appRT
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             
 
-            string ssql = "SELECT * FROM T_clientes";
+            string ssql = "SELECT id as ID, nome_cliente as Nome, cidade as Cidade, pais as País FROM T_clientes";
             MyGetData db = new MyGetData();
-            dataGridView1.DataSource = db.BuscaDados(SC, ssql);
-
-
+            dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
+            
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.AllowUserToAddRows = false;

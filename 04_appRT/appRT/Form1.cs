@@ -212,7 +212,35 @@ namespace appRT
             txt_novo_desc.Text = "";
             txt_novo_tempo.Text = "";
             dt_novo_data.Value = DateTime.Now;
+        }
 
+        private void Btn_novo_guardar_Click(object sender, EventArgs e)
+        {
+            string ssql;
+            
+            string cod_cliente = cmb_novo_select_cliente.SelectedValue.ToString();
+            string cod_funcionario = cmb_novo_select_func.SelectedValue.ToString();
+            string data = dt_novo_data.Value.ToString();
+            string tempo = txt_novo_tempo.Text;
+            string descritivo = txt_novo_desc.Text;
+
+            // TODO: Fazer validação de dados antes de avançar!
+            if (cod_cliente == "-1")
+            {
+                MessageBox.Show("Antes de guardar um novo registo, deve selecionar o cliente.", "Atenção!");
+                cmb_novo_select_cliente.Focus();
+                return;
+            }
+            if (cod_funcionario == "-1")
+            {
+                MessageBox.Show("Antes de guardar um novo registo, deve selecionar o funcionário.", "Atenção!");
+                cmb_novo_select_cliente.Focus();
+                return;
+            }
+
+
+            ssql = $"INSERT INTO T_registo_de_tempos ('{cod_cliente}','{cod_funcionario}','{data}','{tempo}', '{descritivo}')";
+            MessageBox.Show(ssql, "SQL Query:");
         }
     }
 }
