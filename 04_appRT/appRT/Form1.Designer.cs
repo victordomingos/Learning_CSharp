@@ -336,6 +336,7 @@
             this.btn_novo_limpar.TabIndex = 10;
             this.btn_novo_limpar.Text = "Limpar";
             this.btn_novo_limpar.UseVisualStyleBackColor = true;
+            this.btn_novo_limpar.Click += new System.EventHandler(this.Btn_novo_limpar_Click);
             // 
             // btn_novo_guardar
             // 

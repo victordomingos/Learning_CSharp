@@ -94,7 +94,7 @@ namespace appRT
                 comboBox1_clientes.ResetText();
                 comboBox1_clientes.Items.Clear();
                 comboBox1_clientes.SelectedItem = null;
-                comboBox1_clientes.SelectedText = "hI!";
+                //comboBox1_clientes.SelectedText = "hI!";
 
             }
         }
@@ -199,5 +199,20 @@ namespace appRT
             
         }
 
+        private void Btn_novo_limpar_Click(object sender, EventArgs e)
+        {
+            string ssql;
+
+            ssql = "SELECT * FROM T_clientes";
+            InitComboBox(cmb_novo_select_cliente, ssql, "nome_cliente", "id", "-- Selecionar Cliente --");
+
+            ssql = "SELECT * FROM T_funcionarios";
+            InitComboBox(cmb_novo_select_func, ssql, "nome_funcionario", "id", "-- Selecionar Funcionário --");
+
+            txt_novo_desc.Text = "";
+            txt_novo_tempo.Text = "";
+            dt_novo_data.Value = DateTime.Now;
+
+        }
     }
 }
