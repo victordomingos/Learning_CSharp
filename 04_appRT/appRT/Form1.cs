@@ -41,7 +41,7 @@ namespace appRT
             // Preencher Gridview
             
             str_estado = " (apenas são mostrados os primeiros 200 registos)";
-            ssql = "SET ROWCOUNT 200 SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
+            ssql = "SET ROWCOUNT 200 SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos ORDER BY Id DESC";
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -193,7 +193,7 @@ namespace appRT
                 }
 
                 ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
-                ssql = ssql_prefix + ssql + filtro;
+                ssql = ssql_prefix + ssql + filtro + " ORDER BY Id DESC";
                 //MessageBox.Show(ssql);
 
                 MyGetData db = new MyGetData();
