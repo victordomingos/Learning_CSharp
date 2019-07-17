@@ -7,6 +7,7 @@ namespace appRT
 {
     public partial class Form1 : Form
     {
+        public readonly int DEFAULT_MAX_ROWS = 20;
 
         public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM, string defaultText)
         {
@@ -27,8 +28,7 @@ namespace appRT
             InitializeComponent();
 
             string ssql;
-            string str_estado;
-            
+
             // Preencher ComboBoxes
             ssql = "SELECT Id, nome_cliente FROM T_clientes";
             InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id", "-- Mostrar Todos --");
@@ -39,9 +39,7 @@ namespace appRT
             InitComboBox(cmb_novo_select_func, ssql, "nome_funcionario", "id", "-- Selecionar Funcionário --");
 
             // Preencher Gridview
-            
-            str_estado = " (apenas são mostrados os primeiros 200 registos)";
-            ssql = "SET ROWCOUNT 200 SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos ORDER BY Id DESC";
+            ssql = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos ORDER BY Id DESC";
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -50,17 +48,25 @@ namespace appRT
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções" + str_estado;
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-          
+            Atualizar_contagem_estado();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e) { }
+
+        public void Atualizar_contagem_estado()
         {
-           
-            
+            MyGetData db = new MyGetData();
+            DataTable dt = db.BuscaDados(SConnection.SC, "SELECT COUNT(Id) from T_registo_de_tempos;");
+            int contagem = dataGridView1.RowCount;
+            var total_registos = Convert.ToInt32(dt.Rows[0][0]);
+            //MessageBox.Show($"{contagem} de {total_registos}");
+
+            if (contagem < total_registos)
+                lbl_estado.Text = $"{total_registos} intervenções (a apresentar apenas os primeiros {contagem} registos)";
+            else
+                lbl_estado.Text = $"{contagem} intervenções";
         }
+
 
         private void Btn_clientes_Click(object sender, EventArgs e)
         {
@@ -143,7 +149,6 @@ namespace appRT
             string operador = "";
             string filtro = "";
             bool has_filter = false;
-            string str_estado = "";
             string ssql_prefix = "";
 
             try
@@ -151,7 +156,7 @@ namespace appRT
                 Int16 cod_cliente = Convert.ToInt16(comboBox1_clientes.SelectedValue.ToString());
                 Int16 cod_funcionario = Convert.ToInt16(comboBox2_funcionarios.SelectedValue.ToString());
 
-                if (cod_cliente !=  0)
+                if (cod_cliente != 0)
                 {
                     if (cod_cliente == -1)
                     {
@@ -169,9 +174,7 @@ namespace appRT
                 if (cod_funcionario != 0)
                 {
                     if (cod_funcionario == -1)
-                    {
                         filtro_funcionario = "";
-                    }
                     else
                     {
                         if (has_filter)
@@ -183,30 +186,23 @@ namespace appRT
                 }
 
                 if (has_filter)
-                {
                     filtro = " WHERE " + filtro_cliente + operador + filtro_funcionario;
-                }
                 else
-                {
-                    ssql_prefix = "SET ROWCOUNT 200 ";
-                    str_estado = " (apenas são mostrados os primeiros 200 registos)";
-                }
+                    ssql_prefix = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} ";
 
                 ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
                 ssql = ssql_prefix + ssql + filtro + " ORDER BY Id DESC";
-                //MessageBox.Show(ssql);
 
                 MyGetData db = new MyGetData();
                 dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
 
-                lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções" + str_estado;
+                if (has_filter == false)
+                    Atualizar_contagem_estado();
+                else
+                    lbl_estado.Text = $"{dataGridView1.RowCount} intervenções";
             }
             catch (Exception)
-            {
-
-                throw;
-            }
-            
+                { throw; }
         }
 
         private void Btn_novo_limpar_Click(object sender, EventArgs e)
