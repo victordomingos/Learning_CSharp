@@ -27,18 +27,21 @@ namespace appRT
             InitializeComponent();
 
             string ssql;
+            string str_estado;
             
             // Preencher ComboBoxes
-            ssql = "SELECT * FROM T_clientes";
+            ssql = "SELECT Id, nome_cliente FROM T_clientes";
             InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id", "-- Mostrar Todos --");
             InitComboBox(cmb_novo_select_cliente, ssql, "nome_cliente", "id", "-- Selecionar Cliente --");
 
-            ssql = "SELECT * FROM T_funcionarios";
+            ssql = "SELECT Id, nome_funcionario FROM T_funcionarios";
             InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id", "-- Mostrar Todos --");
             InitComboBox(cmb_novo_select_func, ssql, "nome_funcionario", "id", "-- Selecionar Funcionário --");
 
             // Preencher Gridview
-            ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
+            
+            str_estado = " (apenas são mostrados os primeiros 200 registos)";
+            ssql = "SET ROWCOUNT 200 SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -47,7 +50,7 @@ namespace appRT
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
+            lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções" + str_estado;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
           
@@ -78,7 +81,7 @@ namespace appRT
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            string ssql = "SELECT * FROM T_clientes";
+            string ssql = "SELECT Id, nome_cliente FROM T_clientes";
             string texto = textBox1_clientes.Text.ToString();
 
             if (texto !="")
@@ -104,7 +107,7 @@ namespace appRT
 
         private void TextBox2_funcionarios_TextChanged(object sender, EventArgs e)
         {
-            string ssql = "SELECT * FROM T_funcionarios";
+            string ssql = "SELECT Id, nome_funcionario FROM T_funcionarios";
             string texto1 = textBox2_funcionarios.Text.ToString();
             //string texto2 = textBox1_clientes.Text.ToString();
             string filtro_funcionario = "";
@@ -140,6 +143,8 @@ namespace appRT
             string operador = "";
             string filtro = "";
             bool has_filter = false;
+            string str_estado = "";
+            string ssql_prefix = "";
 
             try
             {
@@ -181,15 +186,20 @@ namespace appRT
                 {
                     filtro = " WHERE " + filtro_cliente + operador + filtro_funcionario;
                 }
+                else
+                {
+                    ssql_prefix = "SET ROWCOUNT 200 ";
+                    str_estado = " (apenas são mostrados os primeiros 200 registos)";
+                }
 
-
-                ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos" + filtro;
-                MessageBox.Show(ssql);
+                ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
+                ssql = ssql_prefix + ssql + filtro;
+                //MessageBox.Show(ssql);
 
                 MyGetData db = new MyGetData();
                 dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
 
-                lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções";
+                lbl_estado.Text = Convert.ToString(dataGridView1.Rows.Count) + " intervenções" + str_estado;
             }
             catch (Exception)
             {
@@ -203,10 +213,10 @@ namespace appRT
         {
             string ssql;
 
-            ssql = "SELECT * FROM T_clientes";
+            ssql = "SELECT Id, nome_cliente FROM T_clientes";
             InitComboBox(cmb_novo_select_cliente, ssql, "nome_cliente", "id", "-- Selecionar Cliente --");
 
-            ssql = "SELECT * FROM T_funcionarios";
+            ssql = "SELECT Id, nome_funcionario FROM T_funcionarios";
             InitComboBox(cmb_novo_select_func, ssql, "nome_funcionario", "id", "-- Selecionar Funcionário --");
 
             txt_novo_desc.Text = "";
