@@ -59,6 +59,7 @@
             this.dt_novo_data = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.cmb_novo_categoria = new System.Windows.Forms.ComboBox();
+            this.estado_2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,7 +99,8 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbl_estado});
+            this.lbl_estado,
+            this.estado_2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 707);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
@@ -375,6 +377,12 @@
             this.cmb_novo_categoria.TabIndex = 14;
             this.cmb_novo_categoria.SelectedIndexChanged += new System.EventHandler(this.Cmb_novo_categoria_SelectedIndexChanged);
             // 
+            // estado_2
+            // 
+            this.estado_2.Name = "estado_2";
+            this.estado_2.Size = new System.Drawing.Size(118, 17);
+            this.estado_2.Text = "toolStripStatusLabel1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,6 +448,7 @@
         private System.Windows.Forms.Button btn_novo_limpar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmb_novo_categoria;
+        private System.Windows.Forms.ToolStripStatusLabel estado_2;
     }
 }
 
