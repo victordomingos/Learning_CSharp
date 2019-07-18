@@ -32,6 +32,7 @@
             this.btn_funcionarios = new System.Windows.Forms.Button();
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.estado_2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBox1_clientes = new System.Windows.Forms.ComboBox();
             this.textBox1_clientes = new System.Windows.Forms.TextBox();
@@ -45,6 +46,8 @@
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmb_novo_categoria = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btn_novo_guardar = new System.Windows.Forms.Button();
             this.btn_novo_limpar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,9 +60,7 @@
             this.txt_novo_desc = new System.Windows.Forms.TextBox();
             this.txt_novo_tempo = new System.Windows.Forms.TextBox();
             this.dt_novo_data = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmb_novo_categoria = new System.Windows.Forms.ComboBox();
-            this.estado_2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -98,14 +99,22 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lbl_estado,
+            this.toolStripStatusLabel1,
             this.estado_2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 707);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // estado_2
+            // 
+            this.estado_2.Name = "estado_2";
+            this.estado_2.Size = new System.Drawing.Size(118, 17);
+            this.estado_2.Text = "toolStripStatusLabel1";
             // 
             // dataGridView1
             // 
@@ -241,6 +250,27 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Novo registo";
             // 
+            // cmb_novo_categoria
+            // 
+            this.cmb_novo_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_novo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_novo_categoria.FormattingEnabled = true;
+            this.cmb_novo_categoria.Location = new System.Drawing.Point(501, 82);
+            this.cmb_novo_categoria.Name = "cmb_novo_categoria";
+            this.cmb_novo_categoria.Size = new System.Drawing.Size(121, 21);
+            this.cmb_novo_categoria.TabIndex = 14;
+            this.cmb_novo_categoria.SelectedIndexChanged += new System.EventHandler(this.Cmb_novo_categoria_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(440, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Categoria:";
+            // 
             // btn_novo_guardar
             // 
             this.btn_novo_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -356,32 +386,11 @@
             this.dt_novo_data.TabIndex = 1;
             this.dt_novo_data.Value = new System.DateTime(2019, 7, 16, 10, 5, 39, 0);
             // 
-            // label6
+            // toolStripStatusLabel1
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(440, 85);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Categoria:";
-            // 
-            // cmb_novo_categoria
-            // 
-            this.cmb_novo_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_novo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_novo_categoria.FormattingEnabled = true;
-            this.cmb_novo_categoria.Location = new System.Drawing.Point(501, 82);
-            this.cmb_novo_categoria.Name = "cmb_novo_categoria";
-            this.cmb_novo_categoria.Size = new System.Drawing.Size(121, 21);
-            this.cmb_novo_categoria.TabIndex = 14;
-            this.cmb_novo_categoria.SelectedIndexChanged += new System.EventHandler(this.Cmb_novo_categoria_SelectedIndexChanged);
-            // 
-            // estado_2
-            // 
-            this.estado_2.Name = "estado_2";
-            this.estado_2.Size = new System.Drawing.Size(118, 17);
-            this.estado_2.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(802, 17);
+            this.toolStripStatusLabel1.Spring = true;
             // 
             // Form1
             // 
@@ -449,6 +458,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmb_novo_categoria;
         private System.Windows.Forms.ToolStripStatusLabel estado_2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
