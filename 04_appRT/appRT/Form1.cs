@@ -307,5 +307,65 @@ namespace appRT
         }
 
         private void Cmb_novo_categoria_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            Form3Clientes f3 = new Form3Clientes();
+            //f3.BackColor = Color.Azure;
+            f3.Show();
+        }
+
+        private void Tsbtn_funcionarios_Click(object sender, EventArgs e)
+        {
+            Form2Funcionarios f3 = new Form2Funcionarios();
+            //f3.BackColor = Color.Beige;
+            f3.Show();
+        }
+
+        private void Tsbtn_painel_lateral_Click(object sender, EventArgs e) { alternarPainelLateral();}
+
+        private void MostrarPainelLateralToolStripMenuItem_Click(object sender, EventArgs e) { alternarPainelLateral(); }
+
+
+        public void alternarPainelLateral()
+        {
+            if (panel1.Visible)
+            {
+                panel1.Hide();
+                panel_bottom.Width += panel1.Width;
+                dataGridView1.Width += panel1.Width;
+                mostrarPainelLateralToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                panel1.Show();
+                panel_bottom.Width -= panel1.Width;
+                dataGridView1.Width -= panel1.Width;
+                mostrarPainelLateralToolStripMenuItem.Checked = true;
+            }
+        }
+
+
+        public void alternarPainelNovoRegisto()
+        {
+            if (panel_bottom.Visible)
+            {
+                panel_bottom.Hide();
+                dataGridView1.Height += panel_bottom.Height;
+                painelDeNovoRegistoToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                panel_bottom.Show();
+                dataGridView1.Height -= panel_bottom.Height;
+                painelDeNovoRegistoToolStripMenuItem.Checked = true;
+            }
+        }
+
+        private void Tsbtn_novo_registo_Click(object sender, EventArgs e) { alternarPainelNovoRegisto();}
+
+        private void PainelDeNovoRegistoToolStripMenuItem_Click(object sender, EventArgs e) { alternarPainelNovoRegisto(); }
+
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit();}
     }
 }

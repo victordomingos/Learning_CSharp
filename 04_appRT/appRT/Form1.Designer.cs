@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_clientes = new System.Windows.Forms.Button();
-            this.btn_funcionarios = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.estado_2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBox1_clientes = new System.Windows.Forms.ComboBox();
@@ -42,7 +42,6 @@
             this.textBox2_funcionarios = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -60,34 +59,31 @@
             this.txt_novo_desc = new System.Windows.Forms.TextBox();
             this.txt_novo_tempo = new System.Windows.Forms.TextBox();
             this.dt_novo_data = new System.Windows.Forms.DateTimePicker();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbtn_clientes = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_funcionarios = new System.Windows.Forms.ToolStripButton();
+            this.tsbtn_painel_lateral = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel_bottom = new System.Windows.Forms.Panel();
+            this.mostrarPainelLateralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.painelDeNovoRegistoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbtn_novo_registo = new System.Windows.Forms.ToolStripButton();
+            this.acercaDestaAplicaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel_bottom.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btn_clientes
-            // 
-            this.btn_clientes.Location = new System.Drawing.Point(12, 27);
-            this.btn_clientes.Name = "btn_clientes";
-            this.btn_clientes.Size = new System.Drawing.Size(75, 23);
-            this.btn_clientes.TabIndex = 2;
-            this.btn_clientes.Text = "Clientes";
-            this.btn_clientes.UseVisualStyleBackColor = true;
-            this.btn_clientes.Click += new System.EventHandler(this.Btn_clientes_Click);
-            // 
-            // btn_funcionarios
-            // 
-            this.btn_funcionarios.Location = new System.Drawing.Point(93, 27);
-            this.btn_funcionarios.Name = "btn_funcionarios";
-            this.btn_funcionarios.Size = new System.Drawing.Size(75, 23);
-            this.btn_funcionarios.TabIndex = 3;
-            this.btn_funcionarios.Text = "Funcionários";
-            this.btn_funcionarios.UseVisualStyleBackColor = true;
-            this.btn_funcionarios.Click += new System.EventHandler(this.Button1_Click);
             // 
             // lbl_estado
             // 
@@ -110,6 +106,12 @@
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(833, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
             // estado_2
             // 
             this.estado_2.Name = "estado_2";
@@ -122,69 +124,81 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 141);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(751, 419);
+            this.dataGridView1.Size = new System.Drawing.Size(757, 501);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // comboBox1_clientes
             // 
+            this.comboBox1_clientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1_clientes.FormattingEnabled = true;
             this.comboBox1_clientes.Location = new System.Drawing.Point(6, 45);
             this.comboBox1_clientes.Name = "comboBox1_clientes";
-            this.comboBox1_clientes.Size = new System.Drawing.Size(160, 21);
+            this.comboBox1_clientes.Size = new System.Drawing.Size(222, 21);
             this.comboBox1_clientes.TabIndex = 6;
             this.comboBox1_clientes.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // textBox1_clientes
             // 
+            this.textBox1_clientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1_clientes.Location = new System.Drawing.Point(6, 19);
             this.textBox1_clientes.Name = "textBox1_clientes";
-            this.textBox1_clientes.Size = new System.Drawing.Size(160, 20);
+            this.textBox1_clientes.Size = new System.Drawing.Size(222, 20);
             this.textBox1_clientes.TabIndex = 7;
             this.textBox1_clientes.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.textBox1_clientes);
             this.groupBox1.Controls.Add(this.comboBox1_clientes);
-            this.groupBox1.Location = new System.Drawing.Point(12, 56);
+            this.groupBox1.Location = new System.Drawing.Point(9, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(172, 79);
+            this.groupBox1.Size = new System.Drawing.Size(234, 79);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtrar por cliente";
+            this.groupBox1.Text = "Por cliente:";
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.comboBox2_funcionarios);
             this.groupBox2.Controls.Add(this.textBox2_funcionarios);
-            this.groupBox2.Location = new System.Drawing.Point(190, 56);
+            this.groupBox2.Location = new System.Drawing.Point(9, 158);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(172, 79);
+            this.groupBox2.Size = new System.Drawing.Size(234, 79);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtrar por funcionário";
+            this.groupBox2.Text = "Por funcionário:";
             // 
             // comboBox2_funcionarios
             // 
+            this.comboBox2_funcionarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2_funcionarios.FormattingEnabled = true;
             this.comboBox2_funcionarios.Location = new System.Drawing.Point(6, 45);
             this.comboBox2_funcionarios.Name = "comboBox2_funcionarios";
-            this.comboBox2_funcionarios.Size = new System.Drawing.Size(160, 21);
+            this.comboBox2_funcionarios.Size = new System.Drawing.Size(222, 21);
             this.comboBox2_funcionarios.TabIndex = 1;
             this.comboBox2_funcionarios.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_funcionarios_SelectedIndexChanged);
             // 
             // textBox2_funcionarios
             // 
+            this.textBox2_funcionarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2_funcionarios.Location = new System.Drawing.Point(6, 19);
             this.textBox2_funcionarios.Name = "textBox2_funcionarios";
-            this.textBox2_funcionarios.Size = new System.Drawing.Size(160, 20);
+            this.textBox2_funcionarios.Size = new System.Drawing.Size(222, 20);
             this.textBox2_funcionarios.TabIndex = 0;
             this.textBox2_funcionarios.TextChanged += new System.EventHandler(this.TextBox2_funcionarios_TextChanged);
             // 
@@ -192,7 +206,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
             this.janelaToolStripMenuItem,
             this.toolStripMenuItem3});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -203,24 +216,27 @@
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
             this.toolStripMenuItem1.Text = "Ficheiro";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(49, 20);
-            this.toolStripMenuItem2.Text = "Filtrar";
-            // 
             // janelaToolStripMenuItem
             // 
+            this.janelaToolStripMenuItem.Checked = true;
+            this.janelaToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.janelaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mostrarPainelLateralToolStripMenuItem,
+            this.painelDeNovoRegistoToolStripMenuItem});
             this.janelaToolStripMenuItem.Name = "janelaToolStripMenuItem";
-            this.janelaToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
-            this.janelaToolStripMenuItem.Text = "Visualização";
+            this.janelaToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
+            this.janelaToolStripMenuItem.Text = "Ver";
             // 
             // toolStripMenuItem3
             // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDestaAplicaçãoToolStripMenuItem});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(50, 20);
             this.toolStripMenuItem3.Text = "Ajuda";
@@ -243,9 +259,9 @@
             this.groupBox3.Controls.Add(this.txt_novo_desc);
             this.groupBox3.Controls.Add(this.txt_novo_tempo);
             this.groupBox3.Controls.Add(this.dt_novo_data);
-            this.groupBox3.Location = new System.Drawing.Point(12, 580);
+            this.groupBox3.Location = new System.Drawing.Point(10, 17);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(739, 124);
+            this.groupBox3.Size = new System.Drawing.Size(741, 124);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Novo registo";
@@ -255,7 +271,7 @@
             this.cmb_novo_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_novo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_novo_categoria.FormattingEnabled = true;
-            this.cmb_novo_categoria.Location = new System.Drawing.Point(501, 82);
+            this.cmb_novo_categoria.Location = new System.Drawing.Point(503, 82);
             this.cmb_novo_categoria.Name = "cmb_novo_categoria";
             this.cmb_novo_categoria.Size = new System.Drawing.Size(121, 21);
             this.cmb_novo_categoria.TabIndex = 14;
@@ -265,7 +281,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(440, 85);
+            this.label6.Location = new System.Drawing.Point(442, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 13;
@@ -274,7 +290,7 @@
             // btn_novo_guardar
             // 
             this.btn_novo_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_novo_guardar.Location = new System.Drawing.Point(642, 80);
+            this.btn_novo_guardar.Location = new System.Drawing.Point(644, 80);
             this.btn_novo_guardar.Name = "btn_novo_guardar";
             this.btn_novo_guardar.Size = new System.Drawing.Size(89, 23);
             this.btn_novo_guardar.TabIndex = 11;
@@ -285,7 +301,7 @@
             // btn_novo_limpar
             // 
             this.btn_novo_limpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_novo_limpar.Location = new System.Drawing.Point(642, 51);
+            this.btn_novo_limpar.Location = new System.Drawing.Point(644, 51);
             this.btn_novo_limpar.Name = "btn_novo_limpar";
             this.btn_novo_limpar.Size = new System.Drawing.Size(89, 23);
             this.btn_novo_limpar.TabIndex = 10;
@@ -306,7 +322,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(407, 59);
+            this.label4.Location = new System.Drawing.Point(409, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 13);
             this.label4.TabIndex = 8;
@@ -334,7 +350,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(462, 35);
+            this.label1.Location = new System.Drawing.Point(464, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 5;
@@ -363,13 +379,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_novo_desc.Location = new System.Drawing.Point(81, 82);
             this.txt_novo_desc.Name = "txt_novo_desc";
-            this.txt_novo_desc.Size = new System.Drawing.Size(269, 20);
+            this.txt_novo_desc.Size = new System.Drawing.Size(271, 20);
             this.txt_novo_desc.TabIndex = 2;
             // 
             // txt_novo_tempo
             // 
             this.txt_novo_tempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_novo_tempo.Location = new System.Drawing.Point(501, 56);
+            this.txt_novo_tempo.Location = new System.Drawing.Point(503, 56);
             this.txt_novo_tempo.Name = "txt_novo_tempo";
             this.txt_novo_tempo.Size = new System.Drawing.Size(121, 20);
             this.txt_novo_tempo.TabIndex = 0;
@@ -379,35 +395,168 @@
             // 
             this.dt_novo_data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dt_novo_data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_novo_data.Location = new System.Drawing.Point(501, 29);
+            this.dt_novo_data.Location = new System.Drawing.Point(503, 29);
             this.dt_novo_data.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dt_novo_data.Name = "dt_novo_data";
             this.dt_novo_data.Size = new System.Drawing.Size(121, 20);
             this.dt_novo_data.TabIndex = 1;
             this.dt_novo_data.Value = new System.DateTime(2019, 7, 16, 10, 5, 39, 0);
             // 
-            // toolStripStatusLabel1
+            // toolStrip1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(802, 17);
-            this.toolStripStatusLabel1.Spring = true;
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbtn_clientes,
+            this.tsbtn_funcionarios,
+            this.tsbtn_painel_lateral,
+            this.tsbtn_novo_registo});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
+            this.toolStrip1.TabIndex = 12;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbtn_clientes
+            // 
+            this.tsbtn_clientes.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_clientes.Image")));
+            this.tsbtn_clientes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_clientes.Name = "tsbtn_clientes";
+            this.tsbtn_clientes.Size = new System.Drawing.Size(69, 22);
+            this.tsbtn_clientes.Text = "Clientes";
+            this.tsbtn_clientes.Click += new System.EventHandler(this.ToolStripButton1_Click);
+            // 
+            // tsbtn_funcionarios
+            // 
+            this.tsbtn_funcionarios.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_funcionarios.Image")));
+            this.tsbtn_funcionarios.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_funcionarios.Name = "tsbtn_funcionarios";
+            this.tsbtn_funcionarios.Size = new System.Drawing.Size(95, 22);
+            this.tsbtn_funcionarios.Text = "Funcionários";
+            this.tsbtn_funcionarios.Click += new System.EventHandler(this.Tsbtn_funcionarios_Click);
+            // 
+            // tsbtn_painel_lateral
+            // 
+            this.tsbtn_painel_lateral.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbtn_painel_lateral.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_painel_lateral.Image")));
+            this.tsbtn_painel_lateral.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_painel_lateral.Name = "tsbtn_painel_lateral";
+            this.tsbtn_painel_lateral.Size = new System.Drawing.Size(94, 22);
+            this.tsbtn_painel_lateral.Text = "Painel lateral";
+            this.tsbtn_painel_lateral.Click += new System.EventHandler(this.Tsbtn_painel_lateral_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(757, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(252, 665);
+            this.panel1.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.Location = new System.Drawing.Point(11, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 24);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Filtrar";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(9, 364);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(233, 284);
+            this.dataGridView2.TabIndex = 11;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label8.Location = new System.Drawing.Point(11, 323);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 24);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Estatísticas";
+            // 
+            // panel_bottom
+            // 
+            this.panel_bottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_bottom.AutoSize = true;
+            this.panel_bottom.Controls.Add(this.groupBox3);
+            this.panel_bottom.Location = new System.Drawing.Point(0, 550);
+            this.panel_bottom.Name = "panel_bottom";
+            this.panel_bottom.Size = new System.Drawing.Size(757, 154);
+            this.panel_bottom.TabIndex = 14;
+            // 
+            // mostrarPainelLateralToolStripMenuItem
+            // 
+            this.mostrarPainelLateralToolStripMenuItem.Checked = true;
+            this.mostrarPainelLateralToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mostrarPainelLateralToolStripMenuItem.Name = "mostrarPainelLateralToolStripMenuItem";
+            this.mostrarPainelLateralToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.mostrarPainelLateralToolStripMenuItem.Text = "Painel lateral";
+            this.mostrarPainelLateralToolStripMenuItem.Click += new System.EventHandler(this.MostrarPainelLateralToolStripMenuItem_Click);
+            // 
+            // painelDeNovoRegistoToolStripMenuItem
+            // 
+            this.painelDeNovoRegistoToolStripMenuItem.Checked = true;
+            this.painelDeNovoRegistoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.painelDeNovoRegistoToolStripMenuItem.Name = "painelDeNovoRegistoToolStripMenuItem";
+            this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.painelDeNovoRegistoToolStripMenuItem.Text = "Painel de novo registo";
+            this.painelDeNovoRegistoToolStripMenuItem.Click += new System.EventHandler(this.PainelDeNovoRegistoToolStripMenuItem_Click);
+            // 
+            // tsbtn_novo_registo
+            // 
+            this.tsbtn_novo_registo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbtn_novo_registo.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_novo_registo.Image")));
+            this.tsbtn_novo_registo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_novo_registo.Name = "tsbtn_novo_registo";
+            this.tsbtn_novo_registo.Size = new System.Drawing.Size(95, 22);
+            this.tsbtn_novo_registo.Text = "Novo registo";
+            this.tsbtn_novo_registo.Click += new System.EventHandler(this.Tsbtn_novo_registo_Click);
+            // 
+            // acercaDestaAplicaçãoToolStripMenuItem
+            // 
+            this.acercaDestaAplicaçãoToolStripMenuItem.Name = "acercaDestaAplicaçãoToolStripMenuItem";
+            this.acercaDestaAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.acercaDestaAplicaçãoToolStripMenuItem.Text = "Acerca desta aplicação";
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel_bottom);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.btn_funcionarios);
-            this.Controls.Add(this.btn_clientes);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Project Kronos App";
+            this.Text = "Project Kronos App - Registo de Serviço";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -420,14 +569,18 @@
             this.menuStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel_bottom.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_clientes;
-        private System.Windows.Forms.Button btn_funcionarios;
         private System.Windows.Forms.ToolStripStatusLabel lbl_estado;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -439,7 +592,6 @@
         private System.Windows.Forms.TextBox textBox2_funcionarios;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem janelaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -459,6 +611,20 @@
         private System.Windows.Forms.ComboBox cmb_novo_categoria;
         private System.Windows.Forms.ToolStripStatusLabel estado_2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripButton tsbtn_clientes;
+        private System.Windows.Forms.ToolStripButton tsbtn_funcionarios;
+        private System.Windows.Forms.ToolStripButton tsbtn_painel_lateral;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Panel panel_bottom;
+        private System.Windows.Forms.ToolStripMenuItem mostrarPainelLateralToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem painelDeNovoRegistoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton tsbtn_novo_registo;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDestaAplicaçãoToolStripMenuItem;
     }
 }
 
