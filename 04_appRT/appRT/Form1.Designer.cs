@@ -45,18 +45,20 @@
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_novo_guardar = new System.Windows.Forms.Button();
+            this.btn_novo_limpar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmb_novo_select_func = new System.Windows.Forms.ComboBox();
+            this.cmb_novo_select_cliente = new System.Windows.Forms.ComboBox();
+            this.txt_novo_desc = new System.Windows.Forms.TextBox();
             this.txt_novo_tempo = new System.Windows.Forms.TextBox();
             this.dt_novo_data = new System.Windows.Forms.DateTimePicker();
-            this.txt_novo_desc = new System.Windows.Forms.TextBox();
-            this.cmb_novo_select_cliente = new System.Windows.Forms.ComboBox();
-            this.cmb_novo_select_func = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btn_novo_limpar = new System.Windows.Forms.Button();
-            this.btn_novo_guardar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmb_novo_categoria = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -216,6 +218,8 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.cmb_novo_categoria);
+            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.btn_novo_guardar);
             this.groupBox3.Controls.Add(this.btn_novo_limpar);
             this.groupBox3.Controls.Add(this.label5);
@@ -235,97 +239,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Novo registo";
             // 
-            // txt_novo_tempo
+            // btn_novo_guardar
             // 
-            this.txt_novo_tempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_novo_tempo.Location = new System.Drawing.Point(501, 56);
-            this.txt_novo_tempo.Name = "txt_novo_tempo";
-            this.txt_novo_tempo.Size = new System.Drawing.Size(121, 20);
-            this.txt_novo_tempo.TabIndex = 0;
-            // 
-            // dt_novo_data
-            // 
-            this.dt_novo_data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dt_novo_data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_novo_data.Location = new System.Drawing.Point(501, 29);
-            this.dt_novo_data.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
-            this.dt_novo_data.Name = "dt_novo_data";
-            this.dt_novo_data.Size = new System.Drawing.Size(121, 20);
-            this.dt_novo_data.TabIndex = 1;
-            this.dt_novo_data.Value = new System.DateTime(2019, 7, 16, 10, 5, 39, 0);
-            // 
-            // txt_novo_desc
-            // 
-            this.txt_novo_desc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_novo_desc.Location = new System.Drawing.Point(81, 82);
-            this.txt_novo_desc.Name = "txt_novo_desc";
-            this.txt_novo_desc.Size = new System.Drawing.Size(541, 20);
-            this.txt_novo_desc.TabIndex = 2;
-            // 
-            // cmb_novo_select_cliente
-            // 
-            this.cmb_novo_select_cliente.FormattingEnabled = true;
-            this.cmb_novo_select_cliente.Location = new System.Drawing.Point(81, 28);
-            this.cmb_novo_select_cliente.Name = "cmb_novo_select_cliente";
-            this.cmb_novo_select_cliente.Size = new System.Drawing.Size(269, 21);
-            this.cmb_novo_select_cliente.TabIndex = 3;
-            // 
-            // cmb_novo_select_func
-            // 
-            this.cmb_novo_select_func.FormattingEnabled = true;
-            this.cmb_novo_select_func.Location = new System.Drawing.Point(81, 55);
-            this.cmb_novo_select_func.Name = "cmb_novo_select_func";
-            this.cmb_novo_select_func.Size = new System.Drawing.Size(269, 21);
-            this.cmb_novo_select_func.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(462, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Data:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Cliente:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Funcionário:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(407, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Tempo (minutos):";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Descrição:";
+            this.btn_novo_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_novo_guardar.Location = new System.Drawing.Point(642, 80);
+            this.btn_novo_guardar.Name = "btn_novo_guardar";
+            this.btn_novo_guardar.Size = new System.Drawing.Size(89, 23);
+            this.btn_novo_guardar.TabIndex = 11;
+            this.btn_novo_guardar.Text = "Guardar";
+            this.btn_novo_guardar.UseVisualStyleBackColor = true;
+            this.btn_novo_guardar.Click += new System.EventHandler(this.Btn_novo_guardar_Click);
             // 
             // btn_novo_limpar
             // 
@@ -338,16 +261,119 @@
             this.btn_novo_limpar.UseVisualStyleBackColor = true;
             this.btn_novo_limpar.Click += new System.EventHandler(this.Btn_novo_limpar_Click);
             // 
-            // btn_novo_guardar
+            // label5
             // 
-            this.btn_novo_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_novo_guardar.Location = new System.Drawing.Point(642, 80);
-            this.btn_novo_guardar.Name = "btn_novo_guardar";
-            this.btn_novo_guardar.Size = new System.Drawing.Size(89, 23);
-            this.btn_novo_guardar.TabIndex = 11;
-            this.btn_novo_guardar.Text = "Guardar";
-            this.btn_novo_guardar.UseVisualStyleBackColor = true;
-            this.btn_novo_guardar.Click += new System.EventHandler(this.Btn_novo_guardar_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Descrição:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(407, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Tempo (minutos):";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Funcionário:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Cliente:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(462, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Data:";
+            // 
+            // cmb_novo_select_func
+            // 
+            this.cmb_novo_select_func.FormattingEnabled = true;
+            this.cmb_novo_select_func.Location = new System.Drawing.Point(81, 55);
+            this.cmb_novo_select_func.Name = "cmb_novo_select_func";
+            this.cmb_novo_select_func.Size = new System.Drawing.Size(269, 21);
+            this.cmb_novo_select_func.TabIndex = 4;
+            // 
+            // cmb_novo_select_cliente
+            // 
+            this.cmb_novo_select_cliente.FormattingEnabled = true;
+            this.cmb_novo_select_cliente.Location = new System.Drawing.Point(81, 28);
+            this.cmb_novo_select_cliente.Name = "cmb_novo_select_cliente";
+            this.cmb_novo_select_cliente.Size = new System.Drawing.Size(269, 21);
+            this.cmb_novo_select_cliente.TabIndex = 3;
+            // 
+            // txt_novo_desc
+            // 
+            this.txt_novo_desc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_novo_desc.Location = new System.Drawing.Point(81, 82);
+            this.txt_novo_desc.Name = "txt_novo_desc";
+            this.txt_novo_desc.Size = new System.Drawing.Size(269, 20);
+            this.txt_novo_desc.TabIndex = 2;
+            // 
+            // txt_novo_tempo
+            // 
+            this.txt_novo_tempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_novo_tempo.Location = new System.Drawing.Point(501, 56);
+            this.txt_novo_tempo.Name = "txt_novo_tempo";
+            this.txt_novo_tempo.Size = new System.Drawing.Size(121, 20);
+            this.txt_novo_tempo.TabIndex = 0;
+            this.txt_novo_tempo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dt_novo_data
+            // 
+            this.dt_novo_data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dt_novo_data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_novo_data.Location = new System.Drawing.Point(501, 29);
+            this.dt_novo_data.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
+            this.dt_novo_data.Name = "dt_novo_data";
+            this.dt_novo_data.Size = new System.Drawing.Size(121, 20);
+            this.dt_novo_data.TabIndex = 1;
+            this.dt_novo_data.Value = new System.DateTime(2019, 7, 16, 10, 5, 39, 0);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(440, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Categoria:";
+            // 
+            // cmb_novo_categoria
+            // 
+            this.cmb_novo_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_novo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_novo_categoria.FormattingEnabled = true;
+            this.cmb_novo_categoria.Location = new System.Drawing.Point(501, 82);
+            this.cmb_novo_categoria.Name = "cmb_novo_categoria";
+            this.cmb_novo_categoria.Size = new System.Drawing.Size(121, 21);
+            this.cmb_novo_categoria.TabIndex = 14;
+            this.cmb_novo_categoria.SelectedIndexChanged += new System.EventHandler(this.Cmb_novo_categoria_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -412,6 +438,8 @@
         private System.Windows.Forms.DateTimePicker dt_novo_data;
         private System.Windows.Forms.Button btn_novo_guardar;
         private System.Windows.Forms.Button btn_novo_limpar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmb_novo_categoria;
     }
 }
 

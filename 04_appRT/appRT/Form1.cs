@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data;
-
+using System.Collections.Generic;
 
 namespace appRT
 {
@@ -39,7 +39,12 @@ namespace appRT
             InitComboBox(cmb_novo_select_func, ssql, "nome_funcionario", "id", "-- Selecionar Funcionário --");
 
             // Preencher Gridview
-            ssql = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos ORDER BY Id DESC";
+            ssql = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} SELECT Id as ID, cod_cliente as Cliente, " +
+                    "cod_funcionario as Funcionário, data as Data, tempo as Tempo, " +
+                    "descritivo as Descrição, categoria as Categoria " +
+                    "FROM T_registo_de_tempos " +
+                    "ORDER BY Id DESC";
+
             MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -48,6 +53,26 @@ namespace appRT
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.ReadOnly = true;
+
+            // Preencher combobox categorias
+            var categorias = new List<string> { "-- Selecionar cat. --",
+                "Contabilidade",
+                "Recursos humanos",
+                "Análise",
+                "Correspondência",
+                "Exterior",
+                "Reuniões",
+                "Mapas",
+                "Outros",
+            };
+
+            foreach (var item in categorias)
+                cmb_novo_categoria.Items.Add(item);
+
+            cmb_novo_categoria.SelectedIndex = 0;
+            
+
             Atualizar_contagem_estado();
         }
 
@@ -59,7 +84,6 @@ namespace appRT
             DataTable dt = db.BuscaDados(SConnection.SC, "SELECT COUNT(Id) from T_registo_de_tempos;");
             int contagem = dataGridView1.RowCount;
             var total_registos = Convert.ToInt32(dt.Rows[0][0]);
-            //MessageBox.Show($"{contagem} de {total_registos}");
 
             if (contagem < total_registos)
                 lbl_estado.Text = $"{total_registos} intervenções (a apresentar apenas os primeiros {contagem} registos)";
@@ -91,7 +115,7 @@ namespace appRT
             string texto = textBox1_clientes.Text.ToString();
 
             if (texto !="")
-                ssql += " WHERE nome_cliente LIKE '%" + texto + "%'";
+                ssql += $" WHERE nome_cliente LIKE '%{texto}%'";
 
             try
             {
@@ -120,7 +144,7 @@ namespace appRT
             string filtro_cliente = "";
 
             if (texto1 != "")
-                filtro_funcionario = " WHERE nome_funcionario LIKE '%" + texto1 + "%'";
+                filtro_funcionario = $" WHERE nome_funcionario LIKE '%{texto1}%'";
 
             //if (texto2 != "")
             //    filtro_cliente = " AND nome_cliente LIKE '%" + texto2 + "%'";
@@ -165,7 +189,7 @@ namespace appRT
                     }
                     else
                     {
-                        filtro_cliente = "cod_cliente='" + cod_cliente + "'";
+                        filtro_cliente = $"cod_cliente='{cod_cliente}'";
                         has_filter = true;
                     }
                 }
@@ -180,7 +204,7 @@ namespace appRT
                         if (has_filter)
                             operador = " and ";
 
-                        filtro_funcionario = "cod_funcionario='" + cod_funcionario + "'";
+                        filtro_funcionario = $"cod_funcionario='{cod_funcionario}'";
                         has_filter = true;
                     }
                 }
@@ -190,7 +214,9 @@ namespace appRT
                 else
                     ssql_prefix = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} ";
 
-                ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, data as Data, tempo as Tempo, descritivo as Descrição FROM T_registo_de_tempos";
+                ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, " +
+                       "data as Data, tempo as Tempo, descritivo as Descrição, categoria as Categoria " +
+                       "FROM T_registo_de_tempos";
                 ssql = ssql_prefix + ssql + filtro + " ORDER BY Id DESC";
 
                 MyGetData db = new MyGetData();
@@ -228,7 +254,9 @@ namespace appRT
             string cod_funcionario = cmb_novo_select_func.SelectedValue.ToString();
             string data = dt_novo_data.Value.ToString();
             string tempo = txt_novo_tempo.Text;
+            Int32 minutos;
             string descritivo = txt_novo_desc.Text;
+            string categoria = cmb_novo_categoria.Text;
 
             // TODO: Fazer validação de dados antes de avançar!
             if (cod_cliente == "-1")
@@ -237,33 +265,47 @@ namespace appRT
                 cmb_novo_select_cliente.Focus();
                 return;
             }
+
             if (cod_funcionario == "-1")
             {
                 MessageBox.Show("Antes de guardar um novo registo, deve selecionar o funcionário.", "Atenção!");
                 cmb_novo_select_cliente.Focus();
                 return;
             }
+
             try
             {
-                Int32 minutos = Convert.ToInt32(txt_novo_tempo.Text);
-                tempo = minutos.ToString();
+                minutos = Convert.ToInt32(txt_novo_tempo.Text);
             }
             catch (Exception)
             {
-                MessageBox.Show("Por favor introduza corretamente o tempo (número de minutos).", "Atenção!");
+                MessageBox.Show("Por favor, introduza corretamente o tempo (número de minutos).", "Atenção!");
                 txt_novo_tempo.Focus();
                 return;
             }
+
             if (txt_novo_desc.Text == "")
             {
-                MessageBox.Show("Por favor introduza a descrição do serviço.", "Atenção!");
+                MessageBox.Show("Por favor, introduza a descrição do serviço.", "Atenção!");
                 txt_novo_desc.Focus();
                 return;
             }
 
+            if (cmb_novo_categoria.SelectedIndex == 0)
+            {
+                MessageBox.Show("Por favor, selecione a categoria de serviço.", "Atenção!");
+                cmb_novo_categoria.Focus();
+                return;
+            }
 
-            ssql = $"INSERT INTO T_registo_de_tempos ('{cod_cliente}','{cod_funcionario}','{data}','{tempo}', '{descritivo}')";
+
+            ssql =  "INSERT INTO T_registo_de_tempos VALUES (" +
+                   $"'{cod_cliente}','{cod_funcionario}','{data}', {minutos}, " +
+                   $"'{descritivo}', '{categoria}')";
             MessageBox.Show(ssql, "SQL Query:");
+            Filtrar_lista();
         }
+
+        private void Cmb_novo_categoria_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }
