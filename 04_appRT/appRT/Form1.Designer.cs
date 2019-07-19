@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -42,8 +43,12 @@
             this.textBox2_funcionarios = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostrarPainelLateralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.painelDeNovoRegistoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDestaAplicaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmb_novo_categoria = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,16 +68,12 @@
             this.tsbtn_clientes = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_funcionarios = new System.Windows.Forms.ToolStripButton();
             this.tsbtn_painel_lateral = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel_bottom = new System.Windows.Forms.Panel();
-            this.mostrarPainelLateralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.painelDeNovoRegistoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbtn_novo_registo = new System.Windows.Forms.ToolStripButton();
-            this.acercaDestaAplicaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel_bottom = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -120,6 +121,8 @@
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -222,6 +225,13 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
             this.toolStripMenuItem1.Text = "Ficheiro";
             // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
+            // 
             // janelaToolStripMenuItem
             // 
             this.janelaToolStripMenuItem.Checked = true;
@@ -233,6 +243,24 @@
             this.janelaToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
             this.janelaToolStripMenuItem.Text = "Ver";
             // 
+            // mostrarPainelLateralToolStripMenuItem
+            // 
+            this.mostrarPainelLateralToolStripMenuItem.Checked = true;
+            this.mostrarPainelLateralToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mostrarPainelLateralToolStripMenuItem.Name = "mostrarPainelLateralToolStripMenuItem";
+            this.mostrarPainelLateralToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.mostrarPainelLateralToolStripMenuItem.Text = "Painel lateral";
+            this.mostrarPainelLateralToolStripMenuItem.Click += new System.EventHandler(this.MostrarPainelLateralToolStripMenuItem_Click);
+            // 
+            // painelDeNovoRegistoToolStripMenuItem
+            // 
+            this.painelDeNovoRegistoToolStripMenuItem.Checked = true;
+            this.painelDeNovoRegistoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.painelDeNovoRegistoToolStripMenuItem.Name = "painelDeNovoRegistoToolStripMenuItem";
+            this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.painelDeNovoRegistoToolStripMenuItem.Text = "Painel de novo registo";
+            this.painelDeNovoRegistoToolStripMenuItem.Click += new System.EventHandler(this.PainelDeNovoRegistoToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -240,6 +268,13 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(50, 20);
             this.toolStripMenuItem3.Text = "Ajuda";
+            // 
+            // acercaDestaAplicaçãoToolStripMenuItem
+            // 
+            this.acercaDestaAplicaçãoToolStripMenuItem.Name = "acercaDestaAplicaçãoToolStripMenuItem";
+            this.acercaDestaAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.acercaDestaAplicaçãoToolStripMenuItem.Text = "Acerca desta aplicação";
+            this.acercaDestaAplicaçãoToolStripMenuItem.Click += new System.EventHandler(this.AcercaDestaAplicaçãoToolStripMenuItem_Click);
             // 
             // groupBox3
             // 
@@ -444,6 +479,16 @@
             this.tsbtn_painel_lateral.Text = "Painel lateral";
             this.tsbtn_painel_lateral.Click += new System.EventHandler(this.Tsbtn_painel_lateral_Click);
             // 
+            // tsbtn_novo_registo
+            // 
+            this.tsbtn_novo_registo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbtn_novo_registo.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_novo_registo.Image")));
+            this.tsbtn_novo_registo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtn_novo_registo.Name = "tsbtn_novo_registo";
+            this.tsbtn_novo_registo.Size = new System.Drawing.Size(95, 22);
+            this.tsbtn_novo_registo.Text = "Novo registo";
+            this.tsbtn_novo_registo.Click += new System.EventHandler(this.Tsbtn_novo_registo_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -459,27 +504,6 @@
             this.panel1.Size = new System.Drawing.Size(252, 665);
             this.panel1.TabIndex = 13;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label7.Location = new System.Drawing.Point(11, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 24);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Filtrar";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 364);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(233, 284);
-            this.dataGridView2.TabIndex = 11;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -491,6 +515,30 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Estatísticas";
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(9, 364);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(233, 284);
+            this.dataGridView2.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label7.Location = new System.Drawing.Point(11, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 24);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Filtrar";
+            // 
             // panel_bottom
             // 
             this.panel_bottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -501,47 +549,6 @@
             this.panel_bottom.Name = "panel_bottom";
             this.panel_bottom.Size = new System.Drawing.Size(757, 154);
             this.panel_bottom.TabIndex = 14;
-            // 
-            // mostrarPainelLateralToolStripMenuItem
-            // 
-            this.mostrarPainelLateralToolStripMenuItem.Checked = true;
-            this.mostrarPainelLateralToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.mostrarPainelLateralToolStripMenuItem.Name = "mostrarPainelLateralToolStripMenuItem";
-            this.mostrarPainelLateralToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.mostrarPainelLateralToolStripMenuItem.Text = "Painel lateral";
-            this.mostrarPainelLateralToolStripMenuItem.Click += new System.EventHandler(this.MostrarPainelLateralToolStripMenuItem_Click);
-            // 
-            // painelDeNovoRegistoToolStripMenuItem
-            // 
-            this.painelDeNovoRegistoToolStripMenuItem.Checked = true;
-            this.painelDeNovoRegistoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.painelDeNovoRegistoToolStripMenuItem.Name = "painelDeNovoRegistoToolStripMenuItem";
-            this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.painelDeNovoRegistoToolStripMenuItem.Text = "Painel de novo registo";
-            this.painelDeNovoRegistoToolStripMenuItem.Click += new System.EventHandler(this.PainelDeNovoRegistoToolStripMenuItem_Click);
-            // 
-            // tsbtn_novo_registo
-            // 
-            this.tsbtn_novo_registo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbtn_novo_registo.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_novo_registo.Image")));
-            this.tsbtn_novo_registo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtn_novo_registo.Name = "tsbtn_novo_registo";
-            this.tsbtn_novo_registo.Size = new System.Drawing.Size(95, 22);
-            this.tsbtn_novo_registo.Text = "Novo registo";
-            this.tsbtn_novo_registo.Click += new System.EventHandler(this.Tsbtn_novo_registo_Click);
-            // 
-            // acercaDestaAplicaçãoToolStripMenuItem
-            // 
-            this.acercaDestaAplicaçãoToolStripMenuItem.Name = "acercaDestaAplicaçãoToolStripMenuItem";
-            this.acercaDestaAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.acercaDestaAplicaçãoToolStripMenuItem.Text = "Acerca desta aplicação";
-            // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
             // Form1
             // 

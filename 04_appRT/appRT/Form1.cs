@@ -367,5 +367,11 @@ namespace appRT
         private void PainelDeNovoRegistoToolStripMenuItem_Click(object sender, EventArgs e) { alternarPainelNovoRegisto(); }
 
         private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit();}
+
+        private void AcercaDestaAplicaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Acerca acercaForm = new Acerca();
+            acercaForm.Show();
+        }
     }
 }
