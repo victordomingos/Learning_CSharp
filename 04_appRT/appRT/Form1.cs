@@ -7,12 +7,12 @@ namespace appRT
 {
     public partial class Form1 : Form
     {
-        public readonly int DEFAULT_MAX_ROWS = 20;
+        public readonly int DEFAULT_MAX_ROWS = 200;
+        public MyGetData db = new MyGetData();
 
         public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM, string defaultText)
         {
             // Preencher ComboBox
-            MyGetData db = new MyGetData();
             DataTable dt = db.BuscaDados(SConnection.SC, ssql);
             DataRow row = dt.NewRow();
             row[valueM] = -1;
@@ -45,7 +45,6 @@ namespace appRT
                     "FROM T_registo_de_tempos " +
                     "ORDER BY Id DESC";
 
-            MyGetData db = new MyGetData();
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -74,16 +73,15 @@ namespace appRT
             
 
             Atualizar_contagem_estado();
+            AtualizarEstatisticas();
         }
 
         private void Form1_Load(object sender, EventArgs e) { }
 
         public void Atualizar_contagem_estado()
         {
-            MyGetData db = new MyGetData();
-            DataTable dt = db.BuscaDados(SConnection.SC, "SELECT COUNT(Id) from T_registo_de_tempos;");
+            int total_registos = db.ContarTotalRegistos();
             int contagem = dataGridView1.RowCount;
-            var total_registos = Convert.ToInt32(dt.Rows[0][0]);
 
             if (contagem < total_registos)
                 lbl_estado.Text = $"{total_registos} intervenções (a apresentar apenas os primeiros {contagem} registos)";
@@ -219,13 +217,14 @@ namespace appRT
                        "FROM T_registo_de_tempos";
                 ssql = ssql_prefix + ssql + filtro + " ORDER BY Id DESC";
 
-                MyGetData db = new MyGetData();
                 dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
 
                 if (has_filter == false)
                     Atualizar_contagem_estado();
                 else
                     lbl_estado.Text = $"{dataGridView1.RowCount} intervenções";
+
+                AtualizarEstatisticas();
             }
             catch (Exception)
                 { throw; }
@@ -342,15 +341,55 @@ namespace appRT
                 panel_bottom.Width -= panel1.Width;
                 dataGridView1.Width -= panel1.Width;
                 mostrarPainelLateralToolStripMenuItem.Checked = true;
-                atualizarEstatisticas();
+                AtualizarEstatisticas();
             }
         }
 
 
-        public void atualizarEstatisticas()
+        public void AtualizarEstatisticas()
         {
-            grid_stats.Rows.Add("assas", "123");
+            grid_stats.Rows.Clear();
 
+            grid_stats.Rows.Add("Geral: ");
+            grid_stats.Rows.Add("  - Total de registos", db.ContarTotalRegistos());
+            grid_stats.Rows.Add("  - Registos este ano", db.ContarRegistosEsteAno());
+            grid_stats.Rows.Add("  - Registos este mês", db.ContarRegistosEsteMes());
+
+            if (comboBox1_clientes.SelectedIndex > 0)
+            {
+                string nome_cliente = comboBox1_clientes.Text;
+                if (nome_cliente.Length > 30)
+                    nome_cliente = nome_cliente.Substring(0, 30) + "…";
+
+                int cod_cliente = Convert.ToInt32(comboBox1_clientes.SelectedValue);
+                int registos_cliente_mes = db.ContarRegistosClienteEsteMes(cod_cliente);
+                string minutos_cliente_mes = "BBB";
+
+                grid_stats.Rows.Add();
+                grid_stats.Rows.Add("Cliente: " + nome_cliente);
+                grid_stats.Rows.Add("  - Registos este mês", registos_cliente_mes);
+                grid_stats.Rows.Add("  - Minutos este mês", minutos_cliente_mes);
+            }
+
+            if (comboBox2_funcionarios.SelectedIndex > 0)
+            {
+                string nome_funcionario = comboBox2_funcionarios.Text;
+                if (nome_funcionario.Length > 30)
+                    nome_funcionario = nome_funcionario.Substring(0,30) + "…";
+
+                string minutos_funcionario_mes = "AAA";
+
+
+                int cod_funcionario = Convert.ToInt32(comboBox2_funcionarios.SelectedValue);
+                int registos_funcionario_mes = db.ContarRegistosFuncEsteMes(cod_funcionario);
+
+                grid_stats.Rows.Add();
+                grid_stats.Rows.Add("Func.: " + nome_funcionario);
+                grid_stats.Rows.Add("  - Registos este mês", registos_funcionario_mes);
+                grid_stats.Rows.Add("  - Minutos este mês", minutos_funcionario_mes);
+            }
+
+            grid_stats.ClearSelection();
         }
 
         public void alternarPainelNovoRegisto()
