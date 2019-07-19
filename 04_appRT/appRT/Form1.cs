@@ -297,11 +297,12 @@ namespace appRT
                 return;
             }
 
-
-            ssql =  "INSERT INTO T_registo_de_tempos VALUES (" +
+            ssql = "INSERT INTO T_registo_de_tempos VALUES (" +
                    $"'{cod_cliente}','{cod_funcionario}','{data}', {minutos}, " +
                    $"'{descritivo}', '{categoria}')";
+
             MessageBox.Show(ssql, "SQL Query:");
+            db.InserirRegistoTempo(cod_cliente, cod_funcionario, data, minutos, descritivo, categoria);
             Filtrar_lista();
         }
 

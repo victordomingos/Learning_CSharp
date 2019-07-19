@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace appRT
 {
@@ -76,6 +77,41 @@ namespace appRT
                "AND MONTH(data) = MONTH(GETDATE());");
 
             return Convert.ToInt32(dt.Rows[0][0]);
+        }
+
+        public int InserirRegistoTempo(string cod_cliente, string cod_funcionario, string data, int minutos, string descritivo, string categoria)
+        {
+            string ssql;
+            /* //Exemplo:
+             string query = "INSERT INTO ArticlesTBL (ArticleTitle, ArticleContent, ArticleType, ArticleImg, ArticleBrief,  
+                ArticleDateTime, ArticleAuthor, ArticlePublished, ArticleHomeDisplay, ArticleViews)";
+
+            query += " VALUES (@ArticleTitle, @ArticleContent, @ArticleType, @ArticleImg, @ArticleBrief, 
+                                @ArticleDateTime, @ArticleAuthor, @ArticlePublished, @ArticleHomeDisplay, @ArticleViews)";
+
+            SqlCommand myCommand = new SqlCommand(query, myConnection);
+            myCommand.Parameters.AddWithValue("@ArticleTitle", ArticleTitleTextBox.Text);
+            myCommand.Parameters.AddWithValue("@ArticleContent", ArticleContentTextBox.Text);
+            // ... other parameters
+            myCommand.ExecuteNonQuery();
+            */
+
+
+            ssql = "INSERT INTO T_registo_de_tempos (cod_cliente, cod_funcionario, data, minutos, descritivo, categoria) ";
+
+            ssql += "VALUES (@cod_cliente, @cod_funcionario, @data, @minutos, @descritivo, @categoria";
+
+            SqlConnection C = new SqlConnection(SC);
+            C.Open();
+            SqlCommand comando = new SqlCommand(ssql, C);
+
+            comando.Parameters.AddWithValue("@cod_cliente", cod_cliente);
+
+            $"'{cod_cliente}','{cod_funcionario}','{data}', {minutos}, " +
+                   $"'{descritivo}', '{categoria}')";
+
+            MessageBox.Show(ssql, "SQL Query:");
+            return 0;
         }
     }
 }
