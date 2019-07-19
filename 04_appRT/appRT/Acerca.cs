@@ -23,30 +23,22 @@ namespace appRT
             this.Close();
         }
 
-        private void Label6_Click(object sender, EventArgs e)
-        {
+        private void Label6_Click(object sender, EventArgs e) { this.Close(); }
 
-        }
+        private void Label5_Click(object sender, EventArgs e) { this.Close();}
 
-        private void Label5_Click(object sender, EventArgs e)
-        {
+        private void Acerca_Click(object sender, EventArgs e) { this.Close(); }
 
-        }
-
-        private void Acerca_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Acerca_KeyUp(object sender, KeyEventArgs e)
-        {
-            this.Close();
-        }
+        private void Acerca_KeyUp(object sender, KeyEventArgs e){ this.Close(); }
 
         private void Label2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/akveo/eva-icons");
             this.Close();
         }
+
+        private void Label4_Click(object sender, EventArgs e) { this.Close(); }
+
+        private void Label3_Click(object sender, EventArgs e) { this.Close(); }
     }
 }

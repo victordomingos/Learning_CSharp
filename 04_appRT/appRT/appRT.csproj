@@ -108,5 +108,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\file-add-outline.png" />
+    <Content Include="icons\info-outline.png" />
+    <Content Include="icons\layout-outline.png" />
+    <Content Include="icons\menu-outline.png" />
+    <Content Include="icons\person-add-outline.png" />
+    <Content Include="icons\person-outline.png" />
+    <Content Include="icons\person.png" />
+    <Content Include="icons\plus-circle-outline.png" />
+    <Content Include="icons\plus-square-outline.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -342,9 +342,16 @@ namespace appRT
                 panel_bottom.Width -= panel1.Width;
                 dataGridView1.Width -= panel1.Width;
                 mostrarPainelLateralToolStripMenuItem.Checked = true;
+                atualizarEstatisticas();
             }
         }
 
+
+        public void atualizarEstatisticas()
+        {
+            grid_stats.Rows.Add("assas", "123");
+
+        }
 
         public void alternarPainelNovoRegisto()
         {

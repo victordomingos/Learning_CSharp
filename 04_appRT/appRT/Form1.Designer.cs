@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -71,9 +71,11 @@
             this.tsbtn_novo_registo = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.grid_stats = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
+            this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,7 +84,7 @@
             this.groupBox3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_stats)).BeginInit();
             this.panel_bottom.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,8 +123,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -280,6 +282,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox3.Controls.Add(this.cmb_novo_categoria);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.btn_novo_guardar);
@@ -495,7 +498,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.grid_stats);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
@@ -515,18 +518,28 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Estatísticas";
             // 
-            // dataGridView2
+            // grid_stats
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 364);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(233, 284);
-            this.dataGridView2.TabIndex = 11;
+            this.grid_stats.AllowUserToAddRows = false;
+            this.grid_stats.AllowUserToDeleteRows = false;
+            this.grid_stats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grid_stats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_stats.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.grid_stats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grid_stats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_stats.ColumnHeadersVisible = false;
+            this.grid_stats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.key,
+            this.value});
+            this.grid_stats.Location = new System.Drawing.Point(9, 364);
+            this.grid_stats.Name = "grid_stats";
+            this.grid_stats.ReadOnly = true;
+            this.grid_stats.RowHeadersVisible = false;
+            this.grid_stats.ShowEditingIcon = false;
+            this.grid_stats.Size = new System.Drawing.Size(233, 284);
+            this.grid_stats.TabIndex = 11;
             // 
             // label7
             // 
@@ -549,6 +562,18 @@
             this.panel_bottom.Name = "panel_bottom";
             this.panel_bottom.Size = new System.Drawing.Size(757, 154);
             this.panel_bottom.TabIndex = 14;
+            // 
+            // key
+            // 
+            this.key.HeaderText = "Chave";
+            this.key.Name = "key";
+            this.key.ReadOnly = true;
+            // 
+            // value
+            // 
+            this.value.HeaderText = "Valor";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
             // 
             // Form1
             // 
@@ -580,7 +605,7 @@
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_stats)).EndInit();
             this.panel_bottom.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -625,13 +650,15 @@
         private System.Windows.Forms.ToolStripButton tsbtn_painel_lateral;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView grid_stats;
         private System.Windows.Forms.Panel panel_bottom;
         private System.Windows.Forms.ToolStripMenuItem mostrarPainelLateralToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem painelDeNovoRegistoToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton tsbtn_novo_registo;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDestaAplicaçãoToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn key;
+        private System.Windows.Forms.DataGridViewTextBoxColumn value;
     }
 }
 

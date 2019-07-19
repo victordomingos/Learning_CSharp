@@ -69,6 +69,7 @@
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Project";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // label4
             // 
@@ -80,6 +81,7 @@
             this.label4.Size = new System.Drawing.Size(297, 91);
             this.label4.TabIndex = 3;
             this.label4.Text = "Kronos";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label5
             // 
