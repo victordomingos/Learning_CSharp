@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -76,6 +76,7 @@
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
+            this.novoRegistoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -123,19 +124,19 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 52);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(757, 501);
+            this.dataGridView1.Size = new System.Drawing.Size(757, 487);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
@@ -224,6 +225,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoRegistoToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
@@ -232,7 +234,7 @@
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
@@ -252,7 +254,8 @@
             this.mostrarPainelLateralToolStripMenuItem.Checked = true;
             this.mostrarPainelLateralToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mostrarPainelLateralToolStripMenuItem.Name = "mostrarPainelLateralToolStripMenuItem";
-            this.mostrarPainelLateralToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.mostrarPainelLateralToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+1";
+            this.mostrarPainelLateralToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.mostrarPainelLateralToolStripMenuItem.Text = "Painel lateral";
             this.mostrarPainelLateralToolStripMenuItem.Click += new System.EventHandler(this.MostrarPainelLateralToolStripMenuItem_Click);
             // 
@@ -261,7 +264,8 @@
             this.painelDeNovoRegistoToolStripMenuItem.Checked = true;
             this.painelDeNovoRegistoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.painelDeNovoRegistoToolStripMenuItem.Name = "painelDeNovoRegistoToolStripMenuItem";
-            this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.painelDeNovoRegistoToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+2";
+            this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.painelDeNovoRegistoToolStripMenuItem.Text = "Painel de novo registo";
             this.painelDeNovoRegistoToolStripMenuItem.Click += new System.EventHandler(this.PainelDeNovoRegistoToolStripMenuItem_Click);
             // 
@@ -447,6 +451,7 @@
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtn_clientes,
             this.tsbtn_funcionarios,
@@ -454,7 +459,7 @@
             this.tsbtn_novo_registo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1008, 39);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -463,7 +468,7 @@
             this.tsbtn_clientes.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_clientes.Image")));
             this.tsbtn_clientes.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_clientes.Name = "tsbtn_clientes";
-            this.tsbtn_clientes.Size = new System.Drawing.Size(69, 22);
+            this.tsbtn_clientes.Size = new System.Drawing.Size(85, 36);
             this.tsbtn_clientes.Text = "Clientes";
             this.tsbtn_clientes.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
@@ -472,7 +477,7 @@
             this.tsbtn_funcionarios.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_funcionarios.Image")));
             this.tsbtn_funcionarios.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_funcionarios.Name = "tsbtn_funcionarios";
-            this.tsbtn_funcionarios.Size = new System.Drawing.Size(95, 22);
+            this.tsbtn_funcionarios.Size = new System.Drawing.Size(111, 36);
             this.tsbtn_funcionarios.Text = "Funcionários";
             this.tsbtn_funcionarios.Click += new System.EventHandler(this.Tsbtn_funcionarios_Click);
             // 
@@ -482,7 +487,7 @@
             this.tsbtn_painel_lateral.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_painel_lateral.Image")));
             this.tsbtn_painel_lateral.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_painel_lateral.Name = "tsbtn_painel_lateral";
-            this.tsbtn_painel_lateral.Size = new System.Drawing.Size(94, 22);
+            this.tsbtn_painel_lateral.Size = new System.Drawing.Size(110, 36);
             this.tsbtn_painel_lateral.Text = "Painel lateral";
             this.tsbtn_painel_lateral.Click += new System.EventHandler(this.Tsbtn_painel_lateral_Click);
             // 
@@ -492,7 +497,7 @@
             this.tsbtn_novo_registo.Image = ((System.Drawing.Image)(resources.GetObject("tsbtn_novo_registo.Image")));
             this.tsbtn_novo_registo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtn_novo_registo.Name = "tsbtn_novo_registo";
-            this.tsbtn_novo_registo.Size = new System.Drawing.Size(95, 22);
+            this.tsbtn_novo_registo.Size = new System.Drawing.Size(111, 36);
             this.tsbtn_novo_registo.Text = "Novo registo";
             this.tsbtn_novo_registo.Click += new System.EventHandler(this.Tsbtn_novo_registo_Click);
             // 
@@ -506,9 +511,9 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(757, 52);
+            this.panel1.Location = new System.Drawing.Point(757, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(252, 665);
+            this.panel1.Size = new System.Drawing.Size(252, 651);
             this.panel1.TabIndex = 13;
             // 
             // label8
@@ -542,7 +547,7 @@
             this.grid_stats.ReadOnly = true;
             this.grid_stats.RowHeadersVisible = false;
             this.grid_stats.ShowEditingIcon = false;
-            this.grid_stats.Size = new System.Drawing.Size(233, 311);
+            this.grid_stats.Size = new System.Drawing.Size(233, 297);
             this.grid_stats.TabIndex = 11;
             // 
             // key
@@ -576,11 +581,20 @@
             this.panel_bottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_bottom.AutoSize = true;
+            this.panel_bottom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_bottom.Controls.Add(this.groupBox3);
             this.panel_bottom.Location = new System.Drawing.Point(0, 550);
             this.panel_bottom.Name = "panel_bottom";
             this.panel_bottom.Size = new System.Drawing.Size(757, 154);
             this.panel_bottom.TabIndex = 14;
+            // 
+            // novoRegistoToolStripMenuItem
+            // 
+            this.novoRegistoToolStripMenuItem.Name = "novoRegistoToolStripMenuItem";
+            this.novoRegistoToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+N";
+            this.novoRegistoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.novoRegistoToolStripMenuItem.Text = "Novo registo";
+            this.novoRegistoToolStripMenuItem.Click += new System.EventHandler(this.NovoRegistoToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -666,6 +680,7 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDestaAplicaçãoToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn key;
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
+        private System.Windows.Forms.ToolStripMenuItem novoRegistoToolStripMenuItem;
     }
 }
 

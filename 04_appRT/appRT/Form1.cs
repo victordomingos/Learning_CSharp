@@ -420,5 +420,10 @@ namespace appRT
             Acerca acercaForm = new Acerca();
             acercaForm.Show();
         }
+
+        private void NovoRegistoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel_bottom.Visible = true;
+        }
     }
 }
