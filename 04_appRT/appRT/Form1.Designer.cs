@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -72,10 +72,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.grid_stats = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel_bottom = new System.Windows.Forms.Panel();
             this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel_bottom = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -123,8 +123,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -143,6 +143,7 @@
             // 
             this.comboBox1_clientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1_clientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1_clientes.FormattingEnabled = true;
             this.comboBox1_clientes.Location = new System.Drawing.Point(6, 45);
             this.comboBox1_clientes.Name = "comboBox1_clientes";
@@ -190,6 +191,7 @@
             // 
             this.comboBox2_funcionarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox2_funcionarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2_funcionarios.FormattingEnabled = true;
             this.comboBox2_funcionarios.Location = new System.Drawing.Point(6, 45);
             this.comboBox2_funcionarios.Name = "comboBox2_funcionarios";
@@ -396,6 +398,7 @@
             // 
             // cmb_novo_select_func
             // 
+            this.cmb_novo_select_func.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_novo_select_func.FormattingEnabled = true;
             this.cmb_novo_select_func.Location = new System.Drawing.Point(81, 55);
             this.cmb_novo_select_func.Name = "cmb_novo_select_func";
@@ -404,6 +407,7 @@
             // 
             // cmb_novo_select_cliente
             // 
+            this.cmb_novo_select_cliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_novo_select_cliente.FormattingEnabled = true;
             this.cmb_novo_select_cliente.Location = new System.Drawing.Point(81, 28);
             this.cmb_novo_select_cliente.Name = "cmb_novo_select_cliente";
@@ -438,7 +442,7 @@
             this.dt_novo_data.Name = "dt_novo_data";
             this.dt_novo_data.Size = new System.Drawing.Size(121, 20);
             this.dt_novo_data.TabIndex = 1;
-            this.dt_novo_data.Value = new System.DateTime(2019, 7, 16, 10, 5, 39, 0);
+            this.dt_novo_data.Value = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             // 
             // toolStrip1
             // 
@@ -541,6 +545,21 @@
             this.grid_stats.Size = new System.Drawing.Size(233, 311);
             this.grid_stats.TabIndex = 11;
             // 
+            // key
+            // 
+            this.key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.key.HeaderText = "Chave";
+            this.key.Name = "key";
+            this.key.ReadOnly = true;
+            // 
+            // value
+            // 
+            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.value.HeaderText = "Valor";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
+            this.value.Width = 5;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -562,21 +581,6 @@
             this.panel_bottom.Name = "panel_bottom";
             this.panel_bottom.Size = new System.Drawing.Size(757, 154);
             this.panel_bottom.TabIndex = 14;
-            // 
-            // key
-            // 
-            this.key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.key.HeaderText = "Chave";
-            this.key.Name = "key";
-            this.key.ReadOnly = true;
-            // 
-            // value
-            // 
-            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.value.HeaderText = "Valor";
-            this.value.Name = "value";
-            this.value.ReadOnly = true;
-            this.value.Width = 5;
             // 
             // Form1
             // 

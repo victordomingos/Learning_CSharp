@@ -82,35 +82,31 @@ namespace appRT
         public int InserirRegistoTempo(string cod_cliente, string cod_funcionario, string data, int minutos, string descritivo, string categoria)
         {
             string ssql;
-            /* //Exemplo:
-             string query = "INSERT INTO ArticlesTBL (ArticleTitle, ArticleContent, ArticleType, ArticleImg, ArticleBrief,  
-                ArticleDateTime, ArticleAuthor, ArticlePublished, ArticleHomeDisplay, ArticleViews)";
+            ssql = "INSERT INTO T_registo_de_tempos " +
+                   "(cod_cliente, cod_funcionario, data, minutos, descritivo, categoria)" +
+                   "VALUES (@cod_cliente, @cod_funcionario, @data, @minutos, @descritivo, @categoria";
 
-            query += " VALUES (@ArticleTitle, @ArticleContent, @ArticleType, @ArticleImg, @ArticleBrief, 
-                                @ArticleDateTime, @ArticleAuthor, @ArticlePublished, @ArticleHomeDisplay, @ArticleViews)";
-
-            SqlCommand myCommand = new SqlCommand(query, myConnection);
-            myCommand.Parameters.AddWithValue("@ArticleTitle", ArticleTitleTextBox.Text);
-            myCommand.Parameters.AddWithValue("@ArticleContent", ArticleContentTextBox.Text);
-            // ... other parameters
-            myCommand.ExecuteNonQuery();
-            */
-
-
-            ssql = "INSERT INTO T_registo_de_tempos (cod_cliente, cod_funcionario, data, minutos, descritivo, categoria) ";
-
-            ssql += "VALUES (@cod_cliente, @cod_funcionario, @data, @minutos, @descritivo, @categoria";
-
-            SqlConnection C = new SqlConnection(SC);
+            SqlConnection C = new SqlConnection(SConnection.SC);
             C.Open();
             SqlCommand comando = new SqlCommand(ssql, C);
 
             comando.Parameters.AddWithValue("@cod_cliente", cod_cliente);
+            comando.Parameters.AddWithValue("@cod_funcionario", cod_funcionario);
+            comando.Parameters.AddWithValue("@data", data);
+            comando.Parameters.AddWithValue("@minutos", minutos);
+            comando.Parameters.AddWithValue("@descritivo", descritivo);
+            comando.Parameters.AddWithValue("@categoria", categoria);
+            try
+            {
+                comando.ExecuteNonQuery();
 
-            $"'{cod_cliente}','{cod_funcionario}','{data}', {minutos}, " +
-                   $"'{descritivo}', '{categoria}')";
+            }
+            catch (Exception)
+            {
 
-            MessageBox.Show(ssql, "SQL Query:");
+                throw;
+            }
+            MessageBox.Show(ssql+"\n"+comando.CommandText, "SQL Query:");
             return 0;
         }
     }

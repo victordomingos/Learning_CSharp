@@ -7,7 +7,7 @@ namespace appRT
 {
     public partial class Form1 : Form
     {
-        public readonly int DEFAULT_MAX_ROWS = 200;
+        public readonly int DEFAULT_MAX_ROWS = 50;
         public MyGetData db = new MyGetData();
 
         public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM, string defaultText)
@@ -70,8 +70,8 @@ namespace appRT
                 cmb_novo_categoria.Items.Add(item);
 
             cmb_novo_categoria.SelectedIndex = 0;
-            
 
+            dt_novo_data.Value = DateTime.Now;
             Atualizar_contagem_estado();
             AtualizarEstatisticas();
         }
