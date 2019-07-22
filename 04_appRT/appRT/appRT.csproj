@@ -52,6 +52,9 @@
     <Compile Include="Acerca.Designer.cs">
       <DependentUpon>Acerca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1_methods.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SConnection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -43,6 +43,7 @@
             this.textBox2_funcionarios = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoRegistoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarPainelLateralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +77,6 @@
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
-            this.novoRegistoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -124,8 +124,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -231,6 +231,14 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
             this.toolStripMenuItem1.Text = "Ficheiro";
             // 
+            // novoRegistoToolStripMenuItem
+            // 
+            this.novoRegistoToolStripMenuItem.Name = "novoRegistoToolStripMenuItem";
+            this.novoRegistoToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+N";
+            this.novoRegistoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.novoRegistoToolStripMenuItem.Text = "Novo registo";
+            this.novoRegistoToolStripMenuItem.Click += new System.EventHandler(this.NovoRegistoToolStripMenuItem_Click);
+            // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
@@ -246,7 +254,7 @@
             this.mostrarPainelLateralToolStripMenuItem,
             this.painelDeNovoRegistoToolStripMenuItem});
             this.janelaToolStripMenuItem.Name = "janelaToolStripMenuItem";
-            this.janelaToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
+            this.janelaToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.janelaToolStripMenuItem.Text = "Ver";
             // 
             // mostrarPainelLateralToolStripMenuItem
@@ -303,9 +311,9 @@
             this.groupBox3.Controls.Add(this.txt_novo_desc);
             this.groupBox3.Controls.Add(this.txt_novo_tempo);
             this.groupBox3.Controls.Add(this.dt_novo_data);
-            this.groupBox3.Location = new System.Drawing.Point(10, 17);
+            this.groupBox3.Location = new System.Drawing.Point(10, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(741, 124);
+            this.groupBox3.Size = new System.Drawing.Size(725, 124);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Novo registo";
@@ -315,7 +323,7 @@
             this.cmb_novo_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_novo_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_novo_categoria.FormattingEnabled = true;
-            this.cmb_novo_categoria.Location = new System.Drawing.Point(503, 82);
+            this.cmb_novo_categoria.Location = new System.Drawing.Point(487, 82);
             this.cmb_novo_categoria.Name = "cmb_novo_categoria";
             this.cmb_novo_categoria.Size = new System.Drawing.Size(121, 21);
             this.cmb_novo_categoria.TabIndex = 14;
@@ -325,7 +333,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(442, 85);
+            this.label6.Location = new System.Drawing.Point(426, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 13;
@@ -334,7 +342,7 @@
             // btn_novo_guardar
             // 
             this.btn_novo_guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_novo_guardar.Location = new System.Drawing.Point(644, 80);
+            this.btn_novo_guardar.Location = new System.Drawing.Point(628, 80);
             this.btn_novo_guardar.Name = "btn_novo_guardar";
             this.btn_novo_guardar.Size = new System.Drawing.Size(89, 23);
             this.btn_novo_guardar.TabIndex = 11;
@@ -345,7 +353,7 @@
             // btn_novo_limpar
             // 
             this.btn_novo_limpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_novo_limpar.Location = new System.Drawing.Point(644, 51);
+            this.btn_novo_limpar.Location = new System.Drawing.Point(628, 51);
             this.btn_novo_limpar.Name = "btn_novo_limpar";
             this.btn_novo_limpar.Size = new System.Drawing.Size(89, 23);
             this.btn_novo_limpar.TabIndex = 10;
@@ -366,7 +374,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(409, 59);
+            this.label4.Location = new System.Drawing.Point(393, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 13);
             this.label4.TabIndex = 8;
@@ -394,7 +402,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(464, 35);
+            this.label1.Location = new System.Drawing.Point(448, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 5;
@@ -425,13 +433,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_novo_desc.Location = new System.Drawing.Point(81, 82);
             this.txt_novo_desc.Name = "txt_novo_desc";
-            this.txt_novo_desc.Size = new System.Drawing.Size(271, 20);
+            this.txt_novo_desc.Size = new System.Drawing.Size(255, 20);
             this.txt_novo_desc.TabIndex = 2;
             // 
             // txt_novo_tempo
             // 
             this.txt_novo_tempo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_novo_tempo.Location = new System.Drawing.Point(503, 56);
+            this.txt_novo_tempo.Location = new System.Drawing.Point(487, 56);
             this.txt_novo_tempo.Name = "txt_novo_tempo";
             this.txt_novo_tempo.Size = new System.Drawing.Size(121, 20);
             this.txt_novo_tempo.TabIndex = 0;
@@ -441,7 +449,7 @@
             // 
             this.dt_novo_data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dt_novo_data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_novo_data.Location = new System.Drawing.Point(503, 29);
+            this.dt_novo_data.Location = new System.Drawing.Point(487, 29);
             this.dt_novo_data.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dt_novo_data.Name = "dt_novo_data";
             this.dt_novo_data.Size = new System.Drawing.Size(121, 20);
@@ -583,18 +591,10 @@
             this.panel_bottom.AutoSize = true;
             this.panel_bottom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_bottom.Controls.Add(this.groupBox3);
-            this.panel_bottom.Location = new System.Drawing.Point(0, 550);
+            this.panel_bottom.Location = new System.Drawing.Point(4, 559);
             this.panel_bottom.Name = "panel_bottom";
-            this.panel_bottom.Size = new System.Drawing.Size(757, 154);
+            this.panel_bottom.Size = new System.Drawing.Size(747, 145);
             this.panel_bottom.TabIndex = 14;
-            // 
-            // novoRegistoToolStripMenuItem
-            // 
-            this.novoRegistoToolStripMenuItem.Name = "novoRegistoToolStripMenuItem";
-            this.novoRegistoToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+N";
-            this.novoRegistoToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.novoRegistoToolStripMenuItem.Text = "Novo registo";
-            this.novoRegistoToolStripMenuItem.Click += new System.EventHandler(this.NovoRegistoToolStripMenuItem_Click);
             // 
             // Form1
             // 
