@@ -101,6 +101,7 @@ namespace appRT
 
                 grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Func.: " + nome_funcionario);
+                //grid_stats.Rows[grid_stats.RowCount-1] // mudar cor de fundo ou tipo de letra
                 grid_stats.Rows.Add("  - Registos este mês", registos_funcionario_mes);
                 grid_stats.Rows.Add("  - Minutos este mês", s_minutos_func_mes);
             }
