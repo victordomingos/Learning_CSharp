@@ -34,16 +34,6 @@ namespace appRT
                     "ORDER BY Id DESC";
             
 
-            // Preencher Gridview
-            /*
-             * ssql = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} SELECT Id as ID, T_clientes.nome_cliente as Cliente, " +
-                    "cod_funcionario as Funcionário, data as Data, tempo as Tempo, " +
-                    "descritivo as Descrição, categoria as Categoria " +
-                    "FROM T_registo_de_tempos " +
-                    "INNER JOIN T_clientes ON cod_cliente = STR(T_clientes.Id) " +
-                    "ORDER BY Id DESC";
-            */
-
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -133,20 +123,20 @@ namespace appRT
         private void Btn_novo_guardar_Click(object sender, EventArgs e) { guardar_registo_tempo(); }
         private void Cmb_novo_categoria_SelectedIndexChanged(object sender, EventArgs e) { }
 
-        private void ToolStripButton1_Click(object sender, EventArgs e)
-        {
-            Form3Clientes f3 = new Form3Clientes();
-            f3.Show();
-        }
 
+        private void ToolStripButton1_Click(object sender, EventArgs e) { Form3Clientes f3 = new Form3Clientes(); f3.Show(); }
         private void Tsbtn_funcionarios_Click(object sender, EventArgs e) { Form2Funcionarios f3 = new Form2Funcionarios(); f3.Show(); }
         private void Tsbtn_painel_lateral_Click(object sender, EventArgs e) { alternarPainelLateral();}
         private void MostrarPainelLateralToolStripMenuItem_Click(object sender, EventArgs e) { alternarPainelLateral(); }
         private void Tsbtn_novo_registo_Click(object sender, EventArgs e) { alternarPainelNovoRegisto();}
         private void PainelDeNovoRegistoToolStripMenuItem_Click(object sender, EventArgs e) { alternarPainelNovoRegisto(); }
-        private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit();}
         private void AcercaDestaAplicaçãoToolStripMenuItem_Click(object sender, EventArgs e) { Acerca acercaForm = new Acerca(); acercaForm.Show();}
-        private void NovoRegistoToolStripMenuItem_Click(object sender, EventArgs e) { panel_bottom.Visible = true; }
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit(); }
+        private void NovoRegistoToolStripMenuItem_Click(object sender, EventArgs e) { panel_bottom.Visible = true; }
+        private void ClientesToolStripMenuItem_Click(object sender, EventArgs e) { Form3Clientes f3 = new Form3Clientes(); f3.Show();}
+        private void FuncionáriosToolStripMenuItem_Click(object sender, EventArgs e) { Form2Funcionarios f3 = new Form2Funcionarios(); f3.Show();}
     }
 }

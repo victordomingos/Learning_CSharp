@@ -98,15 +98,14 @@ namespace appRT
             comando.Parameters.AddWithValue("@categoria", categoria);
             try
             {
-                comando.ExecuteNonQuery();
-
+                //comando.ExecuteNonQuery();
+                MessageBox.Show(ssql + "\n" + comando.CommandText, "SQL Query:");
             }
             catch (Exception)
             {
 
                 throw;
             }
-            MessageBox.Show(ssql+"\n"+comando.CommandText, "SQL Query:");
             return 0;
         }
     }

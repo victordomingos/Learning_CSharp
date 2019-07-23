@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace appRT
 {
-    public partial class Form1: Form
+    public partial class Form1 : Form
     {
 
         public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM, string defaultText)
@@ -31,6 +31,8 @@ namespace appRT
                 lbl_estado.Text = $"{total_registos} intervenções (a apresentar apenas os primeiros {contagem} registos)";
             else
                 lbl_estado.Text = $"{contagem} intervenções";
+
+
         }
 
 
@@ -51,12 +53,28 @@ namespace appRT
 
                 int cod_cliente = Convert.ToInt32(comboBox1_clientes.SelectedValue);
                 int registos_cliente_mes = db.ContarRegistosClienteEsteMes(cod_cliente);
-                string minutos_cliente_mes = "BBB";
+
+                var hoje_ano = DateTime.Now.Year;
+                var hoje_mes = DateTime.Now.Month;
+                
+                // contar minutos todos do cliente, apenas do mês atual
+                string ssql = "SELECT SUM(tempo) FROM T_registo_de_tempos " +
+                              "WHERE YEAR(data)=YEAR(CURRENT_TIMESTAMP) " +
+                              "AND MONTH(data)=MONTH(CURRENT_TIMESTAMP) " +
+                              $"AND cod_cliente='{cod_cliente}';";
+
+                int minutos_cliente_mes = Convert.ToInt32(db.BuscaDados(SConnection.SC, ssql).Rows[0][0]);
+                
+                // converter minutos do mes p/ HH:MM a mostrar na gridview 2
+                var h_cliente = minutos_cliente_mes / 60;
+                var m_cliente = minutos_cliente_mes % 60;
+                string s_minutos_cliente_mes = $"{h_cliente}h{m_cliente}m";
+
 
                 grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Cliente: " + nome_cliente);
                 grid_stats.Rows.Add("  - Registos este mês", registos_cliente_mes);
-                grid_stats.Rows.Add("  - Minutos este mês", minutos_cliente_mes);
+                grid_stats.Rows.Add("  - Tempo serviço este mês", s_minutos_cliente_mes);
             }
 
             if (comboBox2_funcionarios.SelectedIndex > 0)
@@ -65,19 +83,79 @@ namespace appRT
                 if (nome_funcionario.Length > 30)
                     nome_funcionario = nome_funcionario.Substring(0, 30) + "…";
 
-                string minutos_funcionario_mes = "AAA";
-
-
                 int cod_funcionario = Convert.ToInt32(comboBox2_funcionarios.SelectedValue);
                 int registos_funcionario_mes = db.ContarRegistosFuncEsteMes(cod_funcionario);
+
+                // contar minutos todos do funcionario, apenas do mês atual
+                string ssql = "SELECT SUM(tempo) FROM T_registo_de_tempos " +
+                              "WHERE YEAR(data)=YEAR(CURRENT_TIMESTAMP) " +
+                              "AND MONTH(data)=MONTH(CURRENT_TIMESTAMP) " +
+                              $"AND cod_funcionario='{cod_funcionario}';";
+
+                int minutos_func_mes = Convert.ToInt32(db.BuscaDados(SConnection.SC, ssql).Rows[0][0]);
+
+                // converter minutos do mes p/ HH:MM a mostrar na gridview 2
+                var h_func = minutos_func_mes / 60;
+                var m_func = minutos_func_mes % 60;
+                string s_minutos_func_mes = $"{h_func}h{m_func}m";
 
                 grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Func.: " + nome_funcionario);
                 grid_stats.Rows.Add("  - Registos este mês", registos_funcionario_mes);
-                grid_stats.Rows.Add("  - Minutos este mês", minutos_funcionario_mes);
+                grid_stats.Rows.Add("  - Minutos este mês", s_minutos_func_mes);
             }
 
             grid_stats.ClearSelection();
+
+            AtualizarTempoServicoEstado2();
+        }
+
+        private void AtualizarTempoServicoEstado2()
+        {
+            // atualizar contagem de tempo de serviço, a mostrar na barra de estado, no lado direito
+            int minutos_total = 0;
+            int minutos_mes_atual = 0;
+
+            foreach (DataGridViewRow linha in dataGridView1.Rows)
+            {
+                int minutos_linha = Convert.ToInt32(linha.Cells[4].Value);
+                var hoje_ano = DateTime.Now.Year;
+                var hoje_mes = DateTime.Now.Month;
+
+                var linha_data = Convert.ToDateTime(linha.Cells[3].Value);
+                var linha_ano = linha_data.Year;
+                var linha_mes = linha_data.Month;
+
+                minutos_total += minutos_linha;
+
+                if (hoje_ano == linha_ano && hoje_mes == linha_mes)
+                    minutos_mes_atual += minutos_linha;
+            }
+
+            // converter p/ H:M
+            var h_total = minutos_total / 60;
+            var m_total = (minutos_total % 60);
+            var h_mes = minutos_mes_atual / 60;
+            var m_mes = (minutos_mes_atual % 60);
+
+            //var hm_mes_atual = ;
+            estado_2.Text = "Tempo de serviço: ";
+            if (minutos_total == 0)
+                estado_2.Text = "";
+            else
+            {
+                if (h_total != 0) estado_2.Text += $"{h_total}h";
+                if (m_total != 0) estado_2.Text += $"{m_total}m";
+
+                if (minutos_mes_atual != 0)
+                {
+                    estado_2.Text += $" (";
+                    if (h_mes != 0) estado_2.Text += $"{ h_mes}h";
+                    if (m_mes != 0) estado_2.Text += $"{m_total}m";
+
+                    estado_2.Text += " este mês)";
+                }
+            }
         }
 
 
@@ -180,6 +258,7 @@ namespace appRT
                 panel_bottom.Hide();
                 dataGridView1.Height += panel_bottom.Height;
                 painelDeNovoRegistoToolStripMenuItem.Checked = false;
+                
             }
             else
             {
@@ -191,6 +270,8 @@ namespace appRT
 
         public void guardar_registo_tempo()
         {
+            if (!panel_bottom.Visible)
+                return;
 
             string ssql;
 
@@ -253,6 +334,9 @@ namespace appRT
 
         public void limpar_form_novo_registo()
         {
+            if (!panel_bottom.Visible)
+                return;
+
             string ssql;
 
             ssql = "SELECT Id, nome_cliente FROM T_clientes";
