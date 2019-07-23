@@ -79,6 +79,8 @@ namespace appRT
             return Convert.ToInt32(dt.Rows[0][0]);
         }
 
+
+
         public int InserirRegistoTempo(string cod_cliente, string cod_funcionario, string data, int minutos, string descritivo, string categoria)
         {
             string ssql;
