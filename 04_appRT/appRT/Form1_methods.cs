@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace appRT
@@ -41,6 +42,7 @@ namespace appRT
             grid_stats.Rows.Clear();
 
             grid_stats.Rows.Add("Geral: ");
+            FormatarCabecalhoGrid(grid_stats);
             grid_stats.Rows.Add("  - Total de registos", db.ContarTotalRegistos());
             grid_stats.Rows.Add("  - Registos este ano", db.ContarRegistosEsteAno());
             grid_stats.Rows.Add("  - Registos este mês", db.ContarRegistosEsteMes());
@@ -57,22 +59,16 @@ namespace appRT
                 var hoje_ano = DateTime.Now.Year;
                 var hoje_mes = DateTime.Now.Month;
                 
-                // contar minutos todos do cliente, apenas do mês atual
-                string ssql = "SELECT SUM(tempo) FROM T_registo_de_tempos " +
-                              "WHERE YEAR(data)=YEAR(CURRENT_TIMESTAMP) " +
-                              "AND MONTH(data)=MONTH(CURRENT_TIMESTAMP) " +
-                              $"AND cod_cliente='{cod_cliente}';";
+                int minutos_cliente_mes = db.ContarMinutosClienteEsteMes(cod_cliente);
 
-                int minutos_cliente_mes = Convert.ToInt32(db.BuscaDados(SConnection.SC, ssql).Rows[0][0]);
-                
                 // converter minutos do mes p/ HH:MM a mostrar na gridview 2
                 var h_cliente = minutos_cliente_mes / 60;
                 var m_cliente = minutos_cliente_mes % 60;
                 string s_minutos_cliente_mes = $"{h_cliente}h{m_cliente}m";
-
-
+                
                 grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Cliente: " + nome_cliente);
+                FormatarCabecalhoGrid(grid_stats);
                 grid_stats.Rows.Add("  - Registos este mês", registos_cliente_mes);
                 grid_stats.Rows.Add("  - Tempo serviço este mês", s_minutos_cliente_mes);
             }
@@ -85,14 +81,7 @@ namespace appRT
 
                 int cod_funcionario = Convert.ToInt32(comboBox2_funcionarios.SelectedValue);
                 int registos_funcionario_mes = db.ContarRegistosFuncEsteMes(cod_funcionario);
-
-                // contar minutos todos do funcionario, apenas do mês atual
-                string ssql = "SELECT SUM(tempo) FROM T_registo_de_tempos " +
-                              "WHERE YEAR(data)=YEAR(CURRENT_TIMESTAMP) " +
-                              "AND MONTH(data)=MONTH(CURRENT_TIMESTAMP) " +
-                              $"AND cod_funcionario='{cod_funcionario}';";
-
-                int minutos_func_mes = Convert.ToInt32(db.BuscaDados(SConnection.SC, ssql).Rows[0][0]);
+                int minutos_func_mes = db.ContarMinutosFuncEsteMes(cod_funcionario);
 
                 // converter minutos do mes p/ HH:MM a mostrar na gridview 2
                 var h_func = minutos_func_mes / 60;
@@ -101,15 +90,22 @@ namespace appRT
 
                 grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Func.: " + nome_funcionario);
-                //grid_stats.Rows[grid_stats.RowCount-1] // mudar cor de fundo ou tipo de letra
+                FormatarCabecalhoGrid(grid_stats);
                 grid_stats.Rows.Add("  - Registos este mês", registos_funcionario_mes);
                 grid_stats.Rows.Add("  - Minutos este mês", s_minutos_func_mes);
             }
 
             grid_stats.ClearSelection();
-
             AtualizarTempoServicoEstado2();
         }
+
+        private void FormatarCabecalhoGrid(DataGridView grid)
+        {
+            var tipo_original = grid.Rows[grid.RowCount - 1].DefaultCellStyle.Font;
+            grid.Rows[grid.RowCount - 1].DefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Bold);
+            grid.Rows[grid.RowCount - 1].DefaultCellStyle.BackColor = Color.LightGray;
+        }
+
 
         private void AtualizarTempoServicoEstado2()
         {
