@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_estado = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -48,6 +48,9 @@
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarPainelLateralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.painelDeNovoRegistoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDestaAplicaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -77,9 +80,6 @@
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -127,8 +127,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -151,7 +151,7 @@
             this.comboBox1_clientes.FormattingEnabled = true;
             this.comboBox1_clientes.Location = new System.Drawing.Point(6, 45);
             this.comboBox1_clientes.Name = "comboBox1_clientes";
-            this.comboBox1_clientes.Size = new System.Drawing.Size(188, 21);
+            this.comboBox1_clientes.Size = new System.Drawing.Size(222, 21);
             this.comboBox1_clientes.TabIndex = 2;
             this.comboBox1_clientes.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
@@ -161,7 +161,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1_clientes.Location = new System.Drawing.Point(6, 19);
             this.textBox1_clientes.Name = "textBox1_clientes";
-            this.textBox1_clientes.Size = new System.Drawing.Size(188, 20);
+            this.textBox1_clientes.Size = new System.Drawing.Size(222, 20);
             this.textBox1_clientes.TabIndex = 1;
             this.textBox1_clientes.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
@@ -199,7 +199,7 @@
             this.comboBox2_funcionarios.FormattingEnabled = true;
             this.comboBox2_funcionarios.Location = new System.Drawing.Point(6, 45);
             this.comboBox2_funcionarios.Name = "comboBox2_funcionarios";
-            this.comboBox2_funcionarios.Size = new System.Drawing.Size(188, 21);
+            this.comboBox2_funcionarios.Size = new System.Drawing.Size(222, 21);
             this.comboBox2_funcionarios.TabIndex = 4;
             this.comboBox2_funcionarios.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_funcionarios_SelectedIndexChanged);
             // 
@@ -209,7 +209,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2_funcionarios.Location = new System.Drawing.Point(6, 19);
             this.textBox2_funcionarios.Name = "textBox2_funcionarios";
-            this.textBox2_funcionarios.Size = new System.Drawing.Size(188, 20);
+            this.textBox2_funcionarios.Size = new System.Drawing.Size(222, 20);
             this.textBox2_funcionarios.TabIndex = 3;
             this.textBox2_funcionarios.TextChanged += new System.EventHandler(this.TextBox2_funcionarios_TextChanged);
             // 
@@ -282,6 +282,25 @@
             this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.painelDeNovoRegistoToolStripMenuItem.Text = "Painel de novo registo";
             this.painelDeNovoRegistoToolStripMenuItem.Click += new System.EventHandler(this.PainelDeNovoRegistoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(237, 6);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.ClientesToolStripMenuItem_Click);
+            // 
+            // funcionáriosToolStripMenuItem
+            // 
+            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
+            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.FuncionáriosToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -359,6 +378,7 @@
             // btn_novo_limpar
             // 
             this.btn_novo_limpar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_novo_limpar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_novo_limpar.Location = new System.Drawing.Point(628, 51);
             this.btn_novo_limpar.Name = "btn_novo_limpar";
             this.btn_novo_limpar.Size = new System.Drawing.Size(89, 23);
@@ -602,25 +622,6 @@
             this.panel_bottom.Size = new System.Drawing.Size(747, 145);
             this.panel_bottom.TabIndex = 14;
             this.panel_bottom.Visible = false;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(237, 6);
-            // 
-            // clientesToolStripMenuItem
-            // 
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.ClientesToolStripMenuItem_Click);
-            // 
-            // funcionáriosToolStripMenuItem
-            // 
-            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
-            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
-            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.FuncionáriosToolStripMenuItem_Click);
             // 
             // Form1
             // 

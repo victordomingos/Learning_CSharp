@@ -270,12 +270,9 @@ namespace appRT
             if (!panel_bottom.Visible)
                 return;
 
-            string ssql;
-
             string cod_cliente = cmb_novo_select_cliente.SelectedValue.ToString();
             string cod_funcionario = cmb_novo_select_func.SelectedValue.ToString();
-            string data = dt_novo_data.Value.ToString();
-            string tempo = txt_novo_tempo.Text;
+            string data = dt_novo_data.Value.ToShortDateString();
             Int32 minutos;
             string descritivo = txt_novo_desc.Text;
             string categoria = cmb_novo_categoria.Text;
@@ -320,11 +317,6 @@ namespace appRT
                 return;
             }
 
-            ssql = "INSERT INTO T_registo_de_tempos VALUES (" +
-                   $"'{cod_cliente}','{cod_funcionario}','{data}', {minutos}, " +
-                   $"'{descritivo}', '{categoria}')";
-
-            MessageBox.Show(ssql, "SQL Query:");
             db.InserirRegistoTempo(cod_cliente, cod_funcionario, data, minutos, descritivo, categoria);
             Filtrar_lista();
         }

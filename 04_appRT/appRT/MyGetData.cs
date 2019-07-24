@@ -8,26 +8,24 @@ namespace appRT
     public class MyGetData
     {
         // Permite obter dados da base de dados, passando como argumentos
-        // a string connection e uma string com o comand sql a executar.
+        // a connection string e uma string com o comand sql a executar.
         public DataTable BuscaDados(string SC, string ssql)
         {
             // Criar ligação à base de dados:
-            SqlConnection C = new SqlConnection(SC);
-            C.Open();
+            using (SqlConnection C = new SqlConnection(SC))
+            {
+                // Criar comando SQL para extração de dados:
+                SqlCommand command = C.CreateCommand();
+                command.CommandText = ssql;
 
-            // Criar comando SQL para extração de dados:
-            SqlCommand command = C.CreateCommand();
-            // command.CommandText = "SELECT nome_cliente from T_clientes";
-            command.CommandText = ssql;
+                // trazer os dados para uma tabela em memória:
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                var dt = new DataTable();
+                da.Fill(dt);
 
-            // trazer os dados para uma tabela em memória:
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            var dt = new DataTable();
-            da.Fill(dt);
-
-            // Fechar a ligação:
-            C.Close();
-            return dt;
+                C.Close();
+                return dt;
+            }
         }
 
         public int ContarTotalRegistos()
@@ -120,32 +118,34 @@ namespace appRT
 
         public int InserirRegistoTempo(string cod_cliente, string cod_funcionario, string data, int minutos, string descritivo, string categoria)
         {
-            string ssql;
-            ssql = "INSERT INTO T_registo_de_tempos " +
-                   "(cod_cliente, cod_funcionario, data, minutos, descritivo, categoria)" +
-                   "VALUES (@cod_cliente, @cod_funcionario, @data, @minutos, @descritivo, @categoria";
-
-            SqlConnection C = new SqlConnection(SConnection.SC);
-            C.Open();
-            SqlCommand comando = new SqlCommand(ssql, C);
-
-            comando.Parameters.AddWithValue("@cod_cliente", cod_cliente);
-            comando.Parameters.AddWithValue("@cod_funcionario", cod_funcionario);
-            comando.Parameters.AddWithValue("@data", data);
-            comando.Parameters.AddWithValue("@minutos", minutos);
-            comando.Parameters.AddWithValue("@descritivo", descritivo);
-            comando.Parameters.AddWithValue("@categoria", categoria);
-            try
+            using (SqlConnection C = new SqlConnection(SConnection.SC))
             {
-                //comando.ExecuteNonQuery();
-                MessageBox.Show(ssql + "\n" + comando.CommandText, "SQL Query:");
-            }
-            catch (Exception)
-            {
+                C.Open();
+                string ssql;
+                ssql = "INSERT INTO T_registo_de_tempos " +
+                       "(cod_cliente, cod_funcionario, data, tempo, descritivo, categoria) " +
+                       "VALUES (@cod_cliente, @cod_funcionario, @data, @tempo, @descritivo, @categoria);";
 
-                throw;
+                SqlCommand comando = new SqlCommand(ssql, C);
+
+                comando.Parameters.AddWithValue("@cod_cliente", cod_cliente);
+                comando.Parameters.AddWithValue("@cod_funcionario", cod_funcionario);
+                comando.Parameters.AddWithValue("@data", data);
+                comando.Parameters.AddWithValue("@tempo", minutos);
+                comando.Parameters.AddWithValue("@descritivo", descritivo);
+                comando.Parameters.AddWithValue("@categoria", categoria);
+                try
+                {
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show(comando.CommandText, "SQL Query B:");
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return 0;
             }
-            return 0;
         }
     }
 }
