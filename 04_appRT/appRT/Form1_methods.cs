@@ -272,7 +272,7 @@ namespace appRT
 
             string cod_cliente = cmb_novo_select_cliente.SelectedValue.ToString();
             string cod_funcionario = cmb_novo_select_func.SelectedValue.ToString();
-            string data = dt_novo_data.Value.ToShortDateString();
+            string data = dt_novo_data.Value.ToString("yyyy-MM-dd");
             Int32 minutos;
             string descritivo = txt_novo_desc.Text;
             string categoria = cmb_novo_categoria.Text;
@@ -318,6 +318,9 @@ namespace appRT
             }
 
             db.InserirRegistoTempo(cod_cliente, cod_funcionario, data, minutos, descritivo, categoria);
+
+            // TODO: caso a inserção não seja bem sucedida, não limpar formulário e mostrar erro.
+            limpar_form_novo_registo();
             Filtrar_lista();
         }
 

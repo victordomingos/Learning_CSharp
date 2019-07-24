@@ -128,6 +128,7 @@ namespace appRT
 
                 SqlCommand comando = new SqlCommand(ssql, C);
 
+                MessageBox.Show(data);
                 comando.Parameters.AddWithValue("@cod_cliente", cod_cliente);
                 comando.Parameters.AddWithValue("@cod_funcionario", cod_funcionario);
                 comando.Parameters.AddWithValue("@data", data);
