@@ -81,39 +81,25 @@ namespace appRT
         // contar minutos todos do cliente, apenas do mês atual
         public int ContarMinutosClienteEsteMes(int cod_cliente)
         {
-            int minutos;
-
             DataTable dt = BuscaDados(SConnection.SC,
-                "SELECT SUM(tempo) FROM T_registo_de_tempos " +
+                "SELECT ISNULL(SUM(tempo), 0) FROM T_registo_de_tempos " +
                 "WHERE YEAR(data)=YEAR(CURRENT_TIMESTAMP) " +
                 "AND MONTH(data)=MONTH(CURRENT_TIMESTAMP) " +
                 $"AND cod_cliente='{cod_cliente}';");
 
-            try
-                { minutos = Convert.ToInt32(dt.Rows[0][0]); }
-            catch (Exception)
-                { minutos = 0; }
-
-            return minutos;
+            return Convert.ToInt32(dt.Rows[0][0]);    
         }
 
         // contar minutos todos do funcionario, apenas do mês atual
         public int ContarMinutosFuncEsteMes(int cod_funcionario)
         {
-            int minutos_func_mes;
-
             DataTable dt = BuscaDados(SConnection.SC, 
-                "SELECT SUM(tempo) FROM T_registo_de_tempos " +
+                "SELECT ISNULL(SUM(tempo), 0) FROM T_registo_de_tempos " +
                 "WHERE YEAR(data)=YEAR(CURRENT_TIMESTAMP) " +
                 "AND MONTH(data)=MONTH(CURRENT_TIMESTAMP) " +
                 $"AND cod_funcionario='{cod_funcionario}';");
 
-            try
-                { minutos_func_mes = Convert.ToInt32(dt.Rows[0][0]); }
-            catch (Exception)
-                { minutos_func_mes = 0; }
-
-            return minutos_func_mes;
+           return Convert.ToInt32(dt.Rows[0][0]);
         }
 
         public int InserirRegistoTempo(string cod_cliente, string cod_funcionario, string data, int minutos, string descritivo, string categoria)

@@ -209,9 +209,11 @@ namespace appRT
                 else
                     ssql_prefix = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} ";
 
-                ssql = "SELECT Id as ID, cod_cliente as Cliente, cod_funcionario as Funcionário, " +
-                       "data as Data, tempo as Tempo, descritivo as Descrição, categoria as Categoria " +
-                       "FROM T_registo_de_tempos";
+                ssql = "SELECT T_registo_de_tempos.Id as ID, T_clientes.nome_cliente as Cliente, T_funcionarios.nome_funcionario as Funcionário, data as 'Data', tempo as Tempo, " +
+                       "descritivo as Descrição, categoria as Categoria " +
+                       "FROM T_registo_de_tempos " +
+                       "INNER JOIN T_clientes ON T_registo_de_tempos.cod_cliente = T_clientes.Id " +
+                       "INNER JOIN T_funcionarios ON T_registo_de_tempos.cod_funcionario = T_funcionarios.Id ";
                 ssql = ssql_prefix + ssql + filtro + " ORDER BY Id DESC";
 
                 dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
