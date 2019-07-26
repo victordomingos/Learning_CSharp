@@ -11,6 +11,7 @@ namespace appRT
         // a connection string e uma string com o comand sql a executar.
         public DataTable BuscaDados(string SC, string ssql)
         {
+            //MessageBox.Show(ssql);
             // Criar ligação à base de dados:
             using (SqlConnection C = new SqlConnection(SC))
             {

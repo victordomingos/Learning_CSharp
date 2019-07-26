@@ -58,15 +58,15 @@ namespace appRT
 
                 var hoje_ano = DateTime.Now.Year;
                 var hoje_mes = DateTime.Now.Month;
-                
+
                 int minutos_cliente_mes = db.ContarMinutosClienteEsteMes(cod_cliente);
 
                 // converter minutos do mes p/ HH:MM a mostrar na gridview 2
                 var h_cliente = minutos_cliente_mes / 60;
                 var m_cliente = minutos_cliente_mes % 60;
                 string s_minutos_cliente_mes = $"{h_cliente}h{m_cliente}m";
-                
-                grid_stats.Rows.Add();
+
+                //grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Cliente: " + nome_cliente);
                 FormatarCabecalhoGrid(grid_stats);
                 grid_stats.Rows.Add("  - Registos este mês", registos_cliente_mes);
@@ -88,7 +88,7 @@ namespace appRT
                 var m_func = minutos_func_mes % 60;
                 string s_minutos_func_mes = $"{h_func}h{m_func}m";
 
-                grid_stats.Rows.Add();
+                //grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Func.: " + nome_funcionario);
                 FormatarCabecalhoGrid(grid_stats);
                 grid_stats.Rows.Add("  - Registos este mês", registos_funcionario_mes);
@@ -152,6 +152,50 @@ namespace appRT
 
                     estado_2.Text += " este mês)";
                 }
+            }
+        }
+
+
+        private void Atualiza_combobox()
+        {
+            string ssql;
+            string tabela;
+            string pessoa;
+            string texto1;
+            ComboBox combo;
+
+            if (textBox1_clientes.Focused)
+            {
+                texto1 = textBox1_clientes.Text.ToString();
+                combo = comboBox1_clientes;
+                pessoa = "nome_cliente";
+                tabela = "T_clientes";
+            }
+            else if (textBox2_funcionarios.Focused)
+            {
+                texto1 = textBox2_funcionarios.Text.ToString();
+                combo = comboBox2_funcionarios;
+                pessoa = "nome_funcionario";
+                tabela = "T_funcionarios";
+            }
+            else
+                return;
+
+            ssql = $"SELECT Id, {pessoa} FROM {tabela}";
+
+            if (texto1 != "")
+                ssql += $" WHERE {pessoa} LIKE '%{texto1}%';";
+
+            try
+            {
+                 InitComboBox(combo, ssql, pessoa, "id", "-- Mostrar Todos --");
+            }
+            catch
+            {
+                combo.DataSource = null;
+                combo.Items.Clear();
+                combo.ResetText();
+                combo.SelectedItem = null;
             }
         }
 

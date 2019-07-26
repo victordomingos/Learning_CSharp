@@ -37,8 +37,14 @@ namespace appRT
             
 
             dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.RowHeadersVisible = false;
@@ -75,52 +81,9 @@ namespace appRT
         private void ComboBox2_funcionarios_SelectedIndexChanged(object sender, EventArgs e) { Filtrar_lista(); }
 
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            string ssql = "SELECT Id, nome_cliente FROM T_clientes";
-            string texto = textBox1_clientes.Text.ToString();
-
-            if (texto !="")
-                ssql += $" WHERE nome_cliente LIKE '%{texto}%'";
-
-            try
-            {
-                InitComboBox(comboBox1_clientes, ssql, "nome_cliente", "id", "-- Mostrar Todos --");
-            }
-            catch
-            {
-                comboBox1_clientes.DataSource = null;
-                comboBox1_clientes.ResetText();
-                comboBox1_clientes.Items.Clear();
-                comboBox1_clientes.SelectedItem = null;
-            }
-        }
-
-
-        private void TextBox2_funcionarios_TextChanged(object sender, EventArgs e)
-        {
-            string ssql = "SELECT Id, nome_funcionario FROM T_funcionarios";
-            string texto1 = textBox2_funcionarios.Text.ToString();
-            string filtro_funcionario = "";
-            
-            if (texto1 != "")
-                filtro_funcionario = $" WHERE nome_funcionario LIKE '%{texto1}%'";
-
-            ssql += filtro_funcionario;
-
-            try
-            {
-                InitComboBox(comboBox2_funcionarios, ssql, "nome_funcionario", "id", "-- Mostrar Todos --");
-            }
-            catch
-            {
-                comboBox2_funcionarios.DataSource = null;
-                comboBox2_funcionarios.Items.Clear();
-                comboBox2_funcionarios.ResetText();
-            }
-        }
-
-
+        private void TextBox1_TextChanged(object sender, EventArgs e) { Atualiza_combobox(); }
+        private void TextBox2_funcionarios_TextChanged(object sender, EventArgs e) { Atualiza_combobox(); }
+        
         private void Btn_novo_limpar_Click(object sender, EventArgs e) { limpar_form_novo_registo(); }
         private void Btn_novo_guardar_Click(object sender, EventArgs e) { guardar_registo_tempo(); }
         private void Cmb_novo_categoria_SelectedIndexChanged(object sender, EventArgs e) { }
@@ -140,5 +103,7 @@ namespace appRT
         private void NovoRegistoToolStripMenuItem_Click(object sender, EventArgs e) { panel_bottom.Visible = true; }
         private void ClientesToolStripMenuItem_Click(object sender, EventArgs e) { Form3Clientes f3 = new Form3Clientes(); f3.Show();}
         private void FuncionáriosToolStripMenuItem_Click(object sender, EventArgs e) { Form2Funcionarios f3 = new Form2Funcionarios(); f3.Show();}
+
+        private void GroupBox3_Enter(object sender, EventArgs e) { }
     }
 }
