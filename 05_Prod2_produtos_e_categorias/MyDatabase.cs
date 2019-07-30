@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
-namespace _05_Prod2_produtos_e_categorias
+namespace prod2_app
 {
     public class MyDatabase
     {
@@ -25,6 +21,5 @@ namespace _05_Prod2_produtos_e_categorias
                 return dt;
             }
         }
-       
     }
 }

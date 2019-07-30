@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
-namespace _05_Prod2_produtos_e_categorias
+namespace prod2_app
 {
     public partial class Form1 : Form
     {
@@ -36,8 +29,7 @@ namespace _05_Prod2_produtos_e_categorias
                    "ORDER BY id ASC; ";
 
             grid.DataSource = db.ObterDados(ssql);
-
-            
+                       
             grid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             grid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -58,7 +50,6 @@ namespace _05_Prod2_produtos_e_categorias
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
         
 
@@ -82,7 +73,6 @@ namespace _05_Prod2_produtos_e_categorias
 
         private void Cmb_categorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             string ssql;
             string filtro;
             string categoria;
@@ -123,9 +113,7 @@ namespace _05_Prod2_produtos_e_categorias
                     s_unidades = $"(total de { unidades} unidades)";
 
                 lbl_status.Text = $"{grid.Rows.Count} produtos {categoria} {s_unidades}";
-            }
-
-                
+            }                
         }
 
         private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit(); }

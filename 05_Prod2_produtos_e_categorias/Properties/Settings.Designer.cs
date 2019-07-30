@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _05_Prod2_produtos_e_categorias.Properties
+namespace prod2_app.Properties
 {
 
 

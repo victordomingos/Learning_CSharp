@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _05_Prod2_produtos_e_categorias
+namespace prod2_app
 {
     public partial class Acerca : Form
     {
@@ -19,8 +12,7 @@ namespace _05_Prod2_produtos_e_categorias
 
         private void Label1_Click(object sender, EventArgs e) { this.Close();}
 
-        private void Acerca_Load(object sender, EventArgs e)
-        { }
+        private void Acerca_Load(object sender, EventArgs e) { }
 
         private void Acerca_Click(object sender, EventArgs e) { this.Close(); }
 

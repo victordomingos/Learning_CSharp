@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _05_Prod2_produtos_e_categorias
+namespace prod2_app
 {
     static class Program
     {

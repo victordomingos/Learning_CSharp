@@ -1,4 +1,4 @@
-﻿namespace _05_Prod2_produtos_e_categorias
+﻿namespace prod2_app
 {
     partial class Form1
     {
