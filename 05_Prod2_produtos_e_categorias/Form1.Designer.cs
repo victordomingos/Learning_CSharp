@@ -38,6 +38,7 @@
             this.cmb_categorias = new System.Windows.Forms.ToolStripComboBox();
             this.btn_categorias = new System.Windows.Forms.ToolStripButton();
             this.lbl_status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -79,6 +80,8 @@
             // 
             // menu_ficheiro
             // 
+            this.menu_ficheiro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem});
             this.menu_ficheiro.Name = "menu_ficheiro";
             this.menu_ficheiro.Size = new System.Drawing.Size(61, 20);
             this.menu_ficheiro.Text = "Ficheiro";
@@ -124,6 +127,13 @@
             this.lbl_status.Size = new System.Drawing.Size(213, 17);
             this.lbl_status.Text = "A obter informação da base de dados...";
             // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +170,7 @@
         private System.Windows.Forms.ToolStripMenuItem menu_ajuda;
         private System.Windows.Forms.ToolStripButton btn_categorias;
         private System.Windows.Forms.ToolStripStatusLabel lbl_status;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
     }
 }
 

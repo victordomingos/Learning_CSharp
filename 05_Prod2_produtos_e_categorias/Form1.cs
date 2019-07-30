@@ -112,5 +112,7 @@ namespace _05_Prod2_produtos_e_categorias
             grid.DataSource = db.ObterDados(ssql);
             lbl_status.Text = $"{grid.Rows.Count} produtos {categoria}";
         }
+
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit(); }
     }
 }
