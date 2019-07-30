@@ -10,7 +10,7 @@
 *.userosscache
 *.sln.docstates
 *04_appRT/appRT/SConnection.cs
-
+*05_Prod2_produtos_e_categorias/config.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
