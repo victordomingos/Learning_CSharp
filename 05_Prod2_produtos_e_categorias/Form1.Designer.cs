@@ -121,8 +121,8 @@
             // lbl_status
             // 
             this.lbl_status.Name = "lbl_status";
-            this.lbl_status.Size = new System.Drawing.Size(118, 17);
-            this.lbl_status.Text = "toolStripStatusLabel1";
+            this.lbl_status.Size = new System.Drawing.Size(213, 17);
+            this.lbl_status.Text = "A obter informação da base de dados...";
             // 
             // Form1
             // 

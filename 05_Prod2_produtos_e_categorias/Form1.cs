@@ -56,11 +56,7 @@ namespace _05_Prod2_produtos_e_categorias
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grid.ReadOnly = true;
             
-
-            //Atualizar_contagem_estado();
-
-
-
+            lbl_status.Text = $"{grid.Rows.Count} produtos";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -92,12 +88,19 @@ namespace _05_Prod2_produtos_e_categorias
 
             string ssql;
             string filtro = " ";
+            string categoria;
             string id = cmb_categorias.SelectedIndex.ToString();
 
             if (id == "0")
+            {
                 filtro = " ";
+                categoria = "";
+            }
             else
+            {
                 filtro = $"WHERE produto.categoria_id={id} ";
+                categoria = $"na categoria { cmb_categorias.Text}";
+            }
             
             ssql = "SELECT produto.id as 'ID', produto.nomeproduto as 'Descrição do Produto',  " +
                          "CAST(preco as numeric(17,2)) as 'Preço', " +
@@ -107,6 +110,7 @@ namespace _05_Prod2_produtos_e_categorias
                    "ORDER BY id ASC; ";
 
             grid.DataSource = db.ObterDados(ssql);
+            lbl_status.Text = $"{grid.Rows.Count} produtos {categoria}";
         }
     }
 }
