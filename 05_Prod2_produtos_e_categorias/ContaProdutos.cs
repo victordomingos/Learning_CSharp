@@ -7,16 +7,13 @@ using System.Windows.Forms;
 
 namespace _05_Prod2_produtos_e_categorias
 {
-    class ContaProdutos
+    public class ContaProdutos
     {
-        public int ContarProdutos(DataGridView grid)
+        public void ContarProdutos(DataGridView grid)
         {
-            int n = 0;
-
-            // TODO
-
-
-            return n;
+            string n = grid.Rows.Count.ToString();
+            string msg = $"Nesta categoria, há neste momento um total de {n} produtos.";
+            MessageBox.Show(msg, "Contagem de Produtos");
         }
     }
 }
