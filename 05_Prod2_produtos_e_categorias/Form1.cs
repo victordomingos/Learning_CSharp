@@ -22,21 +22,18 @@ namespace _05_Prod2_produtos_e_categorias
         {
             InitializeComponent();
 
-
             string ssql;
 
-            // Preencher ComboBoxes
             ssql = "SELECT id, designacao_categoria FROM categoria";
             InitComboBox(cmb_categorias, ssql, "designacao_categoria", "id", DEFAULT_CMBX_TEXT);
                         
-            // Preencher Gridview
+
             ssql = "SELECT produto.id as 'ID', produto.nomeproduto as 'Descrição do Produto',  " +
                           "CAST(preco as numeric(17,2)) as 'Preço', " +
                           "quantidade as 'Quantidade', designacao_categoria as Categoria " +
                    "FROM produto " +
                    "INNER JOIN categoria ON produto.categoria_id=categoria.id " +
                    "ORDER BY id ASC; ";
-
 
             grid.DataSource = db.ObterDados(ssql);
 
@@ -63,8 +60,7 @@ namespace _05_Prod2_produtos_e_categorias
         {
 
         }
-
-
+        
 
         public void InitComboBox(ToolStripComboBox cmbx, string ssql, string displayM, string valueM, string defaultText)
         {
@@ -79,6 +75,7 @@ namespace _05_Prod2_produtos_e_categorias
             cmbx.ComboBox.ValueMember = valueM;
         }
 
+
         private void Btn_categorias_Click(object sender, EventArgs e) { contador.ContarProdutos(grid); }
 
         private void Cmb_categorias_Click(object sender, EventArgs e) { }
@@ -87,9 +84,11 @@ namespace _05_Prod2_produtos_e_categorias
         {
 
             string ssql;
-            string filtro = " ";
+            string filtro;
             string categoria;
             string id = cmb_categorias.SelectedIndex.ToString();
+            int unidades = 0;
+            string s_unidades;
 
             if (id == "0")
             {
@@ -110,7 +109,23 @@ namespace _05_Prod2_produtos_e_categorias
                    "ORDER BY id ASC; ";
 
             grid.DataSource = db.ObterDados(ssql);
-            lbl_status.Text = $"{grid.Rows.Count} produtos {categoria}";
+
+            DataTable dt = db.ObterDados("SELECT SUM(quantidade) from produto " + filtro + ";");
+            unidades = Convert.ToInt32(dt.Rows[0][0]);
+
+            if (unidades == 0)
+                lbl_status.Text = "Não há produtos para mostrar.";
+            else
+            {
+                if (unidades == 1)
+                    s_unidades = $"(total de apenas 1 unidade)";
+                else
+                    s_unidades = $"(total de { unidades} unidades)";
+
+                lbl_status.Text = $"{grid.Rows.Count} produtos {categoria} {s_unidades}";
+            }
+
+                
         }
 
         private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit(); }
