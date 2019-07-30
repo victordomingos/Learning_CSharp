@@ -40,6 +40,8 @@
             this.lbl_status = new System.Windows.Forms.ToolStripStatusLabel();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDestaAplicaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_mostrar_tudo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -99,6 +101,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmb_categorias,
+            this.lbl_mostrar_tudo,
+            this.toolStripLabel1,
             this.btn_categorias});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -116,6 +120,7 @@
             // 
             // btn_categorias
             // 
+            this.btn_categorias.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.btn_categorias.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btn_categorias.Image = ((System.Drawing.Image)(resources.GetObject("btn_categorias.Image")));
             this.btn_categorias.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -143,6 +148,25 @@
             this.acercaDestaAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.acercaDestaAplicaçãoToolStripMenuItem.Text = "Acerca desta aplicação...";
             this.acercaDestaAplicaçãoToolStripMenuItem.Click += new System.EventHandler(this.AcercaDestaAplicaçãoToolStripMenuItem_Click);
+            // 
+            // lbl_mostrar_tudo
+            // 
+            this.lbl_mostrar_tudo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lbl_mostrar_tudo.Image = ((System.Drawing.Image)(resources.GetObject("lbl_mostrar_tudo.Image")));
+            this.lbl_mostrar_tudo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.lbl_mostrar_tudo.Name = "lbl_mostrar_tudo";
+            this.lbl_mostrar_tudo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl_mostrar_tudo.Size = new System.Drawing.Size(80, 22);
+            this.lbl_mostrar_tudo.Text = "Mostrar tudo";
+            this.lbl_mostrar_tudo.ToolTipText = "Mostrar tudo";
+            this.lbl_mostrar_tudo.Click += new System.EventHandler(this.Lbl_mostrar_tudo_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(0, 22);
             // 
             // Form1
             // 
@@ -182,6 +206,8 @@
         private System.Windows.Forms.ToolStripStatusLabel lbl_status;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDestaAplicaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton lbl_mostrar_tudo;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }
 

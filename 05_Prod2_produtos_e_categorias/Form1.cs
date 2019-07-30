@@ -131,5 +131,7 @@ namespace _05_Prod2_produtos_e_categorias
         private void SairToolStripMenuItem_Click(object sender, EventArgs e) { Application.Exit(); }
 
         private void AcercaDestaAplicaçãoToolStripMenuItem_Click(object sender, EventArgs e) { Acerca acerca = new Acerca(); acerca.Show(); }
+
+        private void Lbl_mostrar_tudo_Click(object sender, EventArgs e) { cmb_categorias.SelectedIndex = 0; }
     }
 }
