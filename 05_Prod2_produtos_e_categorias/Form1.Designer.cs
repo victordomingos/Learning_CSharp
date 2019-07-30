@@ -39,6 +39,7 @@
             this.btn_categorias = new System.Windows.Forms.ToolStripButton();
             this.lbl_status = new System.Windows.Forms.ToolStripStatusLabel();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDestaAplicaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -88,6 +89,8 @@
             // 
             // menu_ajuda
             // 
+            this.menu_ajuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDestaAplicaçãoToolStripMenuItem});
             this.menu_ajuda.Name = "menu_ajuda";
             this.menu_ajuda.Size = new System.Drawing.Size(50, 20);
             this.menu_ajuda.Text = "Ajuda";
@@ -134,6 +137,13 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.SairToolStripMenuItem_Click);
             // 
+            // acercaDestaAplicaçãoToolStripMenuItem
+            // 
+            this.acercaDestaAplicaçãoToolStripMenuItem.Name = "acercaDestaAplicaçãoToolStripMenuItem";
+            this.acercaDestaAplicaçãoToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.acercaDestaAplicaçãoToolStripMenuItem.Text = "Acerca desta aplicação...";
+            this.acercaDestaAplicaçãoToolStripMenuItem.Click += new System.EventHandler(this.AcercaDestaAplicaçãoToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +181,7 @@
         private System.Windows.Forms.ToolStripButton btn_categorias;
         private System.Windows.Forms.ToolStripStatusLabel lbl_status;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDestaAplicaçãoToolStripMenuItem;
     }
 }
 
