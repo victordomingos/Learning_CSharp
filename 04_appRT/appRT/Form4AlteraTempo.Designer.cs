@@ -45,10 +45,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -165,7 +165,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(753, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(784, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.Text = "Total (hh:mm): ";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -235,6 +235,26 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Por data";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Selecionar ano";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Selecionar mês";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -253,29 +273,10 @@
             this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
             this.label6.Location = new System.Drawing.Point(8, 231);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(179, 24);
+            this.label6.Size = new System.Drawing.Size(267, 24);
             this.label6.TabIndex = 23;
-            this.label6.Text = "Selecionar registo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Selecionar mês";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Selecionar ano";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
+            this.label6.Text = "Selecionar ou editar registo";
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // Form4AlteraTempos
             // 
@@ -291,6 +292,7 @@
             this.Controls.Add(this.btn_atualizar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusStrip1);
+            this.MinimumSize = new System.Drawing.Size(849, 600);
             this.Name = "Form4AlteraTempos";
             this.Text = "Alteração/Eliminação de Registos";
             this.Load += new System.EventHandler(this.Form4AlteraTempos_Load);

@@ -105,5 +105,10 @@ namespace appRT
         private void FuncionáriosToolStripMenuItem_Click(object sender, EventArgs e) { Form2Funcionarios f3 = new Form2Funcionarios(); f3.Show();}
 
         private void GroupBox3_Enter(object sender, EventArgs e) { }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
