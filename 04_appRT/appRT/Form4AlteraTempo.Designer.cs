@@ -58,38 +58,46 @@
             // 
             // txt_cliente
             // 
+            this.txt_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_cliente.Location = new System.Drawing.Point(6, 22);
             this.txt_cliente.Name = "txt_cliente";
-            this.txt_cliente.Size = new System.Drawing.Size(230, 20);
+            this.txt_cliente.Size = new System.Drawing.Size(242, 20);
             this.txt_cliente.TabIndex = 0;
             // 
             // txt_funcionario
             // 
+            this.txt_funcionario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_funcionario.Location = new System.Drawing.Point(6, 22);
             this.txt_funcionario.Name = "txt_funcionario";
-            this.txt_funcionario.Size = new System.Drawing.Size(228, 20);
+            this.txt_funcionario.Size = new System.Drawing.Size(240, 20);
             this.txt_funcionario.TabIndex = 3;
             // 
             // listb_cliente
             // 
+            this.listb_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listb_cliente.FormattingEnabled = true;
             this.listb_cliente.Location = new System.Drawing.Point(6, 48);
             this.listb_cliente.Name = "listb_cliente";
-            this.listb_cliente.Size = new System.Drawing.Size(230, 95);
+            this.listb_cliente.Size = new System.Drawing.Size(242, 95);
             this.listb_cliente.TabIndex = 4;
             // 
             // listb_funcionario
             // 
+            this.listb_funcionario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listb_funcionario.FormattingEnabled = true;
             this.listb_funcionario.Location = new System.Drawing.Point(6, 48);
             this.listb_funcionario.Name = "listb_funcionario";
-            this.listb_funcionario.Size = new System.Drawing.Size(228, 95);
+            this.listb_funcionario.Size = new System.Drawing.Size(240, 95);
             this.listb_funcionario.TabIndex = 5;
             // 
             // cmb_ano
             // 
             this.cmb_ano.FormattingEnabled = true;
-            this.cmb_ano.Location = new System.Drawing.Point(10, 41);
+            this.cmb_ano.Location = new System.Drawing.Point(9, 41);
             this.cmb_ano.Name = "cmb_ano";
             this.cmb_ano.Size = new System.Drawing.Size(121, 21);
             this.cmb_ano.TabIndex = 10;
@@ -98,7 +106,7 @@
             // cmb_mes
             // 
             this.cmb_mes.FormattingEnabled = true;
-            this.cmb_mes.Location = new System.Drawing.Point(10, 112);
+            this.cmb_mes.Location = new System.Drawing.Point(9, 112);
             this.cmb_mes.Name = "cmb_mes";
             this.cmb_mes.Size = new System.Drawing.Size(121, 21);
             this.cmb_mes.TabIndex = 11;
@@ -107,16 +115,16 @@
             // listb_meses
             // 
             this.listb_meses.FormattingEnabled = true;
-            this.listb_meses.Location = new System.Drawing.Point(165, 41);
+            this.listb_meses.Location = new System.Drawing.Point(151, 42);
             this.listb_meses.Name = "listb_meses";
-            this.listb_meses.Size = new System.Drawing.Size(134, 95);
+            this.listb_meses.Size = new System.Drawing.Size(127, 95);
             this.listb_meses.TabIndex = 12;
             this.listb_meses.SelectedIndexChanged += new System.EventHandler(this.ListBox3_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(162, 25);
+            this.label5.Location = new System.Drawing.Point(148, 26);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 13;
@@ -125,10 +133,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 275);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 269);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(809, 229);
+            this.dataGridView1.Size = new System.Drawing.Size(809, 235);
             this.dataGridView1.TabIndex = 14;
             // 
             // lbl_total_tempo
@@ -160,6 +172,7 @@
             // 
             // btn_atualizar
             // 
+            this.btn_atualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_atualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_atualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btn_atualizar.Location = new System.Drawing.Point(12, 510);
@@ -171,6 +184,7 @@
             // 
             // btn_eliminar
             // 
+            this.btn_eliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.ForeColor = System.Drawing.Color.Maroon;
             this.btn_eliminar.Location = new System.Drawing.Point(537, 510);
@@ -182,37 +196,41 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.txt_cliente);
             this.groupBox1.Controls.Add(this.listb_cliente);
             this.groupBox1.Location = new System.Drawing.Point(12, 50);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(245, 153);
+            this.groupBox1.Size = new System.Drawing.Size(257, 153);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Por cliente";
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox2.Controls.Add(this.txt_funcionario);
             this.groupBox2.Controls.Add(this.listb_funcionario);
-            this.groupBox2.Location = new System.Drawing.Point(263, 50);
+            this.groupBox2.Location = new System.Drawing.Point(275, 50);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(245, 153);
+            this.groupBox2.Size = new System.Drawing.Size(257, 153);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Por funcionário";
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.cmb_ano);
             this.groupBox3.Controls.Add(this.cmb_mes);
             this.groupBox3.Controls.Add(this.listb_meses);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(514, 50);
+            this.groupBox3.Location = new System.Drawing.Point(537, 50);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(307, 153);
+            this.groupBox3.Size = new System.Drawing.Size(284, 153);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Por data";
@@ -233,7 +251,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label6.Location = new System.Drawing.Point(8, 239);
+            this.label6.Location = new System.Drawing.Point(8, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(179, 24);
             this.label6.TabIndex = 23;
@@ -242,7 +260,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 96);
+            this.label4.Location = new System.Drawing.Point(6, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 9;
@@ -252,7 +270,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 25);
+            this.label3.Location = new System.Drawing.Point(6, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 8;
@@ -275,6 +293,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Name = "Form4AlteraTempos";
             this.Text = "Alteração/Eliminação de Registos";
+            this.Load += new System.EventHandler(this.Form4AlteraTempos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
