@@ -52,6 +52,12 @@
     <Compile Include="Acerca.Designer.cs">
       <DependentUpon>Acerca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form4AlteraTempo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4AlteraTempo.Designer.cs">
+      <DependentUpon>Form4AlteraTempo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1_methods.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Acerca.resx">
       <DependentUpon>Acerca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4AlteraTempo.resx">
+      <DependentUpon>Form4AlteraTempo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

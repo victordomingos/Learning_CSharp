@@ -77,10 +77,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.grid_stats = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel_bottom = new System.Windows.Forms.Panel();
             this.key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel_bottom = new System.Windows.Forms.Panel();
+            this.btn_alterar_eliminar = new System.Windows.Forms.ToolStripButton();
+            this.alteraçãoeliminaçãoDeRegistosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -259,9 +261,10 @@
             this.painelDeNovoRegistoToolStripMenuItem,
             this.toolStripSeparator1,
             this.clientesToolStripMenuItem,
-            this.funcionáriosToolStripMenuItem});
+            this.funcionáriosToolStripMenuItem,
+            this.alteraçãoeliminaçãoDeRegistosToolStripMenuItem});
             this.janelaToolStripMenuItem.Name = "janelaToolStripMenuItem";
-            this.janelaToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.janelaToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
             this.janelaToolStripMenuItem.Text = "Ver";
             // 
             // mostrarPainelLateralToolStripMenuItem
@@ -270,7 +273,7 @@
             this.mostrarPainelLateralToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mostrarPainelLateralToolStripMenuItem.Name = "mostrarPainelLateralToolStripMenuItem";
             this.mostrarPainelLateralToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+1";
-            this.mostrarPainelLateralToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.mostrarPainelLateralToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.mostrarPainelLateralToolStripMenuItem.Text = "Painel lateral";
             this.mostrarPainelLateralToolStripMenuItem.Click += new System.EventHandler(this.MostrarPainelLateralToolStripMenuItem_Click);
             // 
@@ -280,26 +283,26 @@
             this.painelDeNovoRegistoToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.painelDeNovoRegistoToolStripMenuItem.Name = "painelDeNovoRegistoToolStripMenuItem";
             this.painelDeNovoRegistoToolStripMenuItem.ShortcutKeyDisplayString = "CTRL+2";
-            this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.painelDeNovoRegistoToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.painelDeNovoRegistoToolStripMenuItem.Text = "Painel de novo registo";
             this.painelDeNovoRegistoToolStripMenuItem.Click += new System.EventHandler(this.PainelDeNovoRegistoToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(237, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(244, 6);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.ClientesToolStripMenuItem_Click);
             // 
             // funcionáriosToolStripMenuItem
             // 
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.FuncionáriosToolStripMenuItem_Click);
             // 
@@ -492,7 +495,8 @@
             this.tsbtn_clientes,
             this.tsbtn_funcionarios,
             this.tsbtn_painel_lateral,
-            this.tsbtn_novo_registo});
+            this.tsbtn_novo_registo,
+            this.btn_alterar_eliminar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1008, 39);
@@ -586,6 +590,23 @@
             this.grid_stats.Size = new System.Drawing.Size(233, 297);
             this.grid_stats.TabIndex = 11;
             // 
+            // key
+            // 
+            this.key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.key.HeaderText = "Chave";
+            this.key.Name = "key";
+            this.key.ReadOnly = true;
+            // 
+            // value
+            // 
+            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.value.DefaultCellStyle = dataGridViewCellStyle2;
+            this.value.HeaderText = "Valor";
+            this.value.Name = "value";
+            this.value.ReadOnly = true;
+            this.value.Width = 5;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -610,22 +631,19 @@
             this.panel_bottom.TabIndex = 14;
             this.panel_bottom.Visible = false;
             // 
-            // key
+            // btn_alterar_eliminar
             // 
-            this.key.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.key.HeaderText = "Chave";
-            this.key.Name = "key";
-            this.key.ReadOnly = true;
+            this.btn_alterar_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_alterar_eliminar.Image")));
+            this.btn_alterar_eliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_alterar_eliminar.Name = "btn_alterar_eliminar";
+            this.btn_alterar_eliminar.Size = new System.Drawing.Size(173, 36);
+            this.btn_alterar_eliminar.Text = "Alterar/Eliminar Registos";
             // 
-            // value
+            // alteraçãoeliminaçãoDeRegistosToolStripMenuItem
             // 
-            this.value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.value.DefaultCellStyle = dataGridViewCellStyle2;
-            this.value.HeaderText = "Valor";
-            this.value.Name = "value";
-            this.value.ReadOnly = true;
-            this.value.Width = 5;
+            this.alteraçãoeliminaçãoDeRegistosToolStripMenuItem.Name = "alteraçãoeliminaçãoDeRegistosToolStripMenuItem";
+            this.alteraçãoeliminaçãoDeRegistosToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.alteraçãoeliminaçãoDeRegistosToolStripMenuItem.Text = "Alteração/eliminação de registos";
             // 
             // Form1
             // 
@@ -718,6 +736,8 @@
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn key;
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
+        private System.Windows.Forms.ToolStripMenuItem alteraçãoeliminaçãoDeRegistosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btn_alterar_eliminar;
     }
 }
 
