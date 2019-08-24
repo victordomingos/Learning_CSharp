@@ -65,7 +65,7 @@ namespace appRT
                 var h_cliente = minutos_cliente_mes / 60;
                 var m_cliente = minutos_cliente_mes % 60;
                 string s_minutos_cliente_mes = $"{h_cliente}h{m_cliente}m";
-
+                
                 //grid_stats.Rows.Add();
                 grid_stats.Rows.Add("Cliente: " + nome_cliente);
                 FormatarCabecalhoGrid(grid_stats);
@@ -363,11 +363,18 @@ namespace appRT
                 return;
             }
 
-            db.InserirRegistoTempo(cod_cliente, cod_funcionario, data, minutos, descritivo, categoria);
+            int status = db.InserirRegistoTempo(cod_cliente, cod_funcionario, data, minutos, descritivo, categoria);
 
-            // TODO: caso a inserção não seja bem sucedida, não limpar formulário e mostrar erro.
-            limpar_form_novo_registo();
-            Filtrar_lista();
+            if (status==0)
+            {
+                // TODO: caso a inserção não seja bem sucedida, não limpar formulário e mostrar erro.
+                limpar_form_novo_registo();
+                Filtrar_lista();
+            }
+            else
+            {
+                MessageBox.Show("Ocorreu um erro durante a introdução do registo, pelo que o mesmo poderá não ter sido guardado. Por favor verifique os dados introduzidos.", "Atenção!");
+            }
         }
 
         public void limpar_form_novo_registo()

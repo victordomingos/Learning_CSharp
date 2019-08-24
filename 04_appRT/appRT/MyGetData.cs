@@ -115,7 +115,6 @@ namespace appRT
 
                 SqlCommand comando = new SqlCommand(ssql, C);
 
-                MessageBox.Show(data);
                 comando.Parameters.AddWithValue("@cod_cliente", cod_cliente);
                 comando.Parameters.AddWithValue("@cod_funcionario", cod_funcionario);
                 comando.Parameters.AddWithValue("@data", data);
@@ -125,12 +124,10 @@ namespace appRT
                 try
                 {
                     comando.ExecuteNonQuery();
-                    MessageBox.Show(comando.CommandText, "SQL Query B:");
                 }
                 catch (Exception)
                 {
-
-                    throw;
+                    return 1;
                 }
                 return 0;
             }
