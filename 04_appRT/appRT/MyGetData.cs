@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace appRT
 {
@@ -137,8 +136,15 @@ namespace appRT
         {
             string ssql = "DELETE FROM t_registo_de_tempos " +
                           $"WHERE ID='{id}'";
-            MessageBox.Show(ssql);
-            BuscaDados(SConnection.SC, ssql);
+
+            try
+            {
+                BuscaDados(SConnection.SC, ssql);
+            }
+            catch (Exception)
+            {
+                return 1;
+            }
             return 0;
         }
     }

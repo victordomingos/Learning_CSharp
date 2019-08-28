@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace appRT
@@ -54,21 +47,8 @@ namespace appRT
 
 
             // Preencher Gridview
-            ssql = $"SET ROWCOUNT {DEFAULT_MAX_ROWS} " +
-                   "SELECT T_registo_de_tempos.Id as ID, data as 'Data', tempo as Tempo, " +
-                   "descritivo as Descrição, categoria as Categoria " +
-                   "FROM T_registo_de_tempos " +
-                   "ORDER BY Id DESC";
-
-            dataGridView1.DataSource = db.BuscaDados(SConnection.SC, ssql);
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
+            
+            AtualizarGrid();
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ShowEditingIcon = true;
             dataGridView1.RowHeadersVisible = true;
