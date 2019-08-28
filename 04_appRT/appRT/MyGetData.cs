@@ -132,5 +132,14 @@ namespace appRT
                 return 0;
             }
         }
+
+        public int EliminarRegistoTempo(string id)
+        {
+            string ssql = "DELETE FROM t_registo_de_tempos " +
+                          $"WHERE ID='{id}'";
+            MessageBox.Show(ssql);
+            BuscaDados(SConnection.SC, ssql);
+            return 0;
+        }
     }
 }
