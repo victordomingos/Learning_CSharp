@@ -193,6 +193,7 @@
             this.btn_eliminar.TabIndex = 17;
             this.btn_eliminar.Text = "Eliminar registo selecionado";
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.Btn_eliminar_Click);
             // 
             // groupBox1
             // 

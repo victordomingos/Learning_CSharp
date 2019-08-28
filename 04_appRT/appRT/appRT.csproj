@@ -61,6 +61,9 @@
     <Compile Include="Form1_methods.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form4AlteraTempo_methods.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SConnection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
