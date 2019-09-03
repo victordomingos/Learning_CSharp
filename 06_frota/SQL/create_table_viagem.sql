@@ -1,7 +1,7 @@
 USE [victor_BD_Frota]
 GO
 
-/****** Object:  Table [dbo].[viagem]    Script Date: 03/09/2019 10:02:32 ******/
+/****** Object:  Table [dbo].[viagem]    Script Date: 03/09/2019 10:12:08 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[viagem](
-	[id] [int] NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
 	[veiculo_id] [int] NOT NULL,
 	[condutor_id] [int] NOT NULL,
 	[distancia] [numeric](9, 1) NOT NULL,

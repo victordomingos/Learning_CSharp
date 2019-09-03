@@ -1,7 +1,7 @@
 USE [victor_BD_Frota]
 GO
 
-/****** Object:  Table [dbo].[condutor]    Script Date: 03/09/2019 10:02:06 ******/
+/****** Object:  Table [dbo].[condutor]    Script Date: 03/09/2019 10:12:28 ******/
 SET ANSI_NULLS ON
 GO
 
