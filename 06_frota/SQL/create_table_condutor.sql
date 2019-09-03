@@ -1,0 +1,20 @@
+USE [victor_BD_Frota]
+GO
+
+/****** Object:  Table [dbo].[condutor]    Script Date: 03/09/2019 10:02:06 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[condutor](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nome] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_condutor] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
