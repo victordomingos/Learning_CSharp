@@ -35,5 +35,9 @@ namespace Frota
         private void Btn_limpar_Click(object sender, EventArgs e) { LimparFormulario(); }
 
         private void Btn_guardar_Click(object sender, EventArgs e) { InserirViagem(); }
+
+        private void ToolStripButton2_Click(object sender, EventArgs e) { AlternarNovoRegisto(); }
+
+        private void ToolStripButton1_Click(object sender, EventArgs e) { EliminarRegisto(); }
     }
 }

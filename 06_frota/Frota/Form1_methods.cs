@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Frota
@@ -65,10 +66,18 @@ namespace Frota
         public void InserirViagem()
         {
             // validar dados
+            int veiculo_id = Convert.ToInt32(cmb_veiculo.SelectedValue.ToString());
+            int condutor_id = Convert.ToInt32(cmb_condutor.SelectedValue.ToString());
+            double distancia = Convert.ToDouble(txt_distancia.Text);
+            MessageBox.Show(distancia.ToString());
+
+            string data_hora = calendario.SelectionEnd.ToString("yyyy/MM/dd  HH:mm:ss.fff");
 
             // inserir dados
-            string ssql = ""
-              
+            var result = db.InserirRegistoViagem(veiculo_id, condutor_id, distancia, data_hora);
+
+            // messagebox caso resultado seja != 0 (erro)
+            InitGrid();
         }
 
         public string ObterDistanciaTotal()
@@ -80,6 +89,30 @@ namespace Frota
 
             return Convert.ToString(soma);
         }
+
+        public void AlternarNovoRegisto()
+        {
+            if (!panel1.Visible)
+            {
+                panel1.Visible = true;
+                grid.Width -= panel1.Width;
+            }
+            else
+            {
+                panel1.Hide();
+                grid.Width += panel1.Width;
+            }
+        }
+        
+        public void EliminarRegisto()
+        {
+            int id = Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value);
+            // eliminar registo na BD.
+
+
+        }
+
+
 
     }
 
