@@ -52,5 +52,44 @@ namespace Frota
             }
 
         }
-}
+
+        public int EliminarRegistoViagem(int id)
+        {
+            using (SqlConnection c = new SqlConnection(Config.SC))
+            {
+                c.Open();
+                
+                string ssql = "DELETE FROM viagem WHERE id = @id";
+                SqlCommand comando = new SqlCommand(ssql, c);
+
+                comando.Parameters.AddWithValue("@id", id);
+                
+                try
+                {
+                    int result = comando.ExecuteNonQuery();
+                    MessageBox.Show(result.ToString());
+                }
+                catch (Exception)
+                {
+                    return 1;
+                }
+                return 0;
+
+            }
+
+        }
+
+
+        public double ObterDistânciaTotal()
+        {
+            string ssql = "SELECT SUM(distancia) as c FROM viagem";
+            var dt = ObterDados(ssql);
+
+            if (dt.Rows[0].IsNull(0))
+                { return 0; }
+            else
+                { return Convert.ToDouble(dt.Rows[0][0].ToString()); }
+
+        }
+    }
 }

@@ -66,28 +66,44 @@ namespace Frota
         public void InserirViagem()
         {
             // validar dados
-            int veiculo_id = Convert.ToInt32(cmb_veiculo.SelectedValue.ToString());
-            int condutor_id = Convert.ToInt32(cmb_condutor.SelectedValue.ToString());
-            double distancia = Convert.ToDouble(txt_distancia.Text);
-            MessageBox.Show(distancia.ToString());
 
-            string data_hora = calendario.SelectionEnd.ToString("yyyy/MM/dd  HH:mm:ss.fff");
+            try
+            {
+                int veiculo_id = Convert.ToInt32(cmb_veiculo.SelectedValue.ToString());
+                int condutor_id = Convert.ToInt32(cmb_condutor.SelectedValue.ToString());
+                double distancia = Convert.ToDouble(txt_distancia.Text);
 
-            // inserir dados
-            var result = db.InserirRegistoViagem(veiculo_id, condutor_id, distancia, data_hora);
+                string data_hora = calendario.SelectionEnd.ToString("yyyy/MM/dd  HH:mm:ss.fff");
 
-            // messagebox caso resultado seja != 0 (erro)
-            InitGrid();
+                if (veiculo_id == -1 || condutor_id == -1 || distancia == 0)
+                {
+                    MessageBox.Show("Por favor verifique os dados introduzidos. Todos os campos devem estar preenchidos.");
+                    return;
+                }
+
+                // inserir dados
+                var result = db.InserirRegistoViagem(veiculo_id, condutor_id, distancia, data_hora);
+
+                // messagebox caso resultado seja != 0 (erro)
+                if (result == 1)
+                {
+                    MessageBox.Show("Ocorreu um erro ao inserir o registo na base de dados, pelo que a informação poderá não ter sido guardada. Por favor verifique os dados e, se necessário, tente novamente.");
+                }
+
+                InitGrid();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Por favor verifique os dados introduzidos. Todos os campos devem estar corretamente preenchidos.");
+            }
+
+
         }
 
         public string ObterDistanciaTotal()
         {
-            double soma = 0;
-
-            foreach (DataGridViewRow item in grid.Rows)
-                { soma += Convert.ToDouble(item.Cells["Distância"].Value); }
-
-            return Convert.ToString(soma);
+            return db.ObterDistânciaTotal().ToString();
         }
 
         public void AlternarNovoRegisto()
@@ -108,8 +124,8 @@ namespace Frota
         {
             int id = Convert.ToInt32(grid.SelectedRows[0].Cells[0].Value);
             // eliminar registo na BD.
-
-
+            db.EliminarRegistoViagem(id);
+            InitGrid();
         }
 
 
