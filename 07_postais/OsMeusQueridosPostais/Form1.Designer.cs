@@ -88,6 +88,7 @@
             this.cmb_oferecedor.Name = "cmb_oferecedor";
             this.cmb_oferecedor.Size = new System.Drawing.Size(166, 21);
             this.cmb_oferecedor.TabIndex = 2;
+            this.cmb_oferecedor.SelectedIndexChanged += new System.EventHandler(this.Cmb_oferecedor_SelectedIndexChanged);
             // 
             // cmb_recetor
             // 
@@ -96,6 +97,7 @@
             this.cmb_recetor.Name = "cmb_recetor";
             this.cmb_recetor.Size = new System.Drawing.Size(166, 21);
             this.cmb_recetor.TabIndex = 3;
+            this.cmb_recetor.SelectedIndexChanged += new System.EventHandler(this.Cmb_recetor_SelectedIndexChanged);
             // 
             // date_start
             // 
@@ -113,6 +115,7 @@
             this.date_end.Size = new System.Drawing.Size(169, 20);
             this.date_end.TabIndex = 5;
             this.date_end.Value = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.date_end.ValueChanged += new System.EventHandler(this.Date_end_ValueChanged);
             // 
             // panel1
             // 

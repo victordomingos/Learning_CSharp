@@ -14,9 +14,7 @@ namespace OsMeusQueridosPostais
 
             string ssql;
 
-            InitGrid();
-
-            
+                        
             ssql = "SELECT codigo, nome " +
                    "FROM oferecedor " +
                    "ORDER BY codigo";
@@ -27,7 +25,9 @@ namespace OsMeusQueridosPostais
                    "FROM recetor " +
                    "ORDER BY codigo";
             InitComboBox(cmb_recetor, ssql, "nome", "codigo", " -- Clique para selecionar -- ");
-            
+
+            InitGrid();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,7 +42,22 @@ namespace OsMeusQueridosPostais
 
         private void Date_start_ValueChanged(object sender, EventArgs e)
         {
+            InitGrid();
+        }
 
+        private void Date_end_ValueChanged(object sender, EventArgs e)
+        {
+            InitGrid();
+        }
+
+        private void Cmb_oferecedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitGrid();
+        }
+
+        private void Cmb_recetor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitGrid();
         }
     }
 }
