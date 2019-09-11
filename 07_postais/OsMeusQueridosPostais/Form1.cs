@@ -16,21 +16,31 @@ namespace OsMeusQueridosPostais
 
             InitGrid();
 
-            /*
-            ssql = "SELECT id, CONCAT(matricula, '  -  ', marca, ' ', modelo) as descritivo " +
-                   "FROM veiculo " +
-                   "ORDER BY id";
-            InitComboBox(cmb_veiculo, ssql, "descritivo", "id", " -- Selecionar veículo -- ");
+            
+            ssql = "SELECT codigo, nome " +
+                   "FROM oferecedor " +
+                   "ORDER BY codigo";
+            InitComboBox(cmb_oferecedor, ssql, "nome", "codigo", " -- Clique para selecionar -- ");
 
 
-            ssql = "SELECT id, nome " +
-                   "FROM condutor " +
-                   "ORDER BY id";
-            InitComboBox(cmb_condutor, ssql, "nome", "id", " -- Selecionar condutor -- ");
-            */
+            ssql = "SELECT codigo, nome " +
+                   "FROM recetor " +
+                   "ORDER BY codigo";
+            InitComboBox(cmb_recetor, ssql, "nome", "codigo", " -- Clique para selecionar -- ");
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Date_start_ValueChanged(object sender, EventArgs e)
         {
 
         }
