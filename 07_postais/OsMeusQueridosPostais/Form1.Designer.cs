@@ -52,6 +52,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_novaOfertaCancelar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabGerirPostais.SuspendLayout();
@@ -101,6 +103,7 @@
             // 
             // date_start
             // 
+            this.date_start.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_start.Location = new System.Drawing.Point(370, 31);
             this.date_start.Name = "date_start";
             this.date_start.Size = new System.Drawing.Size(162, 20);
@@ -110,6 +113,7 @@
             // 
             // date_end
             // 
+            this.date_end.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.date_end.Location = new System.Drawing.Point(545, 32);
             this.date_end.Name = "date_end";
             this.date_end.Size = new System.Drawing.Size(169, 20);
@@ -209,6 +213,7 @@
             // 
             this.groupNovaOferta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupNovaOferta.AutoSize = true;
+            this.groupNovaOferta.Controls.Add(this.btn_novaOfertaCancelar);
             this.groupNovaOferta.Controls.Add(this.btn_novaOferta_guardar);
             this.groupNovaOferta.Controls.Add(this.monthCalendar1);
             this.groupNovaOferta.Controls.Add(this.cmb_novaOferta_postal);
@@ -219,28 +224,30 @@
             this.groupNovaOferta.Size = new System.Drawing.Size(461, 222);
             this.groupNovaOferta.TabIndex = 4;
             this.groupNovaOferta.TabStop = false;
-            this.groupNovaOferta.Text = "Registar oferta";
+            this.groupNovaOferta.Text = "Registar ou alterar oferta";
             // 
             // btn_novaOferta_guardar
             // 
-            this.btn_novaOferta_guardar.Location = new System.Drawing.Point(252, 150);
+            this.btn_novaOferta_guardar.Location = new System.Drawing.Point(358, 171);
             this.btn_novaOferta_guardar.Name = "btn_novaOferta_guardar";
-            this.btn_novaOferta_guardar.Size = new System.Drawing.Size(192, 46);
+            this.btn_novaOferta_guardar.Size = new System.Drawing.Size(86, 26);
             this.btn_novaOferta_guardar.TabIndex = 4;
             this.btn_novaOferta_guardar.Text = "Guardar oferta";
             this.btn_novaOferta_guardar.UseVisualStyleBackColor = true;
+            this.btn_novaOferta_guardar.Click += new System.EventHandler(this.Btn_novaOferta_guardar_Click);
             // 
             // monthCalendar1
             // 
             this.monthCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.monthCalendar1.Location = new System.Drawing.Point(12, 35);
+            this.monthCalendar1.MaxSelectionCount = 1;
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 2;
             // 
             // cmb_novaOferta_postal
             // 
             this.cmb_novaOferta_postal.FormattingEnabled = true;
-            this.cmb_novaOferta_postal.Location = new System.Drawing.Point(252, 111);
+            this.cmb_novaOferta_postal.Location = new System.Drawing.Point(251, 111);
             this.cmb_novaOferta_postal.Name = "cmb_novaOferta_postal";
             this.cmb_novaOferta_postal.Size = new System.Drawing.Size(193, 21);
             this.cmb_novaOferta_postal.TabIndex = 3;
@@ -256,7 +263,7 @@
             // cmb_novaOferta_recetor
             // 
             this.cmb_novaOferta_recetor.FormattingEnabled = true;
-            this.cmb_novaOferta_recetor.Location = new System.Drawing.Point(252, 71);
+            this.cmb_novaOferta_recetor.Location = new System.Drawing.Point(251, 73);
             this.cmb_novaOferta_recetor.Name = "cmb_novaOferta_recetor";
             this.cmb_novaOferta_recetor.Size = new System.Drawing.Size(193, 21);
             this.cmb_novaOferta_recetor.TabIndex = 1;
@@ -298,11 +305,32 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Data de fim:";
             // 
+            // btn_novaOfertaCancelar
+            // 
+            this.btn_novaOfertaCancelar.Location = new System.Drawing.Point(252, 171);
+            this.btn_novaOfertaCancelar.Name = "btn_novaOfertaCancelar";
+            this.btn_novaOfertaCancelar.Size = new System.Drawing.Size(88, 26);
+            this.btn_novaOfertaCancelar.TabIndex = 5;
+            this.btn_novaOfertaCancelar.Text = "Cancelar";
+            this.btn_novaOfertaCancelar.UseVisualStyleBackColor = true;
+            this.btn_novaOfertaCancelar.Click += new System.EventHandler(this.Btn_novaOfertaCancelar_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(731, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(57, 26);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Btn_eliminarOferta_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 599);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -357,6 +385,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_novaOfertaCancelar;
+        private System.Windows.Forms.Button button1;
     }
 }
 

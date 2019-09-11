@@ -21,53 +21,31 @@ namespace OsMeusQueridosPostais
             }
         }
 
-        public int InserirRegistoViagem(int veiculo_id, int condutor_id, double distancia, string data_hora)
+        public DataTable InserirRegistoOferta(int codigo, string data_hora, int oferecedor, int recetor, int postal)
         {
-            using (SqlConnection c = new SqlConnection(Config.SC))
-            {
-                c.Open();
-                string ssql;
-                ssql = "INSERT INTO viagem " +
-                       "(veiculo_id, condutor_id, distancia, data) " +
-                       "VALUES (@veiculo_id, @condutor_id, @distancia, @data_hora);";
-
-                SqlCommand comando = new SqlCommand(ssql, c);
-
-                comando.Parameters.AddWithValue("@veiculo_id", veiculo_id);
-                comando.Parameters.AddWithValue("@condutor_id", condutor_id);
-                comando.Parameters.AddWithValue("@distancia", distancia);
-                comando.Parameters.AddWithValue("@data_hora", data_hora);
-
-
-                try
-                {
-                    comando.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    return 1;
-                }
-                return 0;
-                
-            }
-
+            string ssql = "UPDATE oferta " +
+                          $"    SET data_hora='{data_hora}', oferecedor={oferecedor}, recetor={recetor}, postal={postal} " +
+                          $"    WHERE codigo={codigo} " +
+                          "IF @@ROWCOUNT=0 " +
+                          "     INSERT INTO oferta(data_hora, oferecedor, recetor, postal) " +
+                          $"    VALUES ('{data_hora}', {oferecedor}, {recetor}, {postal});";
+            return ObterDados(ssql);
         }
 
-        public int EliminarRegistoViagem(int id)
+        public int EliminarRegistoOferta(int codigo)
         {
             using (SqlConnection c = new SqlConnection(Config.SC))
             {
                 c.Open();
                 
-                string ssql = "DELETE FROM viagem WHERE id = @id";
+                string ssql = "DELETE FROM oferta WHERE codigo = @codigo";
                 SqlCommand comando = new SqlCommand(ssql, c);
 
-                comando.Parameters.AddWithValue("@id", id);
+                comando.Parameters.AddWithValue("@codigo", codigo);
                 
                 try
                 {
                     int result = comando.ExecuteNonQuery();
-                    MessageBox.Show(result.ToString());
                 }
                 catch (Exception)
                 {

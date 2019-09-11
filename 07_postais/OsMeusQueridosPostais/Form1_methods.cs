@@ -12,22 +12,22 @@ namespace OsMeusQueridosPostais
             string start = date_start.Value.ToString("yyyy/MM/dd");
             string end = date_end.Value.ToString("yyyy/MM/dd");
             string filtro = "";
-            int id_oferecedor = -1;
-            int id_recetor = -1;
 
-            if (int.TryParse(cmb_oferecedor.SelectedValue.ToString(), out id_oferecedor) && cmb_oferecedor.SelectedIndex != -1)
-                { filtro += $" AND oferta.oferecedor={id_oferecedor} "; }
-            else
-                { MessageBox.Show("A");
-                filtro += ""; }
+            if (int.TryParse(cmb_oferecedor.SelectedValue.ToString(), out int id_oferecedor))
+            {
+                if (cmb_oferecedor.SelectedIndex > 0)
+                {
+                    filtro += $" AND oferta.oferecedor={id_oferecedor} ";
+                }
+            }
 
-
-            if (int.TryParse(cmb_recetor.SelectedValue.ToString(), out id_recetor) && cmb_recetor.SelectedIndex != -1)
-                { filtro += $" AND oferta.recetor={id_recetor} "; }
-            else
-                { MessageBox.Show("B");
-                filtro += ""; }
-
+            if (int.TryParse(cmb_recetor.SelectedValue.ToString(), out int id_recetor))
+            { 
+                if (cmb_recetor.SelectedIndex > 0)
+                {
+                    filtro += $" AND oferta.recetor={id_recetor} ";
+                }
+            }
 
             ssql = "SELECT oferta.codigo as ID, oferta.data_hora as Data, oferecedor.nome as Remetente, " +
                    "recetor.nome as Recetor, postal.tipo as Tipo, postal.ano as Ano " +
@@ -37,7 +37,6 @@ namespace OsMeusQueridosPostais
                    "INNER JOIN postal ON postal.codigo = oferta.postal " +
                    $"WHERE (oferta.data_hora BETWEEN '{start}' AND '{end}')  {filtro} " +
                    "ORDER BY data_hora DESC";
-            MessageBox.Show(ssql);
 
             grid1.DataSource = db.ObterDados(ssql);
 
@@ -75,6 +74,33 @@ namespace OsMeusQueridosPostais
             cmbx.DataSource = dt;
             cmbx.DisplayMember = displayM;
             cmbx.ValueMember = valueM;
+        }
+
+        private void InserirOuAtualizarOferta()
+        {
+            string data_hora = monthCalendar1.SelectionRange.Start.ToString("yyyy/MM/dd");
+            int oferecedor = Convert.ToInt32(cmb_novaOferta_oferecedor.SelectedValue);
+            int recetor = Convert.ToInt32(cmb_novaOferta_recetor.SelectedValue);
+            int postal = Convert.ToInt32(cmb_novaOferta_postal.SelectedValue);
+
+            if (oferecedor == -1 || recetor == -1 || postal == -1)
+            {
+                MessageBox.Show("Por favor preencha todas as informações necessárias.");
+                return;
+            }
+
+            db.InserirRegistoOferta(a_editar_registo, data_hora, oferecedor, recetor, postal);
+            InitGrid();
+            
+        }
+
+        public void LimparNovaOferta()
+        {
+            a_editar_registo = -1;
+            cmb_novaOferta_oferecedor.SelectedIndex = 0;
+            cmb_novaOferta_recetor.SelectedIndex = 0;
+            cmb_novaOferta_postal.SelectedIndex = 0;
+            monthCalendar1.SetDate(DateTime.Now);
         }
     }
 
