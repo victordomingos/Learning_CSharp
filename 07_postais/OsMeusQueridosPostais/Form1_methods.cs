@@ -167,6 +167,12 @@ namespace OsMeusQueridosPostais
             cmb_novaOferta_postal.SelectedIndex = 0;
             monthCalendar1.SetDate(DateTime.Now);
         }
+
+        
+        public void AtualizarContactos()
+        {
+
+        }
     }
 
 

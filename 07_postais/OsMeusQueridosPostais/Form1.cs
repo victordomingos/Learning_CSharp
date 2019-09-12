@@ -55,5 +55,7 @@ namespace OsMeusQueridosPostais
         private void Rad_oferecedores_CheckedChanged(object sender, EventArgs e) { InitGridContactos(); }
         private void Rad_tudo_CheckedChanged(object sender, EventArgs e) { InitGridContactos(); }
         private void Rad_recetores_CheckedChanged(object sender, EventArgs e) { InitGridContactos(); }
+
+        private void Btn_atualizar_contactos_Click(object sender, EventArgs e){ AtualizarContactos(); }
     }
 }

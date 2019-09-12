@@ -323,6 +323,7 @@
             this.btn_atualizar_contactos.TabIndex = 1;
             this.btn_atualizar_contactos.Text = "Atualizar contactos";
             this.btn_atualizar_contactos.UseVisualStyleBackColor = true;
+            this.btn_atualizar_contactos.Click += new System.EventHandler(this.Btn_atualizar_contactos_Click);
             // 
             // groupNovaOferta
             // 
