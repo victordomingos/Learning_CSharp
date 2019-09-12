@@ -41,18 +41,13 @@ namespace OsMeusQueridosPostais
             grid1.DataSource = db.ObterDados(ssql);
 
             grid1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            grid1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
             grid1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            grid1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
             grid1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            grid1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
             grid1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            grid1.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
             grid1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            grid1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grid1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             grid1.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             grid1.AllowUserToAddRows = false;
@@ -62,6 +57,76 @@ namespace OsMeusQueridosPostais
             grid1.ReadOnly = true;
         }
 
+        public void InitGridContactos()
+        {
+            string ssql = "";
+            string pesquisa = txt_pesquisa_contactos.Text;
+            string or_id = "";
+            int n = -1;
+
+            if (pesquisa != "")
+            {
+                or_id = "WHERE ";
+
+                if (int.TryParse(pesquisa, out n))
+                    { or_id += $"ID={n} "; }
+                
+            }
+
+
+            if (!rad_recetores.Checked)
+            {
+                ssql = "SELECT O.codigo as ID, O.nome as Nome, O.morada as Morada, O.contacto as Contacto, 'O' as Tipo " +
+                       "FROM oferecedor O ";
+                if (n > 0)
+                    ssql += or_id;
+
+                if (pesquisa != "")
+                {
+                    ssql += $"Nome LIKE '%{pesquisa}%' " +
+                            $"OR Morada LIKE '%{pesquisa}%' OR Contacto LIKE '%{pesquisa}%' ";
+                }
+            }
+
+           
+            if (rad_tudo.Checked)
+                { ssql += "UNION ";}
+
+
+            if (!rad_oferecedores.Checked)
+            {
+                ssql += "SELECT R.codigo as ID, R.nome as Nome, R.morada as Morada, R.contacto as Contacto, 'R' as Tipo "  +
+                        "FROM recetor R ";
+                if (n > 0)
+                    ssql += or_id;
+
+                if (pesquisa != "")
+                {
+                    ssql += $"Nome LIKE '%{pesquisa}%' {or_id} " +
+                            $"OR Morada LIKE '%{pesquisa}%' OR Contacto LIKE '%{pesquisa}%' ";
+                }
+            }
+
+            ssql += $" ORDER BY Nome";
+
+            grid_contactos.DataSource = db.ObterDados(ssql);
+
+            grid_contactos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            grid_contactos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            grid_contactos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            grid_contactos.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            grid_contactos.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            grid_contactos.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            grid_contactos.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            
+            grid_contactos.AllowUserToAddRows = true;
+            grid_contactos.ShowEditingIcon = true;
+            grid_contactos.RowHeadersVisible = true;
+            grid_contactos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            grid_contactos.ReadOnly = false;
+            
+        }
 
         public void InitComboBox(ComboBox cmbx, string ssql, string displayM, string valueM, string defaultText)
         {

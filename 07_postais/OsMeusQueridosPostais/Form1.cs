@@ -30,6 +30,7 @@ namespace OsMeusQueridosPostais
             InitComboBox(cmb_novaOferta_postal, ssql, "tipo_postal", "codigo", " -- Postal recebido -- ");
 
             InitGrid();
+            InitGridContactos();
         }
 
         private void Form1_Load(object sender, EventArgs e) {        }
@@ -48,5 +49,11 @@ namespace OsMeusQueridosPostais
             db.EliminarRegistoOferta(Convert.ToInt32(grid1.SelectedRows[0].Cells[0].Value));
             InitGrid();
         }
+
+        private void BtnCancelarPesquisa_Click(object sender, EventArgs e) { txt_pesquisa_contactos.Clear();}
+        private void Txt_pesquisa_contactos_TextChanged(object sender, EventArgs e) { InitGridContactos(); }
+        private void Rad_oferecedores_CheckedChanged(object sender, EventArgs e) { InitGridContactos(); }
+        private void Rad_tudo_CheckedChanged(object sender, EventArgs e) { InitGridContactos(); }
+        private void Rad_recetores_CheckedChanged(object sender, EventArgs e) { InitGridContactos(); }
     }
 }
