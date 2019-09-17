@@ -12,9 +12,17 @@ namespace Associados
 {
     public partial class Form1 : Form
     {
+        public MyDatabase db = new MyDatabase();
         public Form1()
         {
             InitializeComponent();
+            AtualizarGrid("associados");
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
