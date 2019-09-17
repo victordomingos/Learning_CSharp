@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Associados
@@ -18,7 +11,8 @@ namespace Associados
             InitializeComponent();
             AtualizarGrid("associados");
             InitComboBox(cmb_atividade);
-
+            InitComboBox(cmb_atividade2);
+            AtualizarListaNomes();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,5 +29,17 @@ namespace Associados
         private void btn_limpar_Click(object sender, EventArgs e) { LimparNovoAssociado();}
 
         private void btn_registar_Click(object sender, EventArgs e) { RegistarAssociado(); }
+
+        private void cmb_atividade2_SelectedIndexChanged(object sender, EventArgs e) { AtualizarListaNomes(); }
+
+        private void btn_contagens_a_Click(object sender, EventArgs e)
+        {
+            MostrarContagensA();
+        }
+
+        private void btn_contagens_b_Click(object sender, EventArgs e)
+        {
+            MostrarContagensB();
+        }
     }
 }

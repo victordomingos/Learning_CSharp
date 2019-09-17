@@ -53,8 +53,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btn_limpar = new System.Windows.Forms.Button();
             this.btn_registar = new System.Windows.Forms.Button();
+            this.cmb_atividade2 = new System.Windows.Forms.ComboBox();
+            this.list_nomes = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_contagens_a = new System.Windows.Forms.Button();
+            this.txt_contagens = new System.Windows.Forms.TextBox();
+            this.btn_contagens_b = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel_registo_associado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             this.SuspendLayout();
@@ -133,7 +141,14 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.btn_contagens_b);
+            this.panel1.Controls.Add(this.txt_contagens);
+            this.panel1.Controls.Add(this.btn_contagens_a);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.list_nomes);
+            this.panel1.Controls.Add(this.cmb_atividade2);
             this.panel1.Location = new System.Drawing.Point(510, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 437);
@@ -226,7 +241,6 @@
             this.rad_f.Name = "rad_f";
             this.rad_f.Size = new System.Drawing.Size(31, 17);
             this.rad_f.TabIndex = 5;
-            this.rad_f.TabStop = true;
             this.rad_f.Text = "F";
             this.rad_f.UseVisualStyleBackColor = true;
             // 
@@ -297,6 +311,71 @@
             this.btn_registar.UseVisualStyleBackColor = true;
             this.btn_registar.Click += new System.EventHandler(this.btn_registar_Click);
             // 
+            // cmb_atividade2
+            // 
+            this.cmb_atividade2.FormattingEnabled = true;
+            this.cmb_atividade2.Location = new System.Drawing.Point(17, 96);
+            this.cmb_atividade2.Name = "cmb_atividade2";
+            this.cmb_atividade2.Size = new System.Drawing.Size(258, 21);
+            this.cmb_atividade2.TabIndex = 0;
+            this.cmb_atividade2.SelectedIndexChanged += new System.EventHandler(this.cmb_atividade2_SelectedIndexChanged);
+            // 
+            // list_nomes
+            // 
+            this.list_nomes.FormattingEnabled = true;
+            this.list_nomes.Location = new System.Drawing.Point(17, 128);
+            this.list_nomes.Name = "list_nomes";
+            this.list_nomes.Size = new System.Drawing.Size(258, 147);
+            this.list_nomes.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.label6.Location = new System.Drawing.Point(13, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 24);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Detalhes";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 77);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(162, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Lista de utilizadores p/ atividade:";
+            // 
+            // btn_contagens_a
+            // 
+            this.btn_contagens_a.Location = new System.Drawing.Point(20, 325);
+            this.btn_contagens_a.Name = "btn_contagens_a";
+            this.btn_contagens_a.Size = new System.Drawing.Size(117, 23);
+            this.btn_contagens_a.TabIndex = 4;
+            this.btn_contagens_a.Text = "Mostrar contagens A";
+            this.btn_contagens_a.UseVisualStyleBackColor = true;
+            this.btn_contagens_a.Click += new System.EventHandler(this.btn_contagens_a_Click);
+            // 
+            // txt_contagens
+            // 
+            this.txt_contagens.Location = new System.Drawing.Point(20, 356);
+            this.txt_contagens.Multiline = true;
+            this.txt_contagens.Name = "txt_contagens";
+            this.txt_contagens.Size = new System.Drawing.Size(255, 78);
+            this.txt_contagens.TabIndex = 5;
+            // 
+            // btn_contagens_b
+            // 
+            this.btn_contagens_b.Location = new System.Drawing.Point(158, 325);
+            this.btn_contagens_b.Name = "btn_contagens_b";
+            this.btn_contagens_b.Size = new System.Drawing.Size(117, 23);
+            this.btn_contagens_b.TabIndex = 6;
+            this.btn_contagens_b.Text = "Mostrar contagens B";
+            this.btn_contagens_b.UseVisualStyleBackColor = true;
+            this.btn_contagens_b.Click += new System.EventHandler(this.btn_contagens_b_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,6 +395,8 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel_registo_associado.ResumeLayout(false);
             this.panel_registo_associado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).EndInit();
@@ -350,6 +431,13 @@
         private System.Windows.Forms.TextBox txt_nome;
         private System.Windows.Forms.Button btn_registar;
         private System.Windows.Forms.Button btn_limpar;
+        private System.Windows.Forms.ComboBox cmb_atividade2;
+        private System.Windows.Forms.ListBox list_nomes;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_contagens_b;
+        private System.Windows.Forms.TextBox txt_contagens;
+        private System.Windows.Forms.Button btn_contagens_a;
     }
 }
 

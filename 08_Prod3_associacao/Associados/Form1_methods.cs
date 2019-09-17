@@ -102,10 +102,86 @@ namespace Associados
                 return;
             }
 
-            
 
             // Inserir na base de dados
             db.InserirAssociado(nome, ano, sexo, quota, atividade);
+        }
+
+
+        public void AtualizarListaNomes()
+        {
+            string ssql;
+            int atividade = Convert.ToInt32(cmb_atividade2.SelectedValue);
+
+            ssql = $"SELECT cod, nome FROM associado WHERE atividade_cod={atividade} ORDER BY nome ASC";
+            list_nomes.DataSource = db.ObterDados(ssql);
+            list_nomes.DisplayMember = "nome";
+            list_nomes.ValueMember = "cod";
+        }
+
+
+        public void MostrarContagensA()
+        {
+            string ssql;
+            int h_futebol;
+            int m_dancas;
+            DataTable dt;
+            string homem = "homens";
+            string mulher = "mulheres";
+            string plural1 = "s";
+            string plural2 = "s";
+
+            ssql = "SELECT COUNT(*) FROM associado WHERE SEXO='M' and atividade_cod=3";
+            dt = db.ObterDados(ssql);
+            h_futebol = Convert.ToInt32(dt.Rows[0][0].ToString ());
+
+            ssql = "SELECT COUNT(*) FROM associado WHERE SEXO='F' and atividade_cod=1";
+            dt = db.ObterDados(ssql);
+            m_dancas = Convert.ToInt32(dt.Rows[0][0].ToString());
+
+            if (h_futebol == 1)
+            {
+                homem = "homem";
+                plural1 = "";
+            }
+
+            if (m_dancas == 1)
+            {
+                mulher = "mulher";
+                plural2 = "";
+            }
+            
+            txt_contagens.Text = $"Esta associação tem {h_futebol} {homem} inscrito{plural1} em futebol e {m_dancas} {mulher} inscrita{plural2} nas danças.";
+        }
+
+
+
+
+        public void MostrarContagensB()
+        {
+            string ssql;
+            int bd_ativ_a;
+            int grid_ativ_a = 0;
+            DataTable dt;
+            string plural1 = "s";
+            
+            ssql = "SELECT COUNT(*) FROM associado WHERE atividade_cod=1";
+            dt = db.ObterDados(ssql);
+            bd_ativ_a = Convert.ToInt32(dt.Rows[0][0].ToString());
+
+
+            if (bd_ativ_a == 1)
+            {
+                plural1 = "";
+            }
+
+            
+            for (int i = 0; i < grid1.Rows.Count; i++)
+            {
+                if (grid1.Rows[i].Cells[5].Value.ToString() == "A - Danças de Salão")
+                    grid_ativ_a++;
+            }
+            txt_contagens.Text = $"Há na base de dados {bd_ativ_a} pessoa{plural1} inscrita{plural1} na atividade A; na grid, há {grid_ativ_a}.";
         }
 
     }
